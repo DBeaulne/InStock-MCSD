@@ -1,0 +1,14 @@
+@use "../../styles/partials/colours";
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/typography";
+@use "../../styles/partials/placeholders.scss";
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__text {
+		font-family: ;
+	}
+}
