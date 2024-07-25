@@ -1,8 +1,12 @@
-import React from "react";
+//Assets/Styles
 import "./Footer.scss";
 
-const Footer = () => {
-  return <div>Footer</div>;
-};
-
-export default Footer;
+export default function Footer() {
+	return (
+		<div className='footer'>
+			<p className='footer__text'>
+				&copy InStock Inc. All Rights Reserved.
+			</p>
+		</div>
+	);
+}
