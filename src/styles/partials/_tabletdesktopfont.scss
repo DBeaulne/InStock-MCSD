@@ -1,0 +1,46 @@
+/* HOW TO USE?
+
+.example {
+    @include tab-desk-header-lrg
+{
+
+*/ 
+
+/**TABLET AND DESKTOP HEADER**/
+
+@mixin tab-desk-header-lrg {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+@mixin tab-desk-header-med {
+    font-size: 1.5rem;
+    line-height: 1.25rem;
+}
+
+@mixin tab-desk-header-sml {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+}
+
+@mixin tab-desk-header-xsml {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+}
+
+/**TABLET AND DESKTOP PARAGRAPH**/
+
+@mixin tab-desk-par-lrg {
+    font-size: 1rem;
+    line-height: 1.75rem;
+}
+
+@mixin tab-desk-par-med {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+}
+
+@mixin tab-desk-par-lrg {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+}

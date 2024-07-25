@@ -1,0 +1,36 @@
+/* HOW TO USE?
+
+since _global.scss have the font default to titillium(regular) for the whole site
+you dont need to add font-family, you only need to change the weight and size to match mockup
+
+.example {
+    @include mob-header-lrg
+    font-weight: weight(bold)
+{
+
+*/ 
+
+/**FONT STYLE**/
+
+@font-face {
+    font-family: 'titillium';
+    font-weight: 400;
+    src: url(../../assets/fonts/TitilliumWeb-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'titillium';
+    font-weight: 600;
+    src: url(../../assets/fonts/TitilliumWeb-SemiBold.ttf) format('truetype');
+}
+
+/**FONT WEIGHT**/
+
+$fontweight: (
+    "regular": 400,
+    "bold": 600,
+);
+
+@function weight($weight) {
+    @return map-get($fontweight, $weight) 
+};
