@@ -1,0 +1,47 @@
+/* HOW TO USE?
+
+.example {
+    color: primcolor(is-black)
+    background-color: bgcolor(is-graphite)
+    color: suppcolor (is-green)
+    background-color: seccolor(is-slate)
+{
+
+*/ 
+
+$primarycolor: (
+    "is-black": #13182C,
+    "is-indigo": #2E66E5,
+    "is-white": #ffffff,
+);
+
+$secondarycolor: (
+    "is-slate": #5C667E,
+    "is-cloud": #BDC5D5,
+);
+
+$backgroundcolor: (
+    "is-graphite": #232940,
+    "is-grey": #F7F8F9,
+);
+
+$supportingcolor: (
+    "is-green": #158463,
+    "is-red": #c94515  ,
+);
+
+@function primcolor($color) {
+    @return map-get($primarycolor, $color) 
+};
+
+@function seccolor($color) {
+    @return map-get($secondarycolor, $color) 
+};
+
+@function bgcolor($color) {
+    @return map-get($backgroundcolor, $color) 
+};
+
+@function suppcolor($color) {
+    @return map-get($supportingcolor, $color) 
+};

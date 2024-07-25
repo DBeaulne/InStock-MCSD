@@ -10,3 +10,9 @@
 ## Develop Branch
 
 - created develop branch
+
+
+## SASS files and Font Family
+
+- sass partials added( _colors, _fontfamily, _globals, _mediaQ, _mobilefont _tabletdesktopfont, _paddingandmargins)
+- downloaded font family and created folder for fonts to store locally

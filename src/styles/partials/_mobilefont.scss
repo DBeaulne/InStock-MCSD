@@ -1,0 +1,47 @@
+/* HOW TO USE?
+
+.example {
+    @include mob-header-lrg
+    @include mob-par-sml
+{
+
+*/ 
+
+/**MOBILE HEADER**/
+
+@mixin mob-header-lrg{
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+}
+
+@mixin mob-header-med{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+@mixin mob-header-sml{
+    font-size: .8125rem;
+    line-height: 1.25rem;
+}
+
+@mixin mob-header-xsml{
+    font-size: .6875rem;
+    line-height: 1rem;
+}
+
+/**MOBILE PARAGRAPH**/
+
+@mixin mob-par-lrg{
+    font-size: 0.9375rem;
+    line-height: 1.625rem;
+}
+
+@mixin mob-par-med{
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+}
+
+@mixin mob-par-sml{
+    font-size: .6875rem;
+    line-height: 1rem;
+}
