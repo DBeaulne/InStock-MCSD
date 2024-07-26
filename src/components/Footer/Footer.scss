@@ -9,8 +9,7 @@
 
 	&__text {
 		@include mobilefont.mob-header-xsml;
-		border: 1px solid black;
-		padding: 4% 0;
+		margin: 4% 0;
 		color: colors.seccolor(is-slate);
 	}
 }
