@@ -16,6 +16,16 @@ a {
 	width: 10rem;
 	height: 2.25rem;
 
+	&:hover {
+		color: primcolor(is-white);
+		text-decoration: underline;
+	}
+
+	@include tablet {
+		width: 6.75rem;
+		height: 2.5rem;
+	}
+
 	&.active {
 		color: primcolor(is-white);
 		background-color: primcolor(is-black);
@@ -28,8 +38,16 @@ a {
 	flex-direction: column;
 	align-items: center;
 	padding: $mobDEF;
-
 	background: bgcolor(is-graphite);
+
+	@include tablet {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		min-width: 8.125rem;
+	}
 
 	&__nav {
 		display: flex;
@@ -37,6 +55,12 @@ a {
 		width: 100%;
 		justify-content: space-around;
 		padding-top: $mobDEF;
+
+		@include tablet {
+			padding-top: unset;
+			width: 30%;
+			justify-content: unset;
+		}
 	}
 
 	&__nav-link {
