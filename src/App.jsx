@@ -4,21 +4,12 @@ import Footer from "./components/Footer/Footer.jsx";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
-import Button from "./components/Button/Button.jsx";
 import "./App.scss";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Button
-        type="button"
-        text="Edit"
-        className="btn--prim btn--edit"
-        txtClassName="btn__txt--edit"
-      />
-      <Button type="button" text="+ Add item" className="btn--sec" />
-      <Button type="button" text="Delete" className="btn--del" />
       <Routes>
         <Route path="/warehouses" element={<WarehousesPage />} />
         <Route path="/" element={<Navigate to="/warehouses" />} />
