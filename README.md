@@ -15,6 +15,7 @@
 
 - sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
 - downloaded font family and created folder for fonts to store locally
+- updated \_global partial to import \_fontfamily partial for proper font weight
 
 ## feature/header-component-daniel
 
@@ -22,3 +23,5 @@
 - created Header component folder and .js & .scss files
 - begin creating Header component
 - complete layout and styling for mobile breakpoint
+- complete layout and styling for tablet breakpoint
+- complete layout and styling for desktop breakpoint
