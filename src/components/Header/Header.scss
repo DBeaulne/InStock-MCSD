@@ -1,19 +1,19 @@
 /* Header styling */
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-}
+
+@use "../../styles/partials/colors";
+@use "../../styles/partials/globals";
+@use "../../styles/partials/fontfamily";
+@use "../../styles/partials/mobilefont";
+@use "../../styles/partials/tabletdesktopfont";
+@use "../../styles/partials/mediaQ";
+@use "../../styles/partials/paddingandmargins";
 
 a {
-	text-decoration: none;
-	color: #bdc5d5;
+	color: colors.seccolor(is-cloud);
 	width: 10rem;
 
 	&.active {
-		color: #fff;
+		color: colors.primcolor(is-white);
 	}
 }
 
@@ -23,7 +23,7 @@ a {
 	align-items: center;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	background: #232940;
+	background: colors.bgcolor(is-graphite);
 
 	&__nav {
 		display: flex;
