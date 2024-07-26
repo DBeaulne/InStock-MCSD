@@ -16,3 +16,9 @@
 
 - sass partials added( _colors, _fontfamily, _globals, _mediaQ, _mobilefont _tabletdesktopfont, _paddingandmargins)
 - downloaded font family and created folder for fonts to store locally
+
+## WarehouseList Component & SearchBar Component
+
+- created Warehouse.jsx as placeholder 
+- WarehouseList will do the mapping to display list of warehouses
+- SearchBar comp created for WarehouseList and InventoryList
