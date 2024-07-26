@@ -1,8 +1,9 @@
-import React from "react";
 import "./InventoryItemDetails.scss";
 
-const InventoryItemDetails = () => {
-  return <div>InventoryItemDetails</div>;
-};
-
-export default InventoryItemDetails;
+export default function InventoryItemDetails() {
+	return (
+		<div>
+			<div>InventoryItemDetails</div>
+		</div>
+	);
+}
