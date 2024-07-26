@@ -16,10 +16,14 @@ const Header = () => {
 			</div>
 			<nav className="header__nav">
 				<div className="header__nav-link">
-					<NavLink to="warehouses">Warehouses</NavLink>
+					<NavLink to="warehouses">
+						<h3>Warehouses</h3>
+					</NavLink>
 				</div>
 				<div className="header__nav-link">
-					<NavLink to="inventory">Inventory</NavLink>
+					<NavLink to="inventory">
+						<h3>Inventory</h3>
+					</NavLink>
 				</div>
 			</nav>
 		</div>

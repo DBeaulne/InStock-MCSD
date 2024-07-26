@@ -16,6 +16,14 @@ a {
 	width: 10rem;
 	height: 2.25rem;
 
+	h3 {
+		@include mob-header-sml;
+
+		@include tablet {
+			@include tab-desk-header-sml;
+		}
+	}
+
 	&:hover {
 		color: primcolor(is-white);
 		text-decoration: underline;

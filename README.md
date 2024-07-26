@@ -25,3 +25,5 @@
 - complete layout and styling for mobile breakpoint
 - complete layout and styling for tablet breakpoint
 - complete layout and styling for desktop breakpoint
+- added h3 tag to link elements
+- included font-sizing to scss for h3 tags
