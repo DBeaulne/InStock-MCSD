@@ -21,3 +21,4 @@
 - created branch
 - created Header component folder and .js & .scss files
 - begin creating Header component
+- complete layout and styling for mobile breakpoint

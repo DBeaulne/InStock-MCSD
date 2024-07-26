@@ -1,19 +1,25 @@
 /* Header styling */
 
-@use "../../styles/partials/colors";
-@use "../../styles/partials/globals";
-@use "../../styles/partials/fontfamily";
-@use "../../styles/partials/mobilefont";
-@use "../../styles/partials/tabletdesktopfont";
-@use "../../styles/partials/mediaQ";
-@use "../../styles/partials/paddingandmargins";
+@import "../../styles/partials/colors";
+@import "../../styles/partials/globals";
+@import "../../styles/partials/fontfamily";
+@import "../../styles/partials/mobilefont";
+@import "../../styles/partials/tabletdesktopfont";
+@import "../../styles/partials/mediaQ";
+@import "../../styles/partials/paddingandmargins";
 
 a {
-	color: colors.seccolor(is-cloud);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: seccolor(is-cloud);
 	width: 10rem;
+	height: 2.25rem;
 
 	&.active {
-		color: colors.primcolor(is-white);
+		color: primcolor(is-white);
+		background-color: primcolor(is-black);
+		border-radius: 1.25rem;
 	}
 }
 
@@ -21,14 +27,18 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-left: 1rem;
-	padding-right: 1rem;
-	background: colors.bgcolor(is-graphite);
+	padding: $mobDEF;
+
+	background: bgcolor(is-graphite);
 
 	&__nav {
 		display: flex;
 		flex-direction: row;
 		width: 100%;
 		justify-content: space-around;
+		padding-top: $mobDEF;
+	}
+
+	&__nav-link {
 	}
 }
