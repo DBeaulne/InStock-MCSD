@@ -1,0 +1,68 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mediaQ" as *;
+@use "../../styles/partials/mobilefont" as *;
+@use "../../styles/partials/tabletdesktopfont" as *;
+
+.btn {
+  border-radius: 20px;
+  height: 2.375rem;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  &--prim {
+    background-color: primcolor(is-indigo);
+    color: primcolor(is-white);
+    border: none;
+    &:hover {
+      background-color: bgcolor(is-graphite);
+    }
+  }
+  &--sec {
+    background-color: primcolor(is-white);
+    color: seccolor(is-slate);
+    border: 1px solid seccolor(is-slate);
+    &:hover {
+      color: primcolor(is-indigo);
+      border: 1px solid primcolor(is-indigo);
+    }
+  }
+  &--del {
+    background-color: suppcolor(is-red);
+    border: none;
+    color: primcolor(is-white);
+    &:hover {
+      background-color: bgcolor(is-graphite);
+    }
+  }
+  &--edit {
+    background-image: url("../../assets/icons/edit-24px.svg");
+    background-position: center;
+    border-radius: 50%;
+    width: 2.375rem;
+    background-repeat: no-repeat;
+    background-size: 1.4rem;
+    @include tablet {
+      background-position: center left 1rem;
+      width: auto;
+      border-radius: 25px;
+    }
+  }
+  &__txt {
+    @include mob-header-sml;
+    font-weight: 600;
+    &--edit {
+      display: none;
+      margin-left: 1.5rem;
+      @include tablet {
+        @include tab-desk-header-sml;
+        display: block;
+      }
+    }
+  }
+  @include tablet {
+    width: auto;
+  }
+}
