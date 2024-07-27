@@ -1,8 +1,10 @@
+@use "./fontfamily" as *;
+
 * {
 	box-sizing: border-box;
 	text-decoration: none;
 	list-style-type: none;
-	font-family: "titillium", "times new roman", Times,
+	font-family: "titillium", "Times New Roman", Times,
 		Arial;
 	font-weight: weight(regular);
 	padding: 0;
