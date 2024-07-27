@@ -8,39 +8,39 @@
 
 /**TABLET AND DESKTOP HEADER**/
 
-@mixin tab-desk-header-lrg {
+@mixin tab-desk-header-h1 {
     font-size: 2rem;
     line-height: 2.5rem;
 }
 
-@mixin tab-desk-header-med {
+@mixin tab-desk-header-h2 {
     font-size: 1.5rem;
     line-height: 1.25rem;
 }
 
-@mixin tab-desk-header-sml {
+@mixin tab-desk-header-h3 {
     font-size: 0.875rem;
     line-height: 1.375rem;
 }
 
-@mixin tab-desk-header-xsml {
+@mixin tab-desk-header-h4 {
     font-size: 0.75rem;
     line-height: 1.125rem;
 }
 
 /**TABLET AND DESKTOP PARAGRAPH**/
 
-@mixin tab-desk-par-lrg {
+@mixin tab-desk-par-p1 {
     font-size: 1rem;
     line-height: 1.75rem;
 }
 
-@mixin tab-desk-par-med {
+@mixin tab-desk-par-p2 {
     font-size: 0.875rem;
     line-height: 1.375rem;
 }
 
-@mixin tab-desk-par-lrg {
+@mixin tab-desk-par-p3 {
     font-size: 0.75rem;
     line-height: 1.125rem;
 }
