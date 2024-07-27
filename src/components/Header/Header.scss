@@ -1,0 +1,80 @@
+/* Header styling */
+
+@import "../../styles/partials/colors";
+@import "../../styles/partials/globals";
+@import "../../styles/partials/fontfamily";
+@import "../../styles/partials/mobilefont";
+@import "../../styles/partials/tabletdesktopfont";
+@import "../../styles/partials/mediaQ";
+@import "../../styles/partials/paddingandmargins";
+
+a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: seccolor(is-cloud);
+	width: 10rem;
+	height: 2.25rem;
+
+	h3 {
+		@include mob-header-sml;
+
+		@include tablet {
+			@include tab-desk-header-sml;
+		}
+	}
+
+	&:hover {
+		color: primcolor(is-white);
+		text-decoration: underline;
+	}
+
+	@include tablet {
+		width: 6.75rem;
+		height: 2.5rem;
+	}
+
+	&.active {
+		color: primcolor(is-white);
+		background-color: primcolor(is-black);
+		border-radius: 1.25rem;
+	}
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: $mobDEF;
+	background: bgcolor(is-graphite);
+
+	@include tablet {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	@include desktop {
+		padding-left: 4rem;
+		padding-right: 4rem;
+		padding-top: $deskDEF;
+		padding-bottom: $deskDEF;
+	}
+
+	&__logo {
+		min-width: 8.125rem;
+	}
+
+	&__nav {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		justify-content: space-around;
+		padding-top: $mobDEF;
+
+		@include tablet {
+			padding-top: unset;
+			width: 30%;
+			justify-content: flex-end;
+		}
+	}
+}

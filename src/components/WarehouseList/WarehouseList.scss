@@ -1,0 +1,88 @@
+@use '../../styles/partials/colors';
+@use '../../styles/partials/fontfamily';
+@use '../../styles/partials/globals';
+@use '../../styles/partials/mediaQ';
+@use '../../styles/partials/paddingandmargins';
+@use '../../styles/partials/mobilefont';
+@use '../../styles/partials/tabletdesktopfont';
+
+
+//WAREHOUSES SECTION//
+
+.warehouses__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.25rem;
+    background-color: colors.primcolor(is-white);
+    border-bottom: 1px solid colors.seccolor(is-slate)
+}
+
+.warehouses__title {
+    @include mobilefont.mob-header-lrg;
+    font-weight: fontfamily.weight(bold);
+    margin-bottom: paddingandmargins.$mobDEF;
+}
+
+// INDIVIDUAL WAREHOUSE //
+
+.warehouse {
+    display: flex;
+    justify-content: center;
+    padding: 1.25rem;
+    background-color: colors.primcolor(is-white);
+}
+
+.warehouse__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.warehouse__section-wrapper {
+    margin-bottom: 1rem;
+}
+
+.warehouse__sub-title {
+    @include mobilefont.mob-header-xsml;
+    margin: 0rem;
+    width: 100%;
+    text-align: start;
+    color: colors.seccolor(is-slate);
+}
+
+.warehouse__text {
+    @include mobilefont.mob-par-sml;
+    margin: 0rem;
+    width: 100%;
+    text-align: start;
+    color: colors.primcolor(is-black);
+
+    &--bold-blue-font {
+        color: colors.primcolor(is-indigo);
+        font-weight: weight(bold);
+    }
+}
+
+.warehouse__button{
+    width: 1rem;
+    height: 1.25rem;
+    border: none;
+    &:hover {
+        cursor: pointer;
+    }
+
+    &--edit {
+        background-image: url(../../assets/icons/edit-24px.svg);
+        background-position: center;
+        align-self: end;
+    }
+
+    &--delete {
+        background-image: url(../../assets/icons/delete_outline-24px.svg);
+        background-position: center;
+    }
+
+}
