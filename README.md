@@ -23,6 +23,7 @@
 
 -   create component and styles
 -   finish with SASS partials
+-   update styling to match new font class names
 
 ## WarehouseList Component & SearchBar Component
 
