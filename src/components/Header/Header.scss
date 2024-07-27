@@ -17,10 +17,10 @@ a {
 	height: 2.25rem;
 
 	h3 {
-		@include mob-header-sml;
+		@include mob-header-h3;
 
 		@include tablet {
-			@include tab-desk-header-sml;
+			@include tab-desk-header-h3;
 		}
 	}
 
