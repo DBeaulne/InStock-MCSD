@@ -1,7 +1,7 @@
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/mediaQ" as *;
-@use "../../styles/partials/mobilefont" as *;
-@use "../../styles/partials/tabletdesktopfont" as *;
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mediaQ" as mQ;
+@use "../../styles/partials/mobilefont" as smFont;
+@use "../../styles/partials/tabletdesktopfont" as lgFont;
 
 .btn {
   border-radius: 20px;
@@ -13,28 +13,28 @@
   align-items: center;
   padding: 0 1rem;
   &--prim {
-    background-color: primcolor(is-indigo);
-    color: primcolor(is-white);
+    background-color: colors.primcolor(is-indigo);
+    color: colors.primcolor(is-white);
     border: none;
     &:hover {
-      background-color: bgcolor(is-graphite);
+      background-color: colors.bgcolor(is-graphite);
     }
   }
   &--sec {
-    background-color: primcolor(is-white);
-    color: seccolor(is-slate);
-    border: 1px solid seccolor(is-slate);
+    background-color: colors.primcolor(is-white);
+    color: colors.seccolor(is-slate);
+    border: 1px solid colors.seccolor(is-slate);
     &:hover {
-      color: primcolor(is-indigo);
-      border: 1px solid primcolor(is-indigo);
+      color: colors.primcolor(is-indigo);
+      border: 1px solid colors.primcolor(is-indigo);
     }
   }
   &--del {
-    background-color: suppcolor(is-red);
+    background-color: colors.suppcolor(is-red);
     border: none;
-    color: primcolor(is-white);
+    color: colors.primcolor(is-white);
     &:hover {
-      background-color: bgcolor(is-graphite);
+      background-color: colors.bgcolor(is-graphite);
     }
   }
   &--edit {
@@ -44,25 +44,25 @@
     width: 2.375rem;
     background-repeat: no-repeat;
     background-size: 1.4rem;
-    @include tablet {
+    @include mQ.tablet {
       background-position: center left 1rem;
       width: auto;
       border-radius: 25px;
     }
   }
   &__txt {
-    @include mob-header-h3;
+    @include smFont.mob-header-h3;
     font-weight: 600;
     &--edit {
       display: none;
       margin-left: 1.5rem;
-      @include tablet {
-        @include tab-desk-header-h3;
+      @include mQ.tablet {
+        @include lgFont.tab-desk-header-h3;
         display: block;
       }
     }
   }
-  @include tablet {
+  @include mQ.tablet {
     width: auto;
   }
 }
