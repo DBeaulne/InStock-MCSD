@@ -1,13 +1,12 @@
-@import "./fontfamily";
+@use "./fontfamily";
 
 * {
-
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style-type: none;
-    font-family: 'titillium','Times New Roman', Times, Arial;
-    font-weight: weight(regular);
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+	font-family: "titillium", "Times New Roman", Times,
+		Arial;
+	font-weight: weight(regular);
+	padding: 0;
+	margin: 0;
 }
-

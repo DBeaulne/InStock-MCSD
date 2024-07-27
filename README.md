@@ -15,7 +15,15 @@
 
 - sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
 - downloaded font family and created folder for fonts to store locally
+- sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
+- downloaded font family and created folder for fonts to store locally
 - updated \_global partial to import \_fontfamily partial for proper font weight
+
+## Footer
+
+- create component and styles
+- finish with SASS partials
+- update styling to match new font class names
 
 ## WarehouseList Component & SearchBar Component
 

@@ -9,39 +9,39 @@
 
 /**MOBILE HEADER**/
 
-@mixin mob-header-lrg{
+@mixin mob-header-h1{
     font-size: 1.75rem;
     line-height: 2.25rem;
 }
 
-@mixin mob-header-med{
+@mixin mob-header-h2{
     font-size: 1.25rem;
     line-height: 1.75rem;
 }
 
-@mixin mob-header-sml{
+@mixin mob-header-h3{
     font-size: .8125rem;
     line-height: 1.25rem;
 }
 
-@mixin mob-header-xsml{
+@mixin mob-header-h4{
     font-size: .6875rem;
     line-height: 1rem;
 }
 
 /**MOBILE PARAGRAPH**/
 
-@mixin mob-par-lrg{
+@mixin mob-par-p1{
     font-size: 0.9375rem;
     line-height: 1.625rem;
 }
 
-@mixin mob-par-med{
+@mixin mob-par-p2{
     font-size: 0.8125rem;
     line-height: 1.25rem;
 }
 
-@mixin mob-par-sml{
+@mixin mob-par-p3{
     font-size: .6875rem;
     line-height: 1rem;
 }
