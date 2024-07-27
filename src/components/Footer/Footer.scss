@@ -1,13 +1,19 @@
 @use "../../styles/partials/colors.scss";
+@use "../../styles/partials/mediaQ";
 @use "../../styles/partials/mobilefont.scss";
+@use "../../styles/partials/tabletdesktopfont.scss";
 
 .footer {
 	display: flex;
 	justify-content: center;
 
 	&__text {
-		@include mobilefont.mob-header-h4;
+		@include mobilefont.mob-par-p3;
 		margin: 4% 0;
 		color: colors.seccolor(is-slate);
+
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-par-p3;
+		}
 	}
 }
