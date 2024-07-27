@@ -7,20 +7,38 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import "./App.scss";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/warehouses" element={<WarehousesPage />} />
-        <Route path="/" element={<Navigate to="/warehouses" />} />
-        <Route path="/warehouses/:id" element={<WarehousesPage />} />
-        <Route path="/inventory" element={<InventoryPage />} />
-        <Route path="/inventory/:id" element={<InventoryPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Header />
+			<Routes>
+				<Route
+					path="/warehouses"
+					element={<WarehousesPage />}
+				/>
+				<Route
+					path="/"
+					element={<Navigate to="/warehouses" />}
+				/>
+				<Route
+					path="/warehouses/:id"
+					element={<WarehousesPage />}
+				/>
+				<Route
+					path="/inventory"
+					element={<InventoryPage />}
+				/>
+				<Route
+					path="/inventory/:id"
+					element={<InventoryPage />}
+				/>
+				<Route
+					path="*"
+					element={<NotFoundPage />}
+				/>
+			</Routes>
+			<Footer />
+		</BrowserRouter>
+	);
 }
 
 export default App;

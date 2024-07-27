@@ -15,13 +15,35 @@
 
 -   sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
 -   downloaded font family and created folder for fonts to store locally
+-   sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
+-   downloaded font family and created folder for fonts to store locally
+-   updated \_global partial to import \_fontfamily partial for proper font weight
 
 ### Footer
 
 -   create component and styles
 -   finish with SASS partials
+-   update styling to match new font class names
 
 ### Item details view
 
 -   create the header section of the item card
 -   create some initial style classes
+
+## WarehouseList Component & SearchBar Component
+
+-   created Warehouse.jsx as placeholder
+-   WarehouseList will do the mapping to display list of warehouses
+-   SearchBar comp created for WarehouseList and InventoryList
+
+## feature/header-component-daniel
+
+-   created branch
+-   created Header component folder and .js & .scss files
+-   begin creating Header component
+-   complete layout and styling for mobile breakpoint
+-   complete layout and styling for tablet breakpoint
+-   complete layout and styling for desktop breakpoint
+-   added h3 tag to link elements
+-   included font-sizing to scss for h3 tags
+    > > > > > > > develop
