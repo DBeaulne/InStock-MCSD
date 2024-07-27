@@ -6,7 +6,7 @@
 	justify-content: center;
 
 	&__text {
-		@include mobilefont.mob-header-xsml;
+		@include mobilefont.mob-header-h4;
 		margin: 4% 0;
 		color: colors.seccolor(is-slate);
 	}
