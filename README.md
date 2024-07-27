@@ -16,7 +16,12 @@
 -   sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
 -   downloaded font family and created folder for fonts to store locally
 
-## Footer
+### Footer
 
 -   create component and styles
 -   finish with SASS partials
+
+### Item details view
+
+-   create the header section of the item card
+-   create some initial style classes

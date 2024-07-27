@@ -3,5 +3,10 @@
 @use "../../styles/partials/mobilefont.scss";
 @use "../../styles/partials/fontfamily.scss";
 
-.item {
+.item-card {
+	&__header {
+	}
+
+	&__item-name {
+	}
 }
