@@ -17,10 +17,6 @@
 - downloaded font family and created folder for fonts to store locally
 - updated \_global partial to import \_fontfamily partial for proper font weight
 
-## Delete warehouse modal
-
-- added react-modal package
-
 ## WarehouseList Component & SearchBar Component
 
 - created Warehouse.jsx as placeholder
