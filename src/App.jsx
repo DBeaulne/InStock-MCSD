@@ -5,12 +5,11 @@ import WarehousesPage from "./pages/WarehousesPage/WarehousesPage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import "./App.scss";
-import Button from "./components/Button/Button.jsx";
+
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Button text="edit" className="btn--prim btn--edit" type="button" />
       <Routes>
         <Route path="/warehouses" element={<WarehousesPage />} />
         <Route path="/" element={<Navigate to="/warehouses" />} />
