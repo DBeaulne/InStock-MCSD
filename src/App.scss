@@ -6,13 +6,13 @@
   &__background {
     background: linear-gradient(
       180deg,
-      colors.bgcolor(is-graphite) 4.3rem,
+      colors.bgcolor(is-graphite) 3.25rem,
       colors.bgcolor(is-grey) 0%
     );
     @include mQ.tablet {
       background: linear-gradient(
         180deg,
-        colors.bgcolor(is-graphite) 6rem,
+        colors.bgcolor(is-graphite) 5rem,
         colors.bgcolor(is-grey) 0%
       );
     }

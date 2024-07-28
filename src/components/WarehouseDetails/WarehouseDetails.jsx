@@ -17,7 +17,6 @@ const WarehouseDetails = () => {
 
   useEffect(() => {
     getWarehouse(id);
-    console.log(warehouseDetails);
   }, [id]);
 
   const getWarehouse = async (id) => {
@@ -43,8 +42,7 @@ const WarehouseDetails = () => {
             }}
           />
           <h1 className="warehouse-details__heading">
-            Washington
-            {/* {warehouseDetails.name} */}
+            {warehouseDetails.warehouse_name}
           </h1>
           <Button
             type="button"
@@ -59,20 +57,19 @@ const WarehouseDetails = () => {
               Warehouse Address
             </h3>
             <p className="warehouse-details__txt">
-              33 Pearl Street SW,
-              <br className="warehouse-details__line-break" /> Washington, USA
+              {warehouseDetails.address},
+              <br className="warehouse-details__line-break" />{" "}
+              {warehouseDetails.city}, {warehouseDetails.country}
             </p>
           </div>
           <div className="warehouse-details__mid-container2">
             <div className="warehouse-details__name">
               <h3 className="warehouse-details__sub-heading">Contact Name</h3>
               <p className="warehouse-details__txt">
-                Graeme Lyon
-                {/* {warehouseDetails.manager} */}
+                {warehouseDetails.contact_name}
               </p>
               <p className="warehouse-details__txt">
-                Warehouse Manager
-                {/* {warehouseDetails.designation} */}
+                {warehouseDetails.contact_position}
               </p>
             </div>
             <div className="warehouse-details__info">
@@ -80,12 +77,10 @@ const WarehouseDetails = () => {
                 Contact Information
               </h3>
               <p className="warehouse-details__txt">
-                +1 (647) 504-0911
-                {/* {warehouseDetails.phone} */}
+                {warehouseDetails.contact_phone}
               </p>
               <p className="warehouse-details__txt">
-                glyon@instock.com
-                {/* {warehouseDetails.email} */}
+                {warehouseDetails.contact_email}
               </p>
             </div>
           </div>
