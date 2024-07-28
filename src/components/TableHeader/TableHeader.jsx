@@ -5,7 +5,10 @@ const TableHeader = ({ columns }) => {
   return (
     <div className="table-header">
       {columns.map((column, index) => (
-        <div className={`table-header__column table-header__column--${index}`}>
+        <div
+          key={index}
+          className={`table-header__column table-header__column--${index}`}
+        >
           <p className="table-header__heading">{column}</p>
           <img
             className="table-header__sort-icon"

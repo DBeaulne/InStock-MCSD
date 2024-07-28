@@ -1,15 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./WarehouseDetails.scss";
 import ArrowBackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import TableHeader from "../TableHeader/TableHeader";
+import axios from "axios";
+import { apiUrl } from "../../App";
+
 const WarehouseDetails = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const [inventoryList, setInventoryList] = useState([]);
 
   const tableHeaders = ["Inventory Item", "Category", "Status", "Quantity"];
+
+  useEffect(() => {
+    getWarehouse(id);
+    console.log(warehouseDetails);
+  }, [id]);
+
+  const getWarehouse = async (id) => {
+    try {
+      const { data } = await axios.get(`${apiUrl}/warehouses/${id}`);
+      console.log(data);
+      setWarehouseDetails(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <section className="warehouse-details">
