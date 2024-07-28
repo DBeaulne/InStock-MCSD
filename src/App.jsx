@@ -7,7 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
 import "./App.scss";
 
-export const apiUrl = process.env.REACT_APP_BASE_URL;
+export const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
   return (
