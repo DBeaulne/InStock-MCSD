@@ -9,6 +9,8 @@ const WarehouseDetails = () => {
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const [inventoryList, setInventoryList] = useState([]);
 
+  const tableHeaders = ["Inventory Item", "Category", "Status", "Quantity"];
+
   return (
     <main className="warehouse-details">
       <div className="warehouse-details__container">
@@ -70,7 +72,7 @@ const WarehouseDetails = () => {
           </div>
         </div>
         <div className="warehouse-details__bottom">
-          <TableHeader />
+          <TableHeader columns={tableHeaders} />
           {/* {inventoryList.map((item) => (
           <inventoryList />
         ))} */}
