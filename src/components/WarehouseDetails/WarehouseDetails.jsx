@@ -3,6 +3,7 @@ import "./WarehouseDetails.scss";
 import ArrowBackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import TableHeader from "../TableHeader/TableHeader";
 const WarehouseDetails = () => {
   const navigate = useNavigate();
   const [warehouseDetails, setWarehouseDetails] = useState([]);
@@ -69,6 +70,7 @@ const WarehouseDetails = () => {
           </div>
         </div>
         <div className="warehouse-details__bottom">
+          <TableHeader />
           {/* {inventoryList.map((item) => (
           <inventoryList />
         ))} */}
