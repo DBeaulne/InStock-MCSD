@@ -11,14 +11,16 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/warehouses" element={<WarehousesPage />} />
-        <Route path="/" element={<Navigate to="/warehouses" />} />
-        <Route path="/warehouses/:id" element={<WarehouseDetails />} />
-        <Route path="/inventory" element={<InventoryPage />} />
-        <Route path="/inventory/:id" element={<InventoryPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <main className="instock__background">
+        <Routes>
+          <Route path="/warehouses" element={<WarehousesPage />} />
+          <Route path="/" element={<Navigate to="/warehouses" />} />
+          <Route path="/warehouses/:id" element={<WarehouseDetails />} />
+          <Route path="/inventory" element={<InventoryPage />} />
+          <Route path="/inventory/:id" element={<InventoryPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
       <Footer />
     </BrowserRouter>
   );

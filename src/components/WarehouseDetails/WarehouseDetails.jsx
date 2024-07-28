@@ -12,7 +12,7 @@ const WarehouseDetails = () => {
   const tableHeaders = ["Inventory Item", "Category", "Status", "Quantity"];
 
   return (
-    <main className="warehouse-details">
+    <section className="warehouse-details">
       <div className="warehouse-details__container">
         <div className="warehouse-details__top">
           <img
@@ -82,7 +82,7 @@ const WarehouseDetails = () => {
           Voluptatum, quod blanditiis!
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 
