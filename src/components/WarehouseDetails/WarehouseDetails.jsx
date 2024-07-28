@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./WarehouseDetails.scss";
 import ArrowBackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 const WarehouseDetails = () => {
+  const navigate = useNavigate();
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const [inventoryList, setInventoryList] = useState([]);
 
@@ -14,12 +16,14 @@ const WarehouseDetails = () => {
             className="warehouse-details__back-icon"
             src={ArrowBackIcon}
             alt="Back Icon"
-            onClick={() => {}}
+            onClick={() => {
+              navigate(-1);
+            }}
           />
-          <h2 className="warehouse-details__heading">
+          <h1 className="warehouse-details__heading">
             Washington
             {/* {warehouseDetails.name} */}
-          </h2>
+          </h1>
           <Button
             type="button"
             text="Edit"
@@ -32,7 +36,10 @@ const WarehouseDetails = () => {
             <h3 className="warehouse-details__sub-heading">
               Warehouse Address
             </h3>
-            <p>33 Pearl Street SW, Washington,USA</p>
+            <p className="warehouse-details__txt">
+              33 Pearl Street SW,
+              <br className="warehouse-details__line-break" /> Washington, USA
+            </p>
           </div>
           <div className="warehouse-details__mid-container2">
             <div className="warehouse-details__name">
