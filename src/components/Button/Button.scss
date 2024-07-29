@@ -52,6 +52,7 @@
   }
   &__txt {
     @include smFont.mob-header-h3;
+
     font-weight: 600;
     &--edit {
       display: none;

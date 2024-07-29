@@ -1,1 +1,20 @@
 @use "./styles/partials/globals";
+@use "./styles/partials/colors";
+@use "./styles/partials/mediaQ" as mQ;
+
+.instock {
+  &__background {
+    background: linear-gradient(
+      180deg,
+      colors.bgcolor(is-graphite) 3.25rem,
+      colors.bgcolor(is-grey) 0%
+    );
+    @include mQ.tablet {
+      background: linear-gradient(
+        180deg,
+        colors.bgcolor(is-graphite) 5rem,
+        colors.bgcolor(is-grey) 0%
+      );
+    }
+  }
+}

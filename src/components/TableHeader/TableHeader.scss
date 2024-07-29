@@ -1,0 +1,50 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mediaQ" as mQ;
+@use "../../styles/partials/mobilefont" as mFont;
+@use "../../styles/partials/tabletdesktopfont" as tFont;
+@use "../../styles/partials/paddingandmargins";
+
+.table-header {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(246, 244, 247, 0.7);
+  padding: 0.5rem 2rem;
+  text-transform: uppercase;
+
+  @include mQ.tablet {
+    display: flex;
+  }
+  &__column {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    &--0 {
+      width: 18%;
+    }
+    &--1 {
+      width: 15%;
+    }
+    &--2 {
+      width: 20%;
+    }
+    &--3 {
+      width: 15%;
+    }
+    &--actions {
+      width: 10%;
+    }
+  }
+  &__heading {
+    @include tFont.tab-desk-header-h4;
+    font-weight: 600;
+    color: colors.seccolor(is-slate);
+  }
+  &__sort-icon {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+  }
+}
