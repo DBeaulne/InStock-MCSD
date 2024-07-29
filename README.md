@@ -46,4 +46,17 @@
 -   complete layout and styling for desktop breakpoint
 -   added h3 tag to link elements
 -   included font-sizing to scss for h3 tags
-    > > > > > > > develop
+
+## Warehouse details component
+
+-   Added api url to app.jsx
+-   Added main section to app.jsx and styled the background in app.scss
+-   created .env.sample file
+-   Warehouse details component added
+-   created a componentfor table header
+-   created function to make get request to the api endpoint
+-   displayed warehouse details
+
+```bash
+REACT_APP_API_BASE_URL=<Insert backend api url here>
+```
