@@ -32,6 +32,13 @@
 		padding-right: 8vw;
 	}
 
+	@include mediaQ.desktop {
+		padding-top: 1vw;
+		padding-left: 4vw;
+		padding-right: 4vw;
+		padding-bottom: 3vw;
+	}
+
 	&__icon-container {
 		display: flex;
 		width: 100%;
@@ -54,6 +61,7 @@
 
 	&__location {
 		@include mobilefont.mob-header-h1;
+		color: colors.primcolor(is-black);
 		padding-bottom: 1rem;
 		padding-top: 1rem;
 
@@ -64,6 +72,7 @@
 
 	&__confirm-text {
 		@include mobilefont.mob-par-p1;
+		color: colors.primcolor(is-black);
 	}
 
 	&__button-container {
@@ -84,6 +93,10 @@
 
 		@include mediaQ.tablet {
 			width: 12vw;
+		}
+
+		@include mediaQ.desktop {
+			width: 6vw;
 		}
 	}
 }
