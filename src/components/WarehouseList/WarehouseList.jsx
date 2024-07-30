@@ -24,7 +24,7 @@ const WarehouseList = (warehouse) => {
 				{/* {warehouse.map(() => {
 
       })} */}
-				<Warehouse location={location} /* temporary prop */ />
+				<Warehouse location={location} /* temporary location prop */ />
 			</section>
 		</>
 	);

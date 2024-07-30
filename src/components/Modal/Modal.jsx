@@ -27,12 +27,13 @@ const Modal = ({ handleClose, location, text }) => {
 				<h1 className="modal__location">Delete {location} warehouse?</h1>
 				<p className="modal__confirm-text">{text}</p>
 				<div className="modal__button-container">
-					<div className="modal__button">
+					<div
+						className="modal__button"
+						onClick={handleClose}>
 						<Button
 							className="btn--sec"
 							type="button"
-							text="Cancel"
-							onClick={handleClose}></Button>
+							text="Cancel"></Button>
 					</div>
 					<div className="modal__button">
 						<Button

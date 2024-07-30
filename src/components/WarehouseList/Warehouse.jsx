@@ -9,8 +9,6 @@ const Warehouse = ({ name, number, email, location, address, deletewarehouse, ed
 		setShowModal(false);
 	};
 
-	/* This location const is temporary */
-
 	return (
 		<>
 			<div className="warehouse">
