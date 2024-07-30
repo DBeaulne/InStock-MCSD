@@ -4,9 +4,10 @@ import WarehouseList from "../../components/WarehouseList/WarehouseList.jsx"
 
 const WarehousesPage = () => {
   return (
-    <WarehouseList />
+    <main>
+      <WarehouseList />
+    </main>
   )
-  
 };
 
 export default WarehousesPage;
