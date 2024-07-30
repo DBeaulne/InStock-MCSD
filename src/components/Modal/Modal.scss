@@ -23,6 +23,15 @@
 	background-color: colors.primcolor(is-white);
 	padding: 5vw;
 
+	@include mediaQ.tablet {
+		margin: 9rem auto;
+		width: 42rem;
+		height: 16.375rem;
+		padding-top: 2vw;
+		padding-left: 8vw;
+		padding-right: 8vw;
+	}
+
 	&__icon-container {
 		display: flex;
 		width: 100%;
@@ -36,11 +45,21 @@
 		path {
 			fill: colors.primcolor(is-black);
 		}
+
+		@include mediaQ.tablet {
+			position: relative;
+			left: 3rem;
+		}
 	}
 
 	&__location {
 		@include mobilefont.mob-header-h1;
 		padding-bottom: 1rem;
+		padding-top: 1rem;
+
+		@include mediaQ.tablet {
+			padding-top: unset;
+		}
 	}
 
 	&__confirm-text {
@@ -52,9 +71,19 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+
+		@include mediaQ.tablet {
+			justify-content: flex-end;
+		}
 	}
 
 	&__button {
+		display: flex;
 		width: 40vw;
+		justify-content: center;
+
+		@include mediaQ.tablet {
+			width: 12vw;
+		}
 	}
 }
