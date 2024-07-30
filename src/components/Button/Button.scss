@@ -51,13 +51,13 @@
     }
   }
   &__txt {
-    @include mob-header-sml;
+    @include mob-header-h3;
     font-weight: 600;
     &--edit {
       display: none;
       margin-left: 1.5rem;
       @include tablet {
-        @include tab-desk-header-sml;
+        @include tab-desk-header-h3;
         display: block;
       }
     }
