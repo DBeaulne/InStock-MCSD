@@ -3,7 +3,7 @@ import React from "react";
 import "./Modal.scss";
 import Button from "../Button/Button";
 
-const Modal = ({ handleClose, location }) => {
+const Modal = ({ handleClose, location, text }) => {
 	location = "Washington";
 
 	return (
@@ -25,10 +25,7 @@ const Modal = ({ handleClose, location }) => {
 					</div>
 				</div>
 				<h1 className="modal__location">Delete {location} warehouse?</h1>
-				<p className="modal__confirm-text">
-					Please confirm that you'd like to delete the Washington warehouse from the list of warehouses. You won't be
-					able to undo this action.
-				</p>
+				<p className="modal__confirm-text">{text}</p>
 				<div className="modal__button-container">
 					<div className="modal__button">
 						<Button
