@@ -55,3 +55,12 @@
 ```bash
 REACT_APP_API_BASE_URL=<Insert backend api url here>
 ```
+
+## Add Inventory Item component
+
+- Changed Search bar component name to Input.
+- Added more functionality to the the input component
+- Created a component for Dropdown Menu.
+- Created a reusable component for inventory form.
+- Added to the Add Inventory Item component.
+- Passed an onClick prop to the button component.
