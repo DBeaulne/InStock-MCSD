@@ -6,8 +6,10 @@ const Input = ({
   classname,
   placeholder,
   name,
+  type,
   value,
   txtArea,
+  search,
   errorMessage,
 }) => {
   const [focus, setFocus] = useState("");
@@ -26,8 +28,6 @@ const Input = ({
     setFocus("");
     setError("");
   };
-
-  const onError = () => {};
 
   if (txtArea) {
     return (
@@ -49,9 +49,23 @@ const Input = ({
             <p className="error__txt">{errorMessage}</p>
           </div>
         ) : (
-          ""
+          <div className="error__placeholder"></div>
         )}
       </div>
+    );
+  } else if (search) {
+    return (
+      <input
+        onInvalid={onInvalid}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        required
+        value={value}
+        className={`site_input ${classname} ${focus} ${error}`}
+        placeholder={placeholder}
+        type={type}
+        name={name}
+      />
     );
   } else {
     return (
@@ -62,15 +76,19 @@ const Input = ({
           onBlur={onBlur}
           required
           value={value}
-          className={`site_input site_input--input ${classname} ${focus} ${error}`}
+          className={`site_input ${classname} ${focus} ${error}`}
           placeholder={placeholder}
-          type="text"
+          type={type}
           name={name}
         />
-        <div className="error">
-          <img className="error__icon" src={errorIcon} alt="Error icon" />
-          <p className="error__message">{errorMessage}</p>
-        </div>
+        {error ? (
+          <div className="error">
+            <img className="error__icon" src={errorIcon} alt="Error icon" />
+            <p className="error__txt">{errorMessage}</p>
+          </div>
+        ) : (
+          <div className="error__placeholder"></div>
+        )}
       </div>
     );
   }

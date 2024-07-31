@@ -13,8 +13,9 @@ const WarehouseList = (warehouse) => {
           <h1 className="warehouses__title">Warehouses</h1>
           <form className="warehouses__form">
             <Input
-              classname={"warehouses__form-input"}
+              classname={" site_input--input warehouses__form-input"}
               placeholder={"Search..."}
+              search
             />
             <button width="1000px">PLACE HOLDER ONLY</button>
           </form>

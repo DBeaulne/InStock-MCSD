@@ -6,14 +6,19 @@ import DropdownMenu from "../DropdownMenu/DropdownMenu";
 
 const InventoryForm = ({ type, categories, warehouses, onSubmit }) => {
   return (
-    <form className="inventory-form">
+    <form className="inventory-form" onSubmit={onSubmit}>
       <div className="inventory-form__wrapper">
         <div className="inventory-form__top">
           <h2 className="inventory-form__heading">Item Details</h2>
           <label className="inventory-form__label" for="itemName">
             Item Name
           </label>
-          <Input placeholder={"Item name"} name="itemName" />
+          <Input
+            classname="site_input--input"
+            placeholder={"Item name"}
+            name="itemName"
+            type="text"
+          />
           <label className="inventory-form__label" for="description">
             Description
           </label>
@@ -40,19 +45,19 @@ const InventoryForm = ({ type, categories, warehouses, onSubmit }) => {
                 value="in stock"
                 defaultChecked
               />
-              <p className="inventory-form__radio-txt">In stock</p>
+              <label className="inventory-form__radio-txt">In stock</label>
             </div>
             <div className="inventory-form__radio">
               <input type="radio" name="status" value="out of stock" />
-              <p className="inventory-form__radio-txt">Out of stock</p>
+              <label className="inventory-form__radio-txt">Out of stock</label>
             </div>
           </div>
           <label className="inventory-form__label" for="quantity">
             Quanity
           </label>
-          <input
+          <Input
             type="number"
-            className="site_input site_input--input inventory-form__qty"
+            classname="site_input--number"
             min="0"
             placeholder="0"
           />
