@@ -43,3 +43,27 @@
 		width: 18rem;
 	}
 }
+
+
+.inventories__form-input {
+    background-image: url(../../assets//icons/search-24px.svg);
+    padding: 1rem;
+    margin-bottom: paddingandmargins.$mobDEF;
+
+    &--active {
+        border: none;
+        outline: 0.0625rem solid colors.primcolor(is-indigo);
+    }
+    &--error {
+        border: none;
+        outline: 0.0625rem solid colors.suppcolor(is-red);
+    }
+
+    @include mediaQ.tablet{ 
+		width: 11rem;
+	}
+
+    @include mediaQ.desktop{ 
+		width: 18rem;
+	}
+}
