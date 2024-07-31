@@ -2,7 +2,20 @@ import "./WarehouseList.scss";
 import Modal from "../Modal/Modal";
 import { useState } from "react";
 
-const Warehouse = ({ name, number, email, location, address, deletewarehouse, editwarehouse }) => {
+const Warehouse = ({
+	name,
+	number,
+	email,
+	location,
+	address,
+	sortaddress,
+	sortname,
+	sortinfo,
+	sortwarehouse,
+	chevron,
+	deletewarehouse,
+	editwarehouse
+}) => {
 	const [showModal, setShowModal] = useState(false);
 
 	const handleClose = () => {
