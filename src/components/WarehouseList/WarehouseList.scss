@@ -9,8 +9,6 @@
 //WAREHOUSES SECTION//
 
 .warehouses {
-	position: relative;
-	top: -3.5rem;
 	@include mediaQ.tablet {
 		border-radius: 4px 4px 0px 0px;
 		box-shadow: 0px 1px 4px 0 colors.seccolor(is-slate); // NEED TO BE DISCUSSED WITH TEAM //
