@@ -4,9 +4,7 @@ import WarehouseList from "../../components/WarehouseList/WarehouseList.jsx"
 
 const WarehousesPage = () => {
   return (
-    <main>
-      <WarehouseList />
-    </main>
+    <WarehouseList />
   )
 };
 

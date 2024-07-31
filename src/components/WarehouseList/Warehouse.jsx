@@ -1,13 +1,8 @@
 import './WarehouseList.scss';
 
-
-
 const Warehouse = ({name, number, email, location, address, sortaddress, sortname, sortinfo, sortwarehouse, chevron, deletewarehouse, editwarehouse}) => {
     return (
         <>
-    
-        
-        
         <div className="warehouse">
             <div className="warehouse__wrapper warehouse__wrapper--left">
                 <div className='warehouse__wrapper--inner warehouse__wrapper--inner-left'>
