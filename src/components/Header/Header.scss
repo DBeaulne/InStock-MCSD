@@ -47,10 +47,12 @@ a {
 	align-items: center;
 	padding: $mobDEF;
 	background: bgcolor(is-graphite);
+	height: 12rem; // WILL HAVE TO DISCUSS WITH TEAM // 
 
 	@include tablet {
 		flex-direction: row;
 		justify-content: space-between;
+		padding: $tabLR;
 	}
 
 	@include desktop {
