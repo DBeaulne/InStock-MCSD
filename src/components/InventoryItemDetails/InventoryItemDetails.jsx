@@ -1,32 +1,24 @@
+//Imports
+import axios from "axios";
+import { apiUrl } from "../../App";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 //Assets/Styles
 import "./InventoryItemDetails.scss";
-import backArrow from "../../assets/images/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import backArrow from "../../assets/images/icons/arrow_back-24px.svg";
 //Components
 import Button from "../Button/Button";
 
 export default function InventoryItemDetails() {
-	return (
-		<div className='item-card__header'>
-			<div>
-				<Button
-					className='button__back'
-					type=''
-					text=''
-					txtClassName=''
-				/>
+	//enable navigation:
+	const navigate = useNavigate();
+	//hold current item details in state:
+	const [inventoryItemDetails, setInventoryItemDetails] = useState([]);
+	//get warehouse name using warehouse ID:
+	const [warehouseName, setWarehouseName] = useState();
+	//grab id from URL params:
+	const { id } = useParams();
 
-				<h1 className='item-card__item-name'>
-					{item.name}
-				</h1>
-
-				<Button
-					className='button__edit'
-					type=''
-					text=''
-					txtClassName=''
-				/>
-			</div>
-		</div>
-	);
+	return <div></div>;
 }
