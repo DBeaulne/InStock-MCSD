@@ -9,6 +9,11 @@ const Warehouse = ({ name, number, email, location, address, deletewarehouse, ed
 		setShowModal(false);
 	};
 
+	const handleDelete = () => {
+		console.log("Warehouse Deleted");
+		handleClose();
+	};
+
 	return (
 		<>
 			<div className="warehouse">
@@ -48,6 +53,7 @@ const Warehouse = ({ name, number, email, location, address, deletewarehouse, ed
 			{showModal && (
 				<Modal
 					handleClose={handleClose}
+					handleDelete={handleDelete}
 					location={location}
 					text={`Please confirm that you'd like to delete the ${location} warehouse from the list of warehouses. You won't be able to undo this action.`}
 				/>

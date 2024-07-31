@@ -3,7 +3,7 @@ import React from "react";
 import "./Modal.scss";
 import Button from "../Button/Button";
 
-const Modal = ({ handleClose, location, text }) => {
+const Modal = ({ handleClose, handleDelete, location, text }) => {
 	location = "Washington";
 
 	return (
@@ -27,19 +27,19 @@ const Modal = ({ handleClose, location, text }) => {
 				<h1 className="modal__location">Delete {location} warehouse?</h1>
 				<p className="modal__confirm-text">{text}</p>
 				<div className="modal__button-container">
-					<div
-						className="modal__button"
-						onClick={handleClose}>
+					<div className="modal__button">
 						<Button
 							className="btn--sec"
 							type="button"
-							text="Cancel"></Button>
+							text="Cancel"
+							onClick={handleClose}></Button>
 					</div>
 					<div className="modal__button">
 						<Button
 							className="btn--del"
 							type="button"
-							text="Delete"></Button>
+							text="Delete"
+							onClick={handleDelete}></Button>
 					</div>
 				</div>
 			</div>
