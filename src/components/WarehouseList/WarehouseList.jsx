@@ -1,31 +1,31 @@
 import React from "react";
 import "./WarehouseList.scss";
 import Warehouse from "./Warehouse";
-import SearchBar from "../SearchBar/SearchBar";
+import Input from "../Input/Input";
 
-// MAP FUNCTION TO BE ADDED // 
+// MAP FUNCTION TO BE ADDED //
 
 const WarehouseList = (warehouse) => {
   return (
     <>
-     <section className="warehouses">
-      <div className="warehouses__wrapper">
-        <h1 className="warehouses__title">Warehouses</h1>
-        <form className="warehouses__form">
-          <SearchBar 
-          classname={'warehouses__form-input'}
-          placeholder={'Search...'}
-          />
-          <button width='1000px'>PLACE HOLDER ONLY</button>
-        </form>
-      </div>
-      {/* {warehouse.map(() => {
+      <section className="warehouses">
+        <div className="warehouses__wrapper">
+          <h1 className="warehouses__title">Warehouses</h1>
+          <form className="warehouses__form">
+            <Input
+              classname={"warehouses__form-input"}
+              placeholder={"Search..."}
+            />
+            <button width="1000px">PLACE HOLDER ONLY</button>
+          </form>
+        </div>
+        {/* {warehouse.map(() => {
 
       })} */}
-      <Warehouse /> 
-    </section>
+        <Warehouse />
+      </section>
     </>
-  )
+  );
 };
 
 export default WarehouseList;
