@@ -44,5 +44,11 @@ export default function InventoryItemDetails() {
 		}
 	};
 
+	//trigger API calls:
+	useEffect(() => {
+		getItemDetails(id);
+		getWarehouseName(inventoryItemDetails.warehouse_id);
+	}, [id]);
+
 	return <div></div>;
 }
