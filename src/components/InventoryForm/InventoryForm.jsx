@@ -1,42 +1,80 @@
 import React from "react";
 import "./InventoryForm.scss";
-import arrowDropDown from "../../assets/icons/arrow_drop_down-24px.svg";
+import Button from "../Button/Button";
 import Input from "../Input/Input";
+import DropdownMenu from "../DropdownMenu/DropdownMenu";
 
-const InventoryForm = ({ type, categories, onSubmit }) => {
+const InventoryForm = ({ type, categories, warehouses, onSubmit }) => {
   return (
     <form className="inventory-form">
-      <div className="inventory-form__top">
-        <h2 className="inventory-form__heading">Item Details</h2>
-        <label for="itemName">Item Name</label>
-        <Input
-          classname={"site_input"}
-          placeholder={"Item name"}
-          name="itemName"
-          value=""
-        />
-        <input
-          className="input input--txt"
-          type="text"
-          name="item-name"
-          id="itemName"
-          placeholder="Item Name"
-        />
-        <label for="description">Description</label>
-        <textarea
-          className="input input--txtArea"
-          name="description"
-          id="description"
-          placeholder="Please enter a brief item description..."
-        />
-        <label for="category">Category</label>
-        <div></div>
-        <img className="" src={arrowDropDown} alt="dropdown arrow" />
-        <select name="category" value="">
-          <option hidden>Please select</option>
-        </select>
+      <div className="inventory-form__wrapper">
+        <div className="inventory-form__top">
+          <h2 className="inventory-form__heading">Item Details</h2>
+          <label className="inventory-form__label" for="itemName">
+            Item Name
+          </label>
+          <Input placeholder={"Item name"} name="itemName" />
+          <label className="inventory-form__label" for="description">
+            Description
+          </label>
+          <Input
+            txtArea
+            placeholder={"Please enter a brief item description..."}
+            name="description"
+          />
+          <label className="inventory-form__label" for="category">
+            Category
+          </label>
+          <DropdownMenu options={categories} name="category" />
+        </div>
+        <div className="inventory-form__bottom">
+          <h2 className="inventory-form__heading">Item Availablity</h2>
+          <label className="inventory-form__label" for="status">
+            Status
+          </label>
+          <div className="inventory-form__radio-group">
+            <div className="inventory-form__radio">
+              <input
+                type="radio"
+                name="status"
+                value="in stock"
+                defaultChecked
+              />
+              <p className="inventory-form__radio-txt">In stock</p>
+            </div>
+            <div className="inventory-form__radio">
+              <input type="radio" name="status" value="out of stock" />
+              <p className="inventory-form__radio-txt">Out of stock</p>
+            </div>
+          </div>
+          <label className="inventory-form__label" for="quantity">
+            Quanity
+          </label>
+          <input
+            type="number"
+            className="site_input site_input--input inventory-form__qty"
+            min="0"
+            placeholder="0"
+          />
+          <label className="inventory-form__label" for="warehouse">
+            Warehouse
+          </label>
+          <DropdownMenu options={warehouses} name="warehouse" />
+        </div>
       </div>
-      <div className="inventory-form__bottom"></div>
+
+      <div className="inventory-form__actions">
+        <Button
+          className="btn btn--sec inventory-form__button"
+          type="button"
+          text="Cancel"
+        />
+        <Button
+          className="btn btn--prim inventory-form__button"
+          type="submit"
+          text="+ Add Item"
+        />
+      </div>
     </form>
   );
 };

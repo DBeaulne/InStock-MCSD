@@ -1,6 +1,6 @@
 import "./Input.scss";
 import { useState } from "react";
-import errorIcon from "error-24px.svg";
+import errorIcon from "../../assets/icons/error-24px.svg";
 
 const Input = ({
   classname,
@@ -38,15 +38,19 @@ const Input = ({
           onBlur={onBlur}
           required
           value={value}
-          className={`site_input ${classname} ${focus} ${error}`}
+          className={`site_input site_input--txtArea ${classname} ${focus} ${error}`}
           placeholder={placeholder}
           type="text"
           name={name}
         />
-        <div className="error">
-          <img className="error__icon" src={errorIcon} alt="Error icon" />
-          <p className="error__txt">{errorMessage}</p>
-        </div>
+        {error ? (
+          <div className="error">
+            <img className="error__icon" src={errorIcon} alt="Error icon" />
+            <p className="error__txt">{errorMessage}</p>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     );
   } else {
@@ -58,7 +62,7 @@ const Input = ({
           onBlur={onBlur}
           required
           value={value}
-          className={`site_input ${classname} ${focus} ${error}`}
+          className={`site_input site_input--input ${classname} ${focus} ${error}`}
           placeholder={placeholder}
           type="text"
           name={name}

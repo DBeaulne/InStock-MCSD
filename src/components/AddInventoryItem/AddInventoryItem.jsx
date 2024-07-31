@@ -6,6 +6,7 @@ import InventoryForm from "../InventoryForm/InventoryForm";
 const AddInventoryItem = () => {
   const navigate = useNavigate();
   const categories = ["A", "b", "c"];
+  const warehouses = [1, 2, 3];
   return (
     <section className="add-inventory">
       <div className="add-inventory__container">
@@ -20,7 +21,7 @@ const AddInventoryItem = () => {
           />
           <h1 className="add-inventory__heading">Add New Inventory Item</h1>
         </div>
-        <InventoryForm categories={categories} />
+        <InventoryForm categories={categories} warehouses={warehouses} />
       </div>
     </section>
   );
