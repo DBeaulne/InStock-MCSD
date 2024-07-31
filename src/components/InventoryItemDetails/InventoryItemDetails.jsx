@@ -30,5 +30,19 @@ export default function InventoryItemDetails() {
 		}
 	};
 
+	//API call to check warehouse ID against list:
+	const getWarehouseName = async warehouse_id => {
+		try {
+			const response = await axios.get(
+				`${apiUrl}/warehouses/${warehouse_id}`
+			);
+			setWarehouseName(response.data.warehouse_name);
+		} catch (error) {
+			console.log(
+				`Error while attempting to get warehouse name: ${error}`
+			);
+		}
+	};
+
 	return <div></div>;
 }
