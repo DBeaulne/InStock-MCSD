@@ -44,11 +44,15 @@ export default function InventoryItemDetails() {
 		}
 	};
 
-	//trigger API calls:
+	//trigger trigger call for item details once param is available:
 	useEffect(() => {
 		getItemDetails(id);
-		getWarehouseName(inventoryItemDetails.warehouse_id);
 	}, [id]);
+
+	//trigger call for warehouse name once warehouse ID is available:
+	useEffect(() => {
+		getWarehouseName(inventoryItemDetails.warehouse_id);
+	}, [inventoryItemDetails]);
 
 	return <div></div>;
 }

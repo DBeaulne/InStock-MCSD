@@ -29,6 +29,10 @@
 
 -   create the header section of the item card
 -   create some initial style classes
+-   import assets, styles, and components. set state and navigation
+-   create API call to get item details
+-   create API call to get warehouse name, using warehouse ID from previous call
+-   useEffect to call for item details when param is available, and warehouse name when warehouse ID is available
 
 ## WarehouseList Component & SearchBar Component
 
