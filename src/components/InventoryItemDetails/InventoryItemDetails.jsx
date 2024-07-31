@@ -20,5 +20,15 @@ export default function InventoryItemDetails() {
 	//grab id from URL params:
 	const { id } = useParams();
 
+	//API call for item details:
+	const getItemDetails = async id => {
+		try {
+			const { data } = await axios.get(`${apiUrl}/inventory/${id}`);
+			setInventoryItemDetails(data);
+		} catch (error) {
+			console.log(`Error while attempting to get item details: ${error}`);
+		}
+	};
+
 	return <div></div>;
 }
