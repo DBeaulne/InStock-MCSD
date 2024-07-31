@@ -15,7 +15,7 @@ const AddInventoryItem = () => {
 
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCatgory] = useState("");
+  const [category, setCategory] = useState("");
   const [status, setStatus] = useState("In stock");
   const [quantity, setQuantity] = useState("0");
   const [warehouse, setWarehouse] = useState("");
@@ -23,7 +23,7 @@ const AddInventoryItem = () => {
   const resetForm = () => {
     setItemName("");
     setDescription("");
-    setCatgory("Please Select");
+    setCategory("Please Select");
     setStatus("In stock");
     setQuantity("0");
     setWarehouse("Please Select");
@@ -54,6 +54,7 @@ const AddInventoryItem = () => {
       console.log(e);
     }
   };
+
   return (
     <section className="add-inventory">
       <div className="add-inventory__container">
@@ -71,6 +72,18 @@ const AddInventoryItem = () => {
         <InventoryForm
           categories={categories}
           warehouses={warehouses}
+          itemName={itemName}
+          description={description}
+          category={category}
+          status={status}
+          quantity={quantity}
+          warehouse={warehouse}
+          setitemName={setItemName}
+          setDescription={setDescription}
+          setCategory={setCategory}
+          setStatus={setStatus}
+          setQuantity={setQuantity}
+          setWarehouse={setWarehouse}
           onSubmit={handleSubmit}
         />
       </div>
