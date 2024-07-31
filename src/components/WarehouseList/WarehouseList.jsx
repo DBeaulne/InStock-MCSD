@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import "./WarehouseList.scss";
 import Warehouse from "./Warehouse";
 import SearchBar from "../SearchBar/SearchBar";
@@ -14,7 +14,6 @@ const WarehouseList = (warehouse) => {
 	let location = "Washington"; // temporary variable, delete once warehouse.map() is ready
 	const [showModal, setShowModal] = useState(false);
 	const [warehouseIdToDelete, setWarehouseIdToDelete] = useState(null);
-	// const [deleteBtn, setDeleteBtn] = useState(false);
 	const { id } = useParams();
 
 	// function to reset showModal state to false to close modal window
