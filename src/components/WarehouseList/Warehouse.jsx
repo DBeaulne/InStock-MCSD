@@ -1,8 +1,7 @@
 import "./WarehouseList.scss";
-import Modal from "../Modal/Modal";
-import { useState } from "react";
 
 const Warehouse = ({
+	id,
 	name,
 	number,
 	email,
@@ -13,20 +12,9 @@ const Warehouse = ({
 	sortinfo,
 	sortwarehouse,
 	chevron,
-	deletewarehouse,
+	deleteWarehouseBtn,
 	editwarehouse
 }) => {
-	const [showModal, setShowModal] = useState(false);
-
-	const handleClose = () => {
-		setShowModal(false);
-	};
-
-	const handleDelete = () => {
-		console.log("Warehouse Deleted");
-		handleClose();
-	};
-
 	return (
 		<>
 			<div className="warehouse">
@@ -65,7 +53,7 @@ const Warehouse = ({
 						</section>
 					</div>
 					<button
-						onClick={deletewarehouse}
+						onClick={() => deleteWarehouseBtn(id)}
 						className="warehouse__button warehouse__button--delete warehouse__button--mobile"></button>
 				</div>
 				<div className="warehouse__wrapper warehouse__wrapper--right">
@@ -93,7 +81,7 @@ const Warehouse = ({
 							<h4 className="warehouse__sub-title">ACTIONS</h4>
 							<div className="warehouse__wrapper--button">
 								<button
-									onClick={deletewarehouse}
+									onClick={() => deleteWarehouseBtn(id)}
 									className="warehouse__button warehouse__button--delete warehouse__button--tablet"></button>
 								<button
 									onClick={editwarehouse}
@@ -105,15 +93,7 @@ const Warehouse = ({
 						onClick={editwarehouse}
 						className="warehouse__button warehouse__button--edit warehouse__button--mobile"></button>
 				</div>
-			</div>{" "}
-			{showModal && (
-				<Modal
-					handleClose={handleClose}
-					handleDelete={handleDelete}
-					location={location}
-					text={`Please confirm that you'd like to delete the ${location} warehouse from the list of warehouses. You won't be able to undo this action.`}
-				/>
-			)}
+			</div>
 		</>
 	);
 };
