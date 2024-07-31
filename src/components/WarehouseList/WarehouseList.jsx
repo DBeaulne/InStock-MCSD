@@ -2,6 +2,7 @@ import React from "react";
 import "./WarehouseList.scss";
 import Warehouse from "./Warehouse";
 import Input from "../Input/Input";
+import Button from "../Button/Button";
 
 // MAP FUNCTION TO BE ADDED //
 
@@ -9,21 +10,26 @@ const WarehouseList = (warehouse) => {
   return (
     <>
       <section className="warehouses">
-        <div className="warehouses__wrapper">
+        <div className="warehouses__wrapper--form">
           <h1 className="warehouses__title">Warehouses</h1>
           <form className="warehouses__form">
             <Input
-              classname={" site_input--input warehouses__form-input"}
+              classname={"site_input--input warehouses__form-input"}
               placeholder={"Search..."}
               search
             />
-            <button width="1000px">PLACE HOLDER ONLY</button>
+            <Button
+              className={"warehouse__form-button"}
+              text={"+ Add New Warehouse"}
+            />
           </form>
         </div>
-        {/* {warehouse.map(() => {
+        <div className="warehouses__wrapper">
+          {/* {warehouse.map(() => {
 
       })} */}
-        <Warehouse />
+          <Warehouse />
+        </div>
       </section>
     </>
   );

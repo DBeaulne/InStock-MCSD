@@ -1,0 +1,18 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/fontfamily";
+@use "../../styles/partials/globals";
+@use "../../styles/partials/mediaQ";
+@use "../../styles/partials/paddingandmargins";
+@use "../../styles/partials/mobilefont";
+@use "../../styles/partials/tabletdesktopfont";
+
+main {
+    padding: paddingandmargins.$mobLR;
+    background-color: colors.bgcolor(is-grey);
+    @include mediaQ.tablet{ 
+		padding: paddingandmargins.$tabLR;
+	}
+    @include mediaQ.desktop{ 
+		padding: paddingandmargins.$deskLR;
+	}
+}
