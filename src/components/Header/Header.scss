@@ -1,12 +1,12 @@
 /* Header styling */
 
-@import "../../styles/partials/colors";
-@import "../../styles/partials/globals";
-@import "../../styles/partials/fontfamily";
-@import "../../styles/partials/mobilefont";
-@import "../../styles/partials/tabletdesktopfont";
-@import "../../styles/partials/mediaQ";
-@import "../../styles/partials/paddingandmargins";
+@use "../../styles/partials/colors" as c;
+@use "../../styles/partials/globals" as g;
+@use "../../styles/partials/fontfamily" as ff;
+@use "../../styles/partials/mobilefont" as mobFont;
+@use "../../styles/partials/tabletdesktopfont" as tdFont;
+@use "../../styles/partials/mediaQ" as mQ;
+@use "../../styles/partials/paddingandmargins" as padMarg;
 
 a {
 	display: flex;
@@ -17,26 +17,26 @@ a {
 	height: 2.25rem;
 
 	h3 {
-		@include mob-header-h3;
+		@include mobFont.mob-header-h3;
 
-		@include tablet {
-			@include tab-desk-header-h3;
+		@include mQ.tablet {
+			@include tdFont.tab-desk-header-h3;
 		}
 	}
 
 	&:hover {
-		color: primcolor(is-white);
+		color: c.primcolor(is-white);
 		text-decoration: underline;
 	}
 
-	@include tablet {
+	@include mQ.tablet {
 		width: 6.75rem;
 		height: 2.5rem;
 	}
 
 	&.active {
-		color: primcolor(is-white);
-		background-color: primcolor(is-black);
+		color: c.primcolor(is-white);
+		background-color: c.primcolor(is-black);
 		border-radius: 1.25rem;
 	}
 }
@@ -45,19 +45,19 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: $mobDEF;
-	background: bgcolor(is-graphite);
+	padding: padMarg.$mobDEF;
+	background: c.bgcolor(is-graphite);
 
-	@include tablet {
+	@include mQ.tablet {
 		flex-direction: row;
 		justify-content: space-between;
 	}
 
-	@include desktop {
+	@include mQ.desktop {
 		padding-left: 4rem;
 		padding-right: 4rem;
-		padding-top: $deskDEF;
-		padding-bottom: $deskDEF;
+		padding-top: padMarg.$deskDEF;
+		padding-bottom: padMarg.$deskDEF;
 	}
 
 	&__logo {
@@ -69,9 +69,9 @@ a {
 		flex-direction: row;
 		width: 100%;
 		justify-content: space-around;
-		padding-top: $mobDEF;
+		padding-top: padMarg.$mobDEF;
 
-		@include tablet {
+		@include mQ.tablet {
 			padding-top: unset;
 			width: 30%;
 			justify-content: flex-end;
