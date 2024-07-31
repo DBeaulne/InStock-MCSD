@@ -22,13 +22,6 @@
 
 - sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
 - downloaded font family and created folder for fonts to store locally
-- sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
-- downloaded font family and created folder for fonts to store locally
-- updated \_global partial to import \_fontfamily partial for proper font weight
-- sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
-- downloaded font family and created folder for fonts to store locally
-- sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
-- downloaded font family and created folder for fonts to store locally
 - updated \_global partial to import \_fontfamily partial for proper font weight
 
 ## Footer
@@ -59,3 +52,15 @@
 - complete layout and styling for desktop breakpoint
 - added h3 tag to link elements
 - included font-sizing to scss for h3 tags
+
+## feature/delete-warehouse-modal-daniel
+
+- added react-modal package
+- created modal component .jsx and .scss files
+- coded and styled modal component for mobile breakpoint
+- styled for tablet breakpoint
+- styled for desktop breakpoint
+- added functionality to cancel & close modal window
+- added close icon, added functionality to close modal window
+- added functionality to delete warehouse
+- refactored modal component to take in props so that it can be used for the delete inventory ticket
