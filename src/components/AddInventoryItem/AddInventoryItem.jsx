@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddInventoryItem.scss";
 import ArrowBackIcon from "../../assets/icons/arrow_back-24px.svg";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +20,10 @@ const AddInventoryItem = () => {
   const [quantity, setQuantity] = useState("0");
   const [warehouse, setWarehouse] = useState("");
 
+  useEffect(() => {
+    getWarehousesList();
+    console.log(warehouses);
+  }, []);
   const resetForm = () => {
     setItemName("");
     setDescription("");
@@ -27,6 +31,26 @@ const AddInventoryItem = () => {
     setStatus("In stock");
     setQuantity("0");
     setWarehouse("Please Select");
+  };
+
+  const getWarehousesList = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}/warehouses`);
+      if (response.status === 200) {
+        return response.data;
+      }
+      const warehouseData = response.data;
+      const warehouses = warehouseData.map((warehouse) => {
+        return {
+          id: warehouse.id,
+          warehouseName: warehouse.warehouse_name,
+        };
+      });
+
+      setWarehouses([...new Set(warehouses)]);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const handleSubmit = async (e) => {

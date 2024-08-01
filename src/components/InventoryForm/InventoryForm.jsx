@@ -1,9 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import "./InventoryForm.scss";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import { useNavigate } from "react-router-dom";
+import RadioButton from "../RadioButton/RadioButton";
 const InventoryForm = ({
   edit,
   categories,
@@ -24,12 +26,21 @@ const InventoryForm = ({
   onSubmit,
 }) => {
   const navigate = useNavigate();
+
+  const selectHandler = (e) => {};
+
+  const warehousesList = warehouses.map((option) => option.warehouseName);
+
+  const [isStatusetIsQuantityExistssChecked, setIsQuantityExists] =
+    useState(true);
+  const [isStatusChecked, setIsStatusChecked] = useState("In Stock");
+
   return (
     <form className="inventory-form" onSubmit={onSubmit}>
       <div className="inventory-form__wrapper">
         <div className="inventory-form__top">
           <h2 className="inventory-form__heading">Item Details</h2>
-          <label className="inventory-form__label" for="itemName">
+          <label className="inventory-form__label" htmlFor="itemName">
             Item Name
           </label>
           <Input
@@ -40,7 +51,7 @@ const InventoryForm = ({
             value={itemName}
             onChange={(e) => setItemName(e.target.value)}
           />
-          <label className="inventory-form__label" for="description">
+          <label className="inventory-form__label" htmlFor="description">
             Description
           </label>
           <Input
@@ -50,7 +61,7 @@ const InventoryForm = ({
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <label className="inventory-form__label" for="category">
+          <label className="inventory-form__label" htmlFor="category">
             Category
           </label>
           <DropdownMenu
@@ -62,31 +73,28 @@ const InventoryForm = ({
         </div>
         <div className="inventory-form__bottom">
           <h2 className="inventory-form__heading">Item Availablity</h2>
-          <label className="inventory-form__label" for="status">
+          <label className="inventory-form__label" htmlFor="status">
             Status
           </label>
           <div className="inventory-form__radio-group">
-            <div className="inventory-form__radio">
-              <input
-                type="radio"
-                name="status"
-                value="in stock"
-                defaultChecked
-                onClick={() => setStatus("In stock")}
-              />
-              <label className="inventory-form__radio-txt">In stock</label>
-            </div>
-            <div className="inventory-form__radio">
-              <input
-                type="radio"
-                name="status"
-                value="out of stock"
-                onClick={() => setStatus("Out of stock")}
-              />
-              <label className="inventory-form__radio-txt">Out of stock</label>
-            </div>
+            <RadioButton
+              text="In stock"
+              name="status"
+              value="In Stock"
+              setIsStatusChecked={setIsStatusChecked}
+              setIsQuantityExists={setIsQuantityExists}
+              checked={isStatusChecked === "In Stock"}
+            />
+            <RadioButton
+              text="Out of stock"
+              value="Out Of Stock"
+              setIsStatusChecked={setIsStatusChecked}
+              name="status"
+              setIsQuantityExists={setIsQuantityExists}
+              checked={isStatusChecked === "Out Of Stock"}
+            />
           </div>
-          <label className="inventory-form__label" for="quantity">
+          <label className="inventory-form__label" htmlFor="quantity">
             Quanity
           </label>
           <Input
@@ -97,13 +105,15 @@ const InventoryForm = ({
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
           />
-          <label className="inventory-form__label" for="warehouse">
+          <label className="inventory-form__label" htmlFor="warehouse">
             Warehouse
           </label>
           <DropdownMenu
-            options={warehouses}
+            options={warehousesList}
             name="warehouse"
-            onChange={(e) => setWarehouse(e.target.value)}
+            onChange={(e) => {
+              selectHandler();
+            }}
           />
         </div>
       </div>
