@@ -18,7 +18,7 @@ a {
 
 	h3 {
 		@include mob-header-h3;
-
+		
 		@include tablet {
 			@include tab-desk-header-h3;
 		}
@@ -47,12 +47,11 @@ a {
 	align-items: center;
 	padding: $mobDEF;
 	background: bgcolor(is-graphite);
-	height: 12rem; // WILL HAVE TO DISCUSS WITH TEAM // 
 
 	@include tablet {
 		flex-direction: row;
 		justify-content: space-between;
-		padding: $tabLR;
+		padding: 1.5rem 2rem 1.5rem 2rem;
 	}
 
 	@include desktop {
