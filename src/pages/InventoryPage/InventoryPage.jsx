@@ -1,8 +1,11 @@
 import React from "react";
 import "./InventoryPage.scss";
+import InventoryList from "../../components/InventoryList/InventoryList";
 
 const InventoryPage = () => {
-  return <div>InventoryPage</div>;
+  return (
+    <InventoryList />
+  )
 };
 
 export default InventoryPage;
