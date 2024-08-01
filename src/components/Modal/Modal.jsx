@@ -7,9 +7,7 @@ const Modal = ({ handleClose, handleDelete, title, text }) => {
 	/** Modal component takes in the following props
 	 * handleClose & handleDelete: - function lives in parent
 	 *                             - passed in as a prop to be sent to button component
-	 * location: used to laction of warehoure to be deleted
-	 *       ** need to refactor to allow usage to delete an inventory item **
-	 *
+	 * location: used to loction of warehoure to be deleted
 	 * text: used to display the body of text in the modal window
 	 *
 	 */
@@ -19,7 +17,7 @@ const Modal = ({ handleClose, handleDelete, title, text }) => {
 			<div className="modal">
 				<div className="modal__icon-container">
 					<div className="modal__icon">
-						<svg // temp svg code. ToDo: create an icon prop in the button component
+						<svg
 							width="24"
 							height="24"
 							viewBox="0 0 24 24"
