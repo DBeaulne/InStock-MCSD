@@ -55,3 +55,9 @@
 ```bash
 REACT_APP_API_BASE_URL=<Insert backend api url here>
 ```
+
+## feature/ delete inventory modal
+
+- integrated Modal component into InventoryList.jsx
+- edited delete button onClick property to include callback function instead of prop
+- tested with temp variables until inventory.map() exists
