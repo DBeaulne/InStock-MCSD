@@ -11,32 +11,32 @@ import { apiUrl } from "../../App";
 // MAP FUNCTION TO BE ADDED //
 
 const InventoryList = (inventory) => {
-	let itemName = "monitor"; // temporary variable, delete once invetory.map() is present
-	const [showModal, setShowModal] = useState(false);
-	const [inventoryItemIdToDelete, setInvtoryItemIdToDelete] = useState(null);
+	let itemName = "Windbreaker"; // temporary variable, delete once invetory.map() is present
+	const [showInventoryModal, setShowInventoryModal] = useState(false);
+	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState(null);
 	const { id } = useParams();
 
 	// function to reset showModal state to false to close modal window
 	const handleClose = () => {
-		setShowModal(false);
+		setShowInventoryModal(false);
 	};
 
 	// function to set the warehouse ID state and trigger model window display
 	const deleteInventoryItemBtn = (id) => {
-		id = 5; // temporary variable setting, remove once warehouse.map() exists
-		setInvtoryItemIdToDelete(id);
-		setShowModal(true);
+		id = 38; // temporary variable setting, remove once warehouse.map() exists
+		setInvetoryItemIdToDelete(id);
+		setShowInventoryModal(true);
 	};
 
 	// async function to call the api to delete the warehouse based on the ID
 	const handleDelete = useCallback(async () => {
 		if (inventoryItemIdToDelete !== null) {
 			try {
-				await axios.delete(`${apiUrl}/warehouses/${inventoryItemIdToDelete}`);
-				console.log("Warehouse deleted"); // temp debug log, delete before submission
+				await axios.delete(`${apiUrl}/inventory/${inventoryItemIdToDelete}`);
+				console.log(`Item ${itemName} has been deleted`); // temp debug log, delete before submission
 				handleClose();
 			} catch (e) {
-				console.log("Error deleting warehouse:", e);
+				console.log("Error deleting item:", e);
 			}
 		}
 	}, [inventoryItemIdToDelete]);
@@ -66,12 +66,12 @@ const InventoryList = (inventory) => {
 						deleteInventoryItemBtn={deleteInventoryItemBtn} /* temp prop until inventory.map() exists */
 					/>
 				</div>
-				{showModal && (
+				{showInventoryModal && (
 					<Modal
 						handleClose={handleClose}
 						handleDelete={handleDelete}
-						title={`Delete ${itemName} warehouse?`}
-						text={`Please confirm that you'd like to delete the ${itemName} warehouse from the list of warehouses. You won't be able to undo this action.`}
+						title={`Delete ${itemName} inventory item?`}
+						text={`Please confirm that you'd like to delete ${itemName} from the inventory list. You won't be able to undo this action.`}
 					/>
 				)}
 			</section>
