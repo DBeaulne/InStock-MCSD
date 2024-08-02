@@ -36,7 +36,7 @@ export default function InventoryItemDetails() {
 			const response = await axios.get(
 				`${apiUrl}/warehouses/${warehouse_id}`
 			);
-			setWarehouseName(response.data.warehouse_name);
+			setWarehouseName(response.warehouse_name);
 		} catch (error) {
 			console.log(
 				`Error while attempting to get warehouse name: ${error}`
@@ -54,5 +54,80 @@ export default function InventoryItemDetails() {
 		getWarehouseName(inventoryItemDetails.warehouse_id);
 	}, [inventoryItemDetails]);
 
-	return <div></div>;
+	return (
+		<section className='inventory-item-details'>
+			<div className='inventory-item-details__container'>
+				<div className='inventory-item-details__top'>
+					<img
+						className='inventory-item-details__back-icon'
+						src={backArrow}
+						alt='Back Icon'
+						onClick={() => {
+							navigate(-1);
+						}}
+					/>
+
+					<h1 className='inventory-item-details__heading'>
+						{inventoryItemDetails.item_name}
+					</h1>
+
+					<Button
+						type='button'
+						text='Edit'
+						className='btn--prim btn--edit'
+						txtClassName='btn__txt--edit'
+					/>
+				</div>
+
+				<div className='inventory-item-details__mid'>
+					<div className='inventory-item-details__mid-container1'>
+						<h3 className='inventory-item-details__sub-heading'>
+							ITEM DESCRIPTION:
+						</h3>
+						<p className='inventory-item-details__txt'>
+							{inventoryItemDetails.description}
+						</p>
+					</div>
+
+					<div className='inventory-item-details__mid-container2'>
+						<div className='inventory-item-details__name'>
+							<h3 className='inventory-item-details__sub-heading'>
+								CATEGORY:
+							</h3>
+							<p className='inventory-item-details__txt'>
+								{inventoryItemDetails.category}
+							</p>
+						</div>
+
+						<div className='inventory-item-details__info'>
+							<h3 className='inventory-item-details__sub-heading'>
+								STATUS:
+							</h3>
+							<p className='inventory-item-details__txt'>
+								{inventoryItemDetails.status}
+							</p>
+						</div>
+
+						<div className='inventory-item-details__info'>
+							<h3 className='inventory-item-details__sub-heading'>
+								QUANTITY:
+							</h3>
+							<p className='inventory-item-details__txt'>
+								{inventoryItemDetails.quantity}
+							</p>
+						</div>
+
+						<div className='inventory-item-details__info'>
+							<h3 className='inventory-item-details__sub-heading'>
+								WAREHOUSE:
+							</h3>
+							<p className='inventory-item-details__txt'>
+								{inventoryItemDetails.warehouse}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }
