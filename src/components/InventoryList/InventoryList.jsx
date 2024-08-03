@@ -20,8 +20,7 @@ const InventoryList = () => {
   useEffect(() => {
     const getInventories = async (id) => {
       try {
-        const { data } = await axios.get('http://localhost:8080/inventory/')
-        // (`${apiUrl}/inventory/`);
+        const { data } = await axios.get(`${apiUrl}/inventory`)
         setInventory(data)  
     } catch (e) {
         console.log(e);
