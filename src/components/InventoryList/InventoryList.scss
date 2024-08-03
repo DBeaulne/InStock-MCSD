@@ -9,9 +9,9 @@
 //INVENTORIES FORM AND TITLE//
 
 .inventories {
-	@include mediaQ.tablet {
+	@include mediaQ.tablet{ 
 		border-radius: 4px 4px 0px 0px;
-		box-shadow: 0px 1px 4px 0 colors.seccolor(is-slate); // NEED TO BE DISCUSSED WITH TEAM //
+		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);; // NEED TO BE DISCUSSED WITH TEAM // 
 	}
 }
 
@@ -22,10 +22,10 @@
 	justify-content: center;
 	padding: 1.25rem;
 	background-color: colors.primcolor(is-white);
-	border-bottom: 1px solid colors.seccolor(is-slate);
+	border-bottom: 1px solid colors.seccolor(is-cloud);
 	border-radius: 4px 4px 0px 0px;
-	box-shadow: 0px 1px 4px 0 colors.seccolor(is-slate); // NEED TO BE DISCUSSED WITH TEAM //
-	@include mediaQ.tablet {
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM // 
+	@include mediaQ.tablet{ 
 		padding: 1.5rem 2rem 2rem 2rem;
 		display: flex;
 		flex-direction: row;
@@ -91,14 +91,14 @@
 	justify-content: left;
 	padding: 1.25rem;
 	background-color: colors.primcolor(is-white);
-	border-bottom: 1px solid colors.seccolor(is-slate);
-	box-shadow: 0px 1px 4px 0 colors.seccolor(is-slate); // NEED TO BE DISCUSSED WITH TEAM //
-	@include mediaQ.tablet {
+	border-bottom: 1px solid colors.seccolor(is-cloud);
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM // 
+	@include mediaQ.tablet{ 
 		padding: paddingandmargins.$tabLR;
 		display: flex;
 		flex-direction: row;
 		justify-content: left;
-		border-bottom: 1px solid colors.seccolor(is-slate);
+		border-bottom: 1px solid colors.seccolor(is-cloud);
 		box-shadow: none;
 		width: 100%;
 	}
