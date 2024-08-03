@@ -61,10 +61,6 @@ button.warehouse__form-button {
 	border: none;
 	@include mediaQ.tablet {
 		margin-left: paddingandmargins.$tabDEF;
-		width: 10rem;
-	}
-	@include mediaQ.desktop {
-		width: 11.5rem;
 	}
 }
 
