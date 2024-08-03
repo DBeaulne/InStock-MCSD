@@ -245,10 +245,10 @@
 			background-color: hsl(144, 73%, 30%, 7%);
 		}
 
-		// &-outstock {
-		//     color: #C94515;
-		//     background-color: hsl(16, 81%, 44% , 7%);
-		// }
+		&-outstock {
+		    color: #C94515;
+		    background-color: hsl(16, 81%, 44% , 7%);
+		}
 	}
 
 	@include mediaQ.tablet {
