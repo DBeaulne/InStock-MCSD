@@ -94,6 +94,7 @@ const InventoryList = () => {
               quantity={quantity}
               status={status}
               warehouse={warehouse_name}
+              deleteInventoryItemBtn={deleteInventoryItemBtn}
               />
             )
         })} 
