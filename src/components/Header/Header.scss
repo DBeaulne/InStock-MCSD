@@ -1,0 +1,82 @@
+/* Header styling */
+
+@use "../../styles/partials/colors" as c;
+@use "../../styles/partials/globals" as g;
+@use "../../styles/partials/fontfamily" as ff;
+@use "../../styles/partials/mobilefont" as mobFont;
+@use "../../styles/partials/tabletdesktopfont" as tdFont;
+@use "../../styles/partials/mediaQ" as mQ;
+@use "../../styles/partials/paddingandmargins" as padMarg;
+
+a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: c.seccolor(is-cloud);
+	width: 10rem;
+	height: 2.25rem;
+
+	h3 {
+		@include mobFont.mob-header-h3;
+
+		@include mQ.tablet {
+			@include tdFont.tab-desk-header-h3;
+		}
+	}
+
+	&:hover {
+		color: c.primcolor(is-white);
+		text-decoration: underline;
+	}
+
+	@include mQ.tablet {
+		width: 6.75rem;
+		height: 2.5rem;
+	}
+
+	&.active {
+		color: c.primcolor(is-white);
+		background-color: c.primcolor(is-black);
+		border-radius: 1.25rem;
+	}
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: padMarg.$mobDEF;
+	background: c.bgcolor(is-graphite);
+
+	@include mQ.tablet {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: padMarg.$tabLR;
+	}
+
+	@include mQ.desktop {
+		padding-left: 4rem;
+		padding-right: 4rem;
+		padding-top: padMarg.$deskDEF;
+		padding-bottom: padMarg.$deskDEF;
+	}
+
+	&__logo {
+		min-width: 8.125rem;
+	}
+
+	&__nav {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		justify-content: space-around;
+		padding-top: padMarg.$mobDEF;
+
+		@include mQ.tablet {
+			padding-top: unset;
+			width: 30%;
+			justify-content: flex-end;
+		}
+	}
+}

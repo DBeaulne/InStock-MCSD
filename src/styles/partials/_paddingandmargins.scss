@@ -1,0 +1,29 @@
+/*
+
+LR = LEFT RIGHT
+TB = TOP BOTTOM
+DEF = DEFAULT
+
+.example {
+    padding: $mobLR
+    padding-top: $mobDEF
+{
+
+*/ 
+
+//MOBILE//
+
+$mobLR: 0rem 1rem;
+$mobTB: 1rem 0rem;
+$mobDEF: 1rem;
+
+//TABLET//
+
+$tabLR: 0rem 2rem;
+$tabTB: 0rem 1.5rem;
+$tabDEF: 1.5rem;
+
+//DESKTOP//
+
+$deskLR: 0rem 4rem;
+$deskDEF: 1.5rem;
