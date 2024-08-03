@@ -10,7 +10,7 @@ const Input = ({
   value,
   txtArea,
   search,
-  errorMessage,
+  onChange,
 }) => {
   const [focus, setFocus] = useState("");
   const [error, setError] = useState("");
@@ -31,27 +31,18 @@ const Input = ({
 
   if (txtArea) {
     return (
-      <div>
-        <textarea
-          onInvalid={onInvalid}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          required
-          value={value}
-          className={`site_input site_input--txtArea ${classname} ${focus} ${error}`}
-          placeholder={placeholder}
-          type="text"
-          name={name}
-        />
-        {error ? (
-          <div className="error">
-            <img className="error__icon" src={errorIcon} alt="Error icon" />
-            <p className="error__txt">{errorMessage}</p>
-          </div>
-        ) : (
-          <div className="error__placeholder"></div>
-        )}
-      </div>
+      <textarea
+        onInvalid={onInvalid}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        required
+        value={value}
+        className={`site_input site_input--txtArea ${classname} ${focus} ${error}`}
+        placeholder={placeholder}
+        type="text"
+        name={name}
+        onChange={onChange}
+      />
     );
   } else if (search) {
     return (
@@ -63,33 +54,25 @@ const Input = ({
         value={value}
         className={`site_input ${classname} ${focus} ${error}`}
         placeholder={placeholder}
-        type={type}
+        type="text"
         name={name}
+        onChange={onChange}
       />
     );
   } else {
     return (
-      <div>
-        <input
-          onInvalid={onInvalid}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          required
-          value={value}
-          className={`site_input ${classname} ${focus} ${error}`}
-          placeholder={placeholder}
-          type={type}
-          name={name}
-        />
-        {error ? (
-          <div className="error">
-            <img className="error__icon" src={errorIcon} alt="Error icon" />
-            <p className="error__txt">{errorMessage}</p>
-          </div>
-        ) : (
-          <div className="error__placeholder"></div>
-        )}
-      </div>
+      <input
+        onInvalid={onInvalid}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        required
+        value={value}
+        className={`site_input ${classname} ${focus} ${error}`}
+        placeholder={placeholder}
+        type={type}
+        name={name}
+        onChange={onChange}
+      />
     );
   }
 };

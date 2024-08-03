@@ -12,6 +12,10 @@
   padding: 0.75rem;
   border: 0.0625rem solid colors.seccolor(is-cloud);
   background-color: colors.primcolor(is-white);
+  @include mobilefont.mob-par-p2;
+  @include mediaQ.tablet {
+    @include tabletdesktopfont.tab-desk-par-p2;
+  }
   &--active {
     border: none;
     outline: 0.0625rem solid colors.primcolor(is-indigo);

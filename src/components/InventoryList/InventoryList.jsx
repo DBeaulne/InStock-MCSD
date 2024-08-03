@@ -3,10 +3,11 @@ import "./InventoryList.scss";
 import Inventory from "./Inventory";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
-
+import { useNavigate } from "react-router-dom";
 // MAP FUNCTION TO BE ADDED //
 
 const InventoryList = (inventory) => {
+  const navigate = useNavigate();
   return (
     <>
       <section className="inventories">

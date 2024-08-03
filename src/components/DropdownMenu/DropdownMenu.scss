@@ -20,6 +20,10 @@
     background-position: center right 0.75rem;
     background-repeat: no-repeat;
     background-size: 1.4rem;
+    @include mobilefont.mob-par-p2;
+    @include mediaQ.tablet {
+      @include tabletdesktopfont.tab-desk-par-p2;
+    }
     &:focus {
       border: none;
       outline: 0.0625rem solid colors.primcolor(is-indigo);

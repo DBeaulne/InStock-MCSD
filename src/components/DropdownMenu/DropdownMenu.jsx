@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DropdownMenu.scss";
-import arrowDropDown from "../../assets/icons/arrow_drop_down-24px.svg";
-const DropdownMenu = ({ options, name, className }) => {
+const DropdownMenu = ({
+  options,
+  name,
+  value,
+  className,
+  warehouse,
+  onChange,
+}) => {
   return (
-    <select className={`dropdown__menu ${className}`} name={name}>
-      <option className="dropddown__option1" hidden>
+    <select
+      className={`dropdown__menu ${className}`}
+      name={name}
+      value={value}
+      onChange={onChange}
+    >
+      <option
+        className="dropdown__option1"
+        value=""
+        disabled="disabled"
+        default
+      >
         Please select
       </option>
       {options.map((option, index) => (
-        <option key={index} value={option}>
-          {option}
+        <option key={index} value={warehouse ? option.id : option}>
+          {warehouse ? option.warehouse_name : option}
         </option>
       ))}
     </select>
