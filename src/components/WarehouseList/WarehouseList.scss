@@ -60,6 +60,7 @@ button.warehouse__form-button {
 	background-color: colors.primcolor(is-indigo);
 	color: colors.primcolor(is-white);
 	border: none;
+	width: 100%;
 	@include mediaQ.tablet {
 		margin-left: paddingandmargins.$tabDEF;
 		max-width: 230px;
