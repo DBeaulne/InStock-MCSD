@@ -8,8 +8,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
-// MAP FUNCTION TO BE ADDED //
-
 const InventoryList = () => {
 	let itemName = "Windbreaker"; // temporary variable, delete once invetory.map() is present
 	const [showInventoryModal, setShowInventoryModal] = useState(false);
@@ -18,18 +16,17 @@ const InventoryList = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
-		const getInventories = async (id) => {
-			try {
-				const { data } = await axios.get(`${apiUrl}/inventory`);
-				setInventory(data);
-			} catch (e) {
-				console.log(e);
-			}
-		};
-
 		getInventories();
 	}, [id]);
 
+	const getInventories = async (id) => {
+		try {
+			const { data } = await axios.get(`${apiUrl}/inventory`);
+			setInventory(data);
+		} catch (e) {
+			console.log(e);
+		}
+	};
 	// function to reset showModal state to false to close modal window
 	const handleClose = () => {
 		setShowInventoryModal(false);
@@ -37,23 +34,24 @@ const InventoryList = () => {
 
 	// function to set the warehouse ID state and trigger model window display
 	const deleteInventoryItemBtn = (id) => {
-		id = 38; // temporary variable setting, remove once warehouse.map() exists
 		setInvetoryItemIdToDelete(id);
 		setShowInventoryModal(true);
 	};
 
 	// async function to call the api to delete the warehouse based on the ID
-	const handleDelete = useCallback(async () => {
-		if (inventoryItemIdToDelete !== null) {
-			try {
-				await axios.delete(`${apiUrl}/inventory/${inventoryItemIdToDelete}`);
-				console.log(`Item ${itemName} has been deleted`); // temp debug log, delete before submission
-				handleClose();
-			} catch (e) {
-				console.log("Error deleting item:", e);
+	const handleDelete = useCallback(
+		async (id) => {
+			if (inventoryItemIdToDelete !== null) {
+				try {
+					await axios.delete(`${apiUrl}/inventory/${inventoryItemIdToDelete}`);
+					getInventories().then(() => handleClose());
+				} catch (e) {
+					console.log("Error deleting item:", e);
+				}
 			}
-		}
-	}, [inventoryItemIdToDelete]);
+		},
+		[inventoryItemIdToDelete]
+	);
 
 	return (
 		<>
@@ -87,6 +85,7 @@ const InventoryList = () => {
 						return (
 							<Inventory
 								key={id}
+								InventoryId={id}
 								itemName={item_name}
 								availablity={isAvailable()}
 								category={category}
