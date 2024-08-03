@@ -13,6 +13,10 @@
 		border-radius: 4px 4px 0px 0px;
 		box-shadow: 0px 1px 4px 0 colors.seccolor(is-slate); // NEED TO BE DISCUSSED WITH TEAM //
 	}
+
+	&__btn-wrapper {
+		width: 100%;
+	}
 }
 
 .warehouses__wrapper--form {
@@ -59,8 +63,13 @@ button.warehouse__form-button {
 	background-color: colors.primcolor(is-indigo);
 	color: colors.primcolor(is-white);
 	border: none;
+	width: 100%;
 	@include mediaQ.tablet {
 		margin-left: paddingandmargins.$tabDEF;
+		width: 10rem;
+	}
+	@include mediaQ.desktop {
+		width: 11.5rem;
 	}
 }
 

@@ -4,9 +4,10 @@ import Warehouse from "./Warehouse";
 import SearchBar from "../SearchBar/SearchBar";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
+import AddWarehouse from "../AddWarehouse/AddWarehouse";
 
 // MAP FUNCTION TO BE ADDED //
 
@@ -51,10 +52,14 @@ const WarehouseList = (warehouse) => {
 							classname={"warehouses__form-input"}
 							placeholder={"Search..."}
 						/>
-						<Button
-							className={"warehouse__form-button"}
-							text={"+ Add New Warehouse"}
-						/>
+						<Link
+							to={AddWarehouse}
+							className="warehouses__btn-wrapper">
+							<Button
+								className={"warehouse__form-button"}
+								text={"+ Add New Warehouse"}
+							/>
+						</Link>
 					</form>
 				</div>
 				<div className="warehouses__wrapper">
