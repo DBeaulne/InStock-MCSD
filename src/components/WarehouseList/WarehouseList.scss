@@ -28,10 +28,10 @@
 	@include mediaQ.tablet{ 
 		padding: 1.5rem 2rem 2rem 2rem;
 		display: flex;
-		flex-direction: row; 
+		flex-direction: row;
 		justify-content: space-between;
 		border-bottom: none;
-		box-shadow: none
+		box-shadow: none;
 	}
 }
 
@@ -39,20 +39,19 @@
 	@include mobilefont.mob-header-h1;
 	font-weight: fontfamily.weight(bold);
 	margin-bottom: paddingandmargins.$mobDEF;
-	@include mediaQ.tablet{ 
-		@include tabletdesktopfont.tab-desk-header-h1;	
+	@include mediaQ.tablet {
+		@include tabletdesktopfont.tab-desk-header-h1;
 	}
 }
 
 .warehouses__form {
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		display: flex;
 		justify-content: right;
-		width: 100%;	
-	}
-	@include mediaQ.desktop{ 
 		width: 100%;
-		
+	}
+	@include mediaQ.desktop {
+		width: 100%;
 	}
 }
 
@@ -60,24 +59,26 @@ button.warehouse__form-button {
 	background-color: colors.primcolor(is-indigo);
 	color: colors.primcolor(is-white);
 	border: none;
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		margin-left: paddingandmargins.$tabDEF;
 		width: 10rem;
 	}
-	@include mediaQ.desktop{ 
+	@include mediaQ.desktop {
 		width: 11.5rem;
 	}
 }
 
-.warehouses__wrapper .warehouse h4, .warehouse__button--sort { 
-	@include mediaQ.tablet{ 
+.warehouses__wrapper .warehouse h4,
+.warehouse__button--sort {
+	@include mediaQ.tablet {
 		visibility: hidden;
-		margin-bottom: 0rem
+		margin-bottom: 0rem;
 	}
 }
 
-.warehouses__wrapper .warehouse:first-child h4, .warehouse:first-child button.warehouse__button--sort { 
-	@include mediaQ.tablet{ 
+.warehouses__wrapper .warehouse:first-child h4,
+.warehouse:first-child button.warehouse__button--sort {
+	@include mediaQ.tablet {
 		visibility: visible;
 		margin-bottom: 1.5rem;
 	}
@@ -95,7 +96,7 @@ button.warehouse__form-button {
 	@include mediaQ.tablet{ 
 		padding: paddingandmargins.$tabLR;
 		display: flex;
-		flex-direction: row; 
+		flex-direction: row;
 		justify-content: left;
 		border-bottom: 1px solid colors.seccolor(is-cloud);
 		box-shadow: none;
@@ -113,49 +114,45 @@ button.warehouse__form-button {
 	justify-content: space-between;
 	width: 100%;
 
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		width: 100%;
 	}
 
 	&--inner {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			display: flex;
 			width: 100%;
 		}
 	}
 
 	&--inner-left {
-		justify-content: left;	
-		
+		justify-content: left;
 	}
 
 	&--inner-right {
-		
 		& .warehouse__section-wrapper {
-			
-			&:last-child h4{
+			&:last-child h4 {
 				display: none;
 				text-align: right;
 			}
 
-			@include mediaQ.tablet{ 
-			
-				&:last-child h4{
+			@include mediaQ.tablet {
+				&:last-child h4 {
 					display: block;
 				}
 			}
 		}
 	}
-	
+
 	&--left {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			justify-content: right;
 			width: 40%;
 		}
 	}
 
 	&--right {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			width: 60%;
 		}
 	}
@@ -164,42 +161,41 @@ button.warehouse__form-button {
 .warehouse__section-wrapper {
 	margin-bottom: 1rem;
 	width: 100%;
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		width: 100%;
 	}
 
 	&--location {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			width: 45%;
 		}
 	}
 
 	&--address {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			width: 50%;
 			padding: 0rem 1rem;
 		}
 	}
 
 	&--name {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			width: 33%;
 		}
 	}
 
 	&--info {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			width: 39%;
 		}
 	}
 
 	&--action {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			width: 33%;
 		}
 	}
 }
-
 
 .warehouse__sub-title {
 	@include mobilefont.mob-header-h4;
@@ -207,7 +203,7 @@ button.warehouse__form-button {
 	width: 100%;
 	text-align: start;
 	color: colors.seccolor(is-slate);
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		@include tabletdesktopfont.tab-desk-header-h4;
 	}
 }
@@ -224,14 +220,13 @@ button.warehouse__form-button {
 		font-weight: fontfamily.weight(bold);
 	}
 
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		@include tabletdesktopfont.tab-desk-header-h3;
 	}
 }
 
 .warehouse__wrapper--button {
-
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		display: flex;
 		flex-direction: row;
 		justify-content: right;
@@ -250,7 +245,7 @@ button.warehouse__form-button {
 		background-image: url(../../assets/icons/edit-24px.svg);
 		background-position: center;
 		align-self: end;
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			margin-left: 1.25rem;
 		}
 	}
@@ -261,7 +256,7 @@ button.warehouse__form-button {
 	}
 
 	&--mobile {
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			display: none;
 		}
 	}
@@ -272,7 +267,7 @@ button.warehouse__form-button {
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 1.15rem;
-		margin: 0rem 0rem 0rem .25rem;
+		margin: 0rem 0rem 0rem 0.25rem;
 	}
 
 	&--chevron {
@@ -281,28 +276,27 @@ button.warehouse__form-button {
 		background-position: center 20%;
 		background-repeat: no-repeat;
 		background-size: 1rem;
-		margin: 0rem 0rem 0rem .25rem;
-		@include mediaQ.tablet{ 
+		margin: 0rem 0rem 0rem 0.25rem;
+		@include mediaQ.tablet {
 			background-position: bottom;
 		}
 	}
 
 	&--tablet {
 		display: none;
-		@include mediaQ.tablet{ 
+		@include mediaQ.tablet {
 			display: block;
 		}
 	}
 }
 
-.warehouse__wrapper--button-sort{
+.warehouse__wrapper--button-sort {
 	display: flex;
 	width: fit-content;
 	justify-content: right;
 }
 
-
-.warehouse__wrapper--button-chevron{
+.warehouse__wrapper--button-chevron {
 	display: flex;
 	width: fit-content;
 	justify-content: right;
