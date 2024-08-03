@@ -61,10 +61,7 @@ const InventoryList = (inventory) => {
 					{/* {inventory.map(() => {
 
       })} */}
-					<Inventory
-						itemName={itemName} /* temporary item prop */
-						deleteInventoryItemBtn={deleteInventoryItemBtn} /* temp prop until inventory.map() exists */
-					/>
+					<Inventory />
 				</div>
 				{showInventoryModal && (
 					<Modal
