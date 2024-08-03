@@ -9,7 +9,12 @@ const Inventory = ({
 	chevron,
 	deleteInventoryItemBtn,
 	edititem,
-	itemName
+	itemName,
+	category,
+	status,
+	warehouse,
+	quantity,
+	availablity
 }) => {
 	return (
 		<>
@@ -28,7 +33,7 @@ const Inventory = ({
 								</button>
 							</div>
 							<div className="inventory__wrapper--button-chevron">
-								<p className="inventory__text inventory__text--bold-blue-font">Television</p>
+								<p className="inventory__text inventory__text--bold-blue-font">{itemName}</p>
 								<button
 									onClick={chevron}
 									className="inventory__button inventory__button--chevron">
@@ -45,7 +50,7 @@ const Inventory = ({
 									onClick={sortcategory}
 									className="inventory__button inventory__button--sort inventory__button--tablet"></button>
 							</div>
-							<p className="inventory__text inventory_text--address">Electronics</p>
+							<p className="inventory__text inventory_text--address">{category}</p>
 						</section>
 					</div>
 					<button
@@ -61,8 +66,8 @@ const Inventory = ({
 									onClick={sortstatus}
 									className="inventory__button inventory__button--sort inventory__button--tablet"></button>
 							</div>
-							<p className="inventory__text inventory__text--tag inventory__text--tag-instock inventory__text--tag-outstock">
-								{"IN STOCK"}
+							<p className={`inventory__text inventory__text--tag ${availablity}`}>
+								{status}
 							</p>
 						</section>
 						<section className="inventory__section-wrapper inventory__section-wrapper--qty">
@@ -72,7 +77,7 @@ const Inventory = ({
 									onClick={sortqty}
 									className="inventory__button inventory__button--sort inventory__button--tablet"></button>
 							</div>
-							<p className="inventory__text">{"500"}</p>
+							<p className="inventory__text">{quantity}</p>
 						</section>
 						<section className="inventory__section-wrapper inventory__section-wrapper--warehouse">
 							<div className="inventory__wrapper--button-sort">
@@ -81,7 +86,7 @@ const Inventory = ({
 									onClick={sortwarehouse}
 									className="inventory__button inventory__button--sort inventory__button--tablet"></button>
 							</div>
-							<p className="inventory__text">{"Manhattan"}</p>
+							<p className="inventory__text">{warehouse}</p>
 						</section>
 						<section className="inventory__section-wrapper inventory__section-wrapper--action">
 							<h4 className="inventory__sub-title">ACTION</h4>

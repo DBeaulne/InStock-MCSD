@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./InventoryList.scss";
 import Inventory from "./Inventory";
 import SearchBar from "../SearchBar/SearchBar";
@@ -10,11 +10,25 @@ import { apiUrl } from "../../App";
 
 // MAP FUNCTION TO BE ADDED //
 
-const InventoryList = (inventory) => {
+const InventoryList = () => {
 	let itemName = "Windbreaker"; // temporary variable, delete once invetory.map() is present
 	const [showInventoryModal, setShowInventoryModal] = useState(false);
 	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState(null);
+	const [inventory, setInventory] = useState([]);
 	const { id } = useParams();
+
+	useEffect(() => {
+		const getInventories = async (id) => {
+			try {
+				const { data } = await axios.get(`${apiUrl}/inventory`);
+				setInventory(data);
+			} catch (e) {
+				console.log(e);
+			}
+		};
+
+		getInventories();
+	}, [id]);
 
 	// function to reset showModal state to false to close modal window
 	const handleClose = () => {
@@ -57,14 +71,32 @@ const InventoryList = (inventory) => {
 						/>
 					</form>
 				</div>
-				<div className="inventories__wrapper">
-					{/* {inventory.map(() => {
 
-      })} */}
-					<Inventory
-						itemName={itemName} /* temporary item prop */
-						deleteInventoryItemBtn={deleteInventoryItemBtn} /* temp prop until inventory.map() exists */
-					/>
+				<div className="inventories__wrapper">
+					{inventory.map((item) => {
+						const { category, id, item_name, quantity, status, warehouse_name } = item;
+
+						const isAvailable = () => {
+							if (quantity === 0) {
+								return "inventory__text--tag-outstock";
+							} else {
+								return "inventory__text--tag-instock";
+							}
+						};
+
+						return (
+							<Inventory
+								key={id}
+								itemName={item_name}
+								availablity={isAvailable()}
+								category={category}
+								quantity={quantity}
+								status={status}
+								warehouse={warehouse_name}
+								deleteInventoryItemBtn={deleteInventoryItemBtn}
+							/>
+						);
+					})}
 				</div>
 				{showInventoryModal && (
 					<Modal
