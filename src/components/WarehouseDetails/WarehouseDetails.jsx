@@ -3,17 +3,15 @@ import "./WarehouseDetails.scss";
 import ArrowBackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
 import { useNavigate, useParams } from "react-router-dom";
-import TableHeader from "../TableHeader/TableHeader";
 import axios from "axios";
 import { apiUrl } from "../../App";
+import Inventory from "../InventoryList/Inventory";
 
 const WarehouseDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [warehouseDetails, setWarehouseDetails] = useState([]);
-  const [inventoryList, setInventoryList] = useState([]);
-
-  const tableHeaders = ["Inventory Item", "Category", "Status", "Quantity"];
+  // const [inventoryList, setInventoryList] = useState([]);
 
   useEffect(() => {
     getWarehouse(id);
@@ -86,14 +84,10 @@ const WarehouseDetails = () => {
           </div>
         </div>
         <div className="warehouse-details__bottom">
-          <TableHeader columns={tableHeaders} />
-          {/* {inventoryList.map((item) => (
-          <inventoryList />
-        ))} */}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempore
-          mollitia rem corrupti rerum numquam fugit odio fugiat alias nobis,
-          obcaecati sequi neque, autem doloremque aspernatur similique.
-          Voluptatum, quod blanditiis!
+          {/* {inventory.map(() => {
+
+          })} */}
+          <Inventory /> 
         </div>
       </div>
     </section>
