@@ -10,11 +10,9 @@ import { apiUrl } from "../../App";
 
 const InventoryList = () => {
 	const [showInventoryModal, setShowInventoryModal] = useState(false);
-	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState(null);
+	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState([]);
 	const [inventory, setInventory] = useState([]);
 	const { id } = useParams();
-	let itemName = "";
-
 	useEffect(() => {
 		getInventories();
 	}, [id]);
@@ -33,8 +31,9 @@ const InventoryList = () => {
 	};
 
 	// function to set the warehouse ID state and trigger model window display
-	const deleteInventoryItemBtn = (id) => {
-		setInvetoryItemIdToDelete(id);
+	const deleteInventoryItemBtn = (inventoryId) => {
+		const deleteItem = inventory.filter((deleteItem) => deleteItem.id === inventoryId);
+		setInvetoryItemIdToDelete(deleteItem);
 		setShowInventoryModal(true);
 	};
 
@@ -43,7 +42,7 @@ const InventoryList = () => {
 		async (id) => {
 			if (inventoryItemIdToDelete !== null) {
 				try {
-					await axios.delete(`${apiUrl}/inventory/${inventoryItemIdToDelete}`);
+					await axios.delete(`${apiUrl}/inventory/${inventoryItemIdToDelete[0].id}`);
 					getInventories().then(() => handleClose());
 				} catch (e) {
 					console.log("Error deleting item:", e);
@@ -81,8 +80,6 @@ const InventoryList = () => {
 								return "inventory__text--tag-instock";
 							}
 						};
-						itemName = item_name;
-
 						return (
 							<Inventory
 								key={id}
@@ -102,8 +99,8 @@ const InventoryList = () => {
 					<Modal
 						handleClose={handleClose}
 						handleDelete={handleDelete}
-						title={`Delete ${itemName} inventory item?`}
-						text={`Please confirm that you'd like to delete ${itemName} from the inventory list. You won't be able to undo this action.`}
+						title={`Delete ${inventoryItemIdToDelete[0].item_name} inventory item?`}
+						text={`Please confirm that you'd like to delete ${inventoryItemIdToDelete[0].item_name} from the inventory list. You won't be able to undo this action.`}
 					/>
 				)}
 			</section>
