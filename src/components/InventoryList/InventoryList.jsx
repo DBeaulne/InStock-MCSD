@@ -9,11 +9,11 @@ import axios from "axios";
 import { apiUrl } from "../../App";
 
 const InventoryList = () => {
-	let itemName = "Windbreaker"; // temporary variable, delete once invetory.map() is present
 	const [showInventoryModal, setShowInventoryModal] = useState(false);
 	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState(null);
 	const [inventory, setInventory] = useState([]);
 	const { id } = useParams();
+	let itemName = "";
 
 	useEffect(() => {
 		getInventories();
@@ -81,6 +81,7 @@ const InventoryList = () => {
 								return "inventory__text--tag-instock";
 							}
 						};
+						itemName = item_name;
 
 						return (
 							<Inventory
