@@ -1,3 +1,5 @@
+import React from "react";
+import "./InventoryList.scss";
 import React, { useState, useCallback, useEffect } from "react";
 import "./InventoryList.scss";
 import Inventory from "./Inventory";
