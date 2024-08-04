@@ -21,7 +21,6 @@ const EditInventoryItem = () => {
 
   const { id } = useParams();
 
-  console.log(id);
   const [errors, setErrors] = useState({});
   const [categories, setCategories] = useState([]);
   const [warehouses, setWarehouses] = useState([]);
@@ -96,9 +95,17 @@ const EditInventoryItem = () => {
     }
 
     formData.quantity = parseInt(formData.quantity);
-
+    const updatedInventoryItem = {
+      warehouse_id: formData.warehouse_id,
+      item_name: formData.item_name,
+      description: formData.description,
+      category: formData.category,
+      status: formData.status,
+      quantity: formData.quantity,
+    };
+    console.log(formData);
     try {
-      await axios.put(`${apiUrl}/inventories/${id}`, formData);
+      await axios.put(`${apiUrl}/inventory/${id}`, updatedInventoryItem);
     } catch (e) {
       console.log("Failed to update inventory item.", e);
     }
@@ -115,6 +122,7 @@ const EditInventoryItem = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => {
       const updatedFormData = { ...prev, [name]: value };
 
@@ -246,7 +254,11 @@ const EditInventoryItem = () => {
                       className="inventory-form__radio-input"
                     />
                     <label
-                      className="inventory-form__radio-txt"
+                      className={`inventory-form__radio-txt ${
+                        formData.status === "In Stock"
+                          ? "inventory-form__radio-txt--active"
+                          : ""
+                      }`}
                       htmlFor="in-stock"
                     >
                       In stock
@@ -263,7 +275,11 @@ const EditInventoryItem = () => {
                       className="inventory-form__radio-input"
                     />
                     <label
-                      className="inventory-form__radio-txt"
+                      className={`inventory-form__radio-txt ${
+                        formData.status === "Out of Stock"
+                          ? "inventory-form__radio-txt--active"
+                          : ""
+                      }`}
                       htmlFor="in-stock"
                     >
                       Out of Stock
@@ -296,7 +312,7 @@ const EditInventoryItem = () => {
                     }
                     placeholder="0"
                     name="quantity"
-                    min={0}
+                    min="0"
                     value={formData.quantity}
                     onChange={handleChange}
                   />

@@ -98,6 +98,7 @@ const AddInventoryItem = () => {
       navigate(`/inventory`);
     }
     formData.quantity = parseInt(formData.quantity);
+    console.log(formData);
     try {
       await axios.post(`${apiUrl}/inventory`, formData);
       setFormData({
@@ -240,7 +241,11 @@ const AddInventoryItem = () => {
                       className="inventory-form__radio-input"
                     />
                     <label
-                      className="inventory-form__radio-txt"
+                      className={`inventory-form__radio-txt ${
+                        formData.status === "In Stock"
+                          ? "inventory-form__radio-txt--active"
+                          : ""
+                      }`}
                       htmlFor="in-stock"
                     >
                       In stock
@@ -257,7 +262,11 @@ const AddInventoryItem = () => {
                       className="inventory-form__radio-input"
                     />
                     <label
-                      className="inventory-form__radio-txt"
+                      className={`inventory-form__radio-txt ${
+                        formData.status === "Out of Stock"
+                          ? "inventory-form__radio-txt--active"
+                          : ""
+                      }`}
                       htmlFor="in-stock"
                     >
                       Out of Stock
@@ -290,7 +299,7 @@ const AddInventoryItem = () => {
                     }
                     placeholder="0"
                     name="quantity"
-                    min={0}
+                    min="0"
                     value={formData.quantity}
                     onChange={handleChange}
                   />

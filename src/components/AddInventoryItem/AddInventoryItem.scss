@@ -93,12 +93,12 @@
       color: colors.seccolor(is-slate);
       @include mFont.mob-par-p2;
       font-weight: 600;
+      &--active {
+        color: colors.primcolor(is-black);
+      }
       @include mQ.tablet {
         @include tFont.tab-desk-par-p2;
       }
-    }
-    &-input:checked + &-text {
-      color: colors.primcolor(is-black);
     }
   }
   &__actions {
