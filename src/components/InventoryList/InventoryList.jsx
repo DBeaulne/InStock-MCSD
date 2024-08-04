@@ -13,10 +13,12 @@ const InventoryList = () => {
 	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState([]);
 	const [inventory, setInventory] = useState([]);
 	const { id } = useParams();
+
 	useEffect(() => {
 		getInventories();
 	}, [id]);
 
+	// function to get all the inventory items
 	const getInventories = async (id) => {
 		try {
 			const { data } = await axios.get(`${apiUrl}/inventory`);
@@ -25,12 +27,16 @@ const InventoryList = () => {
 			console.log(e);
 		}
 	};
+
 	// function to reset showModal state to false to close modal window
 	const handleClose = () => {
 		setShowInventoryModal(false);
 	};
 
-	// function to set the warehouse ID state and trigger model window display
+	// function to delete the inventory item based on the id passed in from the inventory list
+	// filter the list of inventory to isolate the inventory item based on the id passed in
+	// then set the state "setInvetoryItemIdToDelete" with the resultant array
+	// then show the modal component
 	const deleteInventoryItemBtn = (inventoryId) => {
 		const deleteItem = inventory.filter((deleteItem) => deleteItem.id === inventoryId);
 		setInvetoryItemIdToDelete(deleteItem);
