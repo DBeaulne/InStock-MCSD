@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import "./WarehouseList.scss";
 import Warehouse from "./Warehouse";
-import SearchBar from "../SearchBar/SearchBar";
+import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import { useParams, Link } from "react-router-dom";
@@ -62,9 +62,10 @@ const WarehouseList = () => {
 				<div className="warehouses__wrapper--form">
 					<h1 className="warehouses__title">Warehouses</h1>
 					<form className="warehouses__form">
-						<SearchBar
-							classname={"warehouses__form-input"}
+						<Input
+							classname={"site_input--input warehouses__form-input"}
 							placeholder={"Search..."}
+							search
 						/>
 						<Link
 							to={AddWarehouse}

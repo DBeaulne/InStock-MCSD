@@ -1,9 +1,8 @@
-import React from "react";
-import "./InventoryList.scss";
 import React, { useState, useCallback, useEffect } from "react";
 import "./InventoryList.scss";
+import "./InventoryList.scss";
 import Inventory from "./Inventory";
-import SearchBar from "../SearchBar/SearchBar";
+import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import { useParams } from "react-router-dom";
@@ -66,9 +65,10 @@ const InventoryList = () => {
 				<div className="inventories__wrapper--form">
 					<h1 className="inventories__title">Inventory</h1>
 					<form className="inventories__form">
-						<SearchBar
+						<Input
 							classname={"inventories__form-input"}
 							placeholder={"Search..."}
+							search
 						/>
 						<Button
 							className={"inventories__form-button"}
