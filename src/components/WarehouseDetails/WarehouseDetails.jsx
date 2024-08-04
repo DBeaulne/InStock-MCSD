@@ -11,17 +11,29 @@ const WarehouseDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [warehouseDetails, setWarehouseDetails] = useState([]);
-  // const [inventoryList, setInventoryList] = useState([]);
+  const [warehouseInventoryList, setWarehouseInventoryList] = useState([]);
 
   useEffect(() => {
     getWarehouse(id);
+    getWarehouseInventories(id)
   }, [id]);
 
   const getWarehouse = async (id) => {
     try {
-      const { data } = await axios.get(`${apiUrl}/warehouses/${id}`);
-      console.log(data);
+      const { data } = await axios.get(`http://localhost:8080/warehouses/${id}`);
+      // `${apiUrl}/warehouses/${id}`
       setWarehouseDetails(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getWarehouseInventories = async (id) => {
+    try {
+      const { data } = await axios.get(`http://localhost:8080/warehouses/${id}/inventories`);
+      // `${apiUrl}/warehouses/${id}`
+      console.log(data);
+      setWarehouseInventoryList(data);
     } catch (e) {
       console.log(e);
     }
@@ -84,10 +96,30 @@ const WarehouseDetails = () => {
           </div>
         </div>
         <div className="warehouse-details__bottom">
-          {/* {inventory.map(() => {
+        {warehouseInventoryList.map((item) => {
+            const { category, id, item_name, quantity, status, warehouse_name } = item;
 
-          })} */}
-          <Inventory /> 
+            const isAvailable = () => {
+              if (quantity === 0 ) {
+                return 'inventory__text--tag-outstock'
+              } else {
+                return 'inventory__text--tag-instock' 
+              }
+            }
+
+            return (
+              <Inventory 
+              key={id}
+              itemName={item_name}
+              availablity={isAvailable()}
+              category={category}
+              quantity={quantity}
+              status={status}
+              warehouse={warehouse_name}
+              // deleteInventoryItemBtn={deleteInventoryItemBtn}
+              />
+            )
+        })} 
         </div>
       </div>
     </section>
