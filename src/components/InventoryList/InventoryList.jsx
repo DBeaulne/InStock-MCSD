@@ -8,19 +8,16 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
-// MAP FUNCTION TO BE ADDED //
-
 const InventoryList = () => {
-	let itemName = "Windbreaker"; // temporary variable, delete once invetory.map() is present
 	const [showInventoryModal, setShowInventoryModal] = useState(false);
 	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState(null);
-  const [inventory, setInventory] = useState([]);
+  	const [inventory, setInventory] = useState([]);
 	const { id } = useParams();
 
   useEffect(() => {
     const getInventories = async (id) => {
       try {
-        const { data } = await axios.get(`${apiUrl}/inventory`)
+        const { data } = await axios.get(`http://localhost:8080/inventory`)
         setInventory(data)  
     } catch (e) {
         console.log(e);
@@ -38,7 +35,6 @@ const InventoryList = () => {
 
 	// function to set the warehouse ID state and trigger model window display
 	const deleteInventoryItemBtn = (id) => {
-		id = 38; // temporary variable setting, remove once warehouse.map() exists
 		setInvetoryItemIdToDelete(id);
 		setShowInventoryModal(true);
 	};
@@ -48,8 +44,7 @@ const InventoryList = () => {
 		if (inventoryItemIdToDelete !== null) {
 			try {
 				await axios.delete(`${apiUrl}/inventory/${inventoryItemIdToDelete}`);
-				console.log(`Item ${itemName} has been deleted`); // temp debug log, delete before submission
-				handleClose();
+				handleClose(); 
 			} catch (e) {
 				console.log("Error deleting item:", e);
 			}
@@ -74,30 +69,29 @@ const InventoryList = () => {
 				</div>
         
 				<div className="inventories__wrapper">
-					{inventory.map((item) => {
-            const { category, id, item_name, quantity, status, warehouse_name } = item;
+				{inventory.map((item) => {
+            		const { category, id, item_name, quantity, status, warehouse_name } = item;
 
-            const isAvailable = () => {
-              if (quantity === 0 ) {
-                return 'inventory__text--tag-outstock'
-              } else {
-                return 'inventory__text--tag-instock' 
-              }
-            }
+				const isAvailable = () => {
+				if (quantity === 0 ) {
+					return 'inventory__text--tag-outstock'
+				} else {
+					return 'inventory__text--tag-instock' 
+				}}
 
-            return (
-              <Inventory 
-              key={id}
-              itemName={item_name}
-              availablity={isAvailable()}
-              category={category}
-              quantity={quantity}
-              status={status}
-              warehouse={warehouse_name}
-              deleteInventoryItemBtn={deleteInventoryItemBtn}
-              />
-            )
-        })} 
+				return (
+					<Inventory 
+					key={id}
+					itemName={item_name}
+					availablity={isAvailable()}
+					category={category}
+					quantity={quantity}
+					status={status}
+					warehouse={warehouse_name}
+					deleteInventoryItemBtn={deleteInventoryItemBtn}
+					/>
+				)
+				})} 
 					
 				</div>
 				{showInventoryModal && (
