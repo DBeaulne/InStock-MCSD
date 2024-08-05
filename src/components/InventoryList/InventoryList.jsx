@@ -10,8 +10,10 @@ import { apiUrl } from "../../App";
 
 const InventoryList = () => {
 	const [showInventoryModal, setShowInventoryModal] = useState(false);
+
 	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState([]);
 	const [inventory, setInventory] = useState([]);
+
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -33,6 +35,7 @@ const InventoryList = () => {
 		setShowInventoryModal(false);
 	};
 
+
 	// function to delete the inventory item based on the id passed in from the inventory list
 	// filter the list of inventory to isolate the inventory item based on the id passed in
 	// then set the state "setInvetoryItemIdToDelete" with the resultant array
@@ -40,12 +43,14 @@ const InventoryList = () => {
 	const deleteInventoryItemBtn = (inventoryId) => {
 		const deleteItem = inventory.filter((deleteItem) => deleteItem.id === inventoryId);
 		setInvetoryItemIdToDelete(deleteItem);
+
 		setShowInventoryModal(true);
 	};
 
 	// async function to call the api to delete the warehouse based on the ID
+
 	const handleDelete = useCallback(
-		async (id) => {
+		async () => {
 			if (inventoryItemIdToDelete !== null) {
 				try {
 					await axios.delete(`${apiUrl}/inventory/${inventoryItemIdToDelete[0].id}`);
@@ -53,6 +58,7 @@ const InventoryList = () => {
 				} catch (e) {
 					console.log("Error deleting item:", e);
 				}
+
 			}
 		},
 		[inventoryItemIdToDelete]
@@ -100,6 +106,7 @@ const InventoryList = () => {
 							/>
 						);
 					})}
+
 				</div>
 				{showInventoryModal && (
 					<Modal

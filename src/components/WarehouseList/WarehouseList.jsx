@@ -9,6 +9,7 @@ import axios from "axios";
 import { apiUrl } from "../../App";
 
 const WarehouseList = () => {
+
 	const [showWarehouseModal, setShowWarehouseModal] = useState(false);
 	const [warehouseIdToDelete, setWarehouseIdToDelete] = useState([]);
 	const [warehouse, setWarehouse] = useState([]);
@@ -32,6 +33,7 @@ const WarehouseList = () => {
 	const handleClose = () => {
 		setShowWarehouseModal(false);
 	};
+
 
 	// function to delete the warehouse based on the id passed in from the warehouse list
 	// filter the list of warehouses to isolate the warehouse based on the id passed in
@@ -73,9 +75,9 @@ const WarehouseList = () => {
 				</div>
 				<div className="warehouses__wrapper">
 					{warehouse.map((warehouse) => {
+
 						const { id, warehouse_name, address, city, country, contact_email, contact_name, contact_phone } =
 							warehouse;
-
 						return (
 							<Warehouse
 								key={id}

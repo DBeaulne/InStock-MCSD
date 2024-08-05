@@ -265,9 +265,11 @@
 }
 
 .inventory__button {
-	width: 1rem;
-	height: 1.25rem;
+	width: 1.5rem;
+	height: 1.5rem;
 	border: none;
+	background-repeat: no-repeat;
+	background-color: white;
 	&:hover {
 		cursor: pointer;
 	}
@@ -293,19 +295,15 @@
 	}
 
 	&--sort {
-		background-color: white;
 		background-image: url(../../assets/icons/sort-24px.svg);
 		background-position: center;
-		background-repeat: no-repeat;
 		background-size: 1.15rem;
 		margin: 0rem 0rem 0rem 0.25rem;
 	}
 
 	&--chevron {
-		background-color: white;
 		background-image: url(../../assets/icons/chevron_right-24px.svg);
 		background-position: center 20%;
-		background-repeat: no-repeat;
 		background-size: 1rem;
 		margin: 0rem 0rem 0rem 0.25rem;
 		@include mediaQ.tablet {
