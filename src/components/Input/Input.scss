@@ -35,6 +35,9 @@
     height: 2.25rem;
     min-width: 240px;
     max-height: 36px;
+    @include mediaQ.tablet {
+      height: 2.375rem;
+    }
   }
   &--txtArea {
     resize: none;
@@ -44,6 +47,9 @@
   &--number {
     max-height: 1122px;
     height: 2.25rem;
+    @include mediaQ.tablet {
+      height: 2.375rem;
+    }
     @include mediaQ.desktop {
       width: 6rem;
     }
