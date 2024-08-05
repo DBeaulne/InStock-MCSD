@@ -71,7 +71,6 @@
 - edited delete button onClick property to include callback function instead of prop
 - tested with temp variables until inventory.map() exists
 
-<<<<<<< HEAD
 ```bash
 REACT_APP_API_BASE_URL=<Insert backend api url here>
 ```
@@ -84,5 +83,3 @@ REACT_APP_API_BASE_URL=<Insert backend api url here>
 - Created a reusable component for inventory form.
 - Added to the Add Inventory Item component.
 - Passed an onClick prop to the button component.
-=======
->>>>>>> develop

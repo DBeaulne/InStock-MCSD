@@ -9,21 +9,12 @@
 @use "../../styles/partials/paddingandmargins" as padMarg;
 
 a {
-<<<<<<< HEAD
   display: flex;
   align-items: center;
   justify-content: center;
-  color: seccolor(is-cloud);
+  color: c.seccolor(is-cloud);
   width: 10rem;
   height: 2.25rem;
-=======
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: c.seccolor(is-cloud);
-	width: 10rem;
-	height: 2.25rem;
->>>>>>> develop
 
   h3 {
     @include mobFont.mob-header-h3;
@@ -51,39 +42,17 @@ a {
 }
 
 .header {
-<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: padMarg.$mobDEF;
   background: c.bgcolor(is-graphite);
 
   @include mQ.tablet {
     flex-direction: row;
     justify-content: space-between;
-    padding: padMarg.$tabLR;
+    padding: 1.5rem 2rem 1.5rem 2rem;
   }
-
-  @include mQ.desktop {
-    padding-left: 4rem;
-    padding-right: 4rem;
-    padding-top: padMarg.$deskDEF;
-    padding-bottom: padMarg.$deskDEF;
-  }
-=======
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: padMarg.$mobDEF;
-	background: c.bgcolor(is-graphite);
-
-	@include mQ.tablet {
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 1.5rem 2rem 1.5rem 2rem;
-	}
->>>>>>> develop
 
   &__logo {
     min-width: 8.125rem;

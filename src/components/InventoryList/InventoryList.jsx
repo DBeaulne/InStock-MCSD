@@ -90,6 +90,7 @@ const InventoryList = () => {
             return (
               <Inventory
                 key={id}
+                id={id}
                 itemName={item_name}
                 availablity={isAvailable()}
                 category={category}
