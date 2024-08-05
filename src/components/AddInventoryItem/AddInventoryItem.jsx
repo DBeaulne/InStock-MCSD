@@ -291,7 +291,7 @@ const AddInventoryItem = () => {
                     Quantity
                   </label>
                   <Input
-                    type="number"
+                    number
                     classname={
                       errors.quantity
                         ? "site_input--error site_input--number"
