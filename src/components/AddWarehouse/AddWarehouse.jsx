@@ -6,7 +6,6 @@ import axios from "axios";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import errorIcon from "../../assets/icons/error-24px.svg";
-
 import { apiUrl } from "../../App";
 
 const AddWarehouse = () => {
@@ -29,10 +28,6 @@ const AddWarehouse = () => {
 		const { name, value } = e.target;
 		setFormData((prev) => {
 			const updatedFormData = { ...prev, [name]: value };
-
-			if (name === "status" && value === "Out of Stock") {
-				updatedFormData.quantity = "0";
-			}
 
 			if (errors[name]) {
 				setErrors((prev) => {
@@ -62,13 +57,6 @@ const AddWarehouse = () => {
 				newErrors[key] = "This field is required.";
 			}
 		});
-
-		if (formData.status === "In Stock" && (!formData.quantity || formData.quantity === "0")) {
-			newErrors.quantity = "Quantity is required when status is in stock.";
-		} else if (formData.quantity && isNaN(formData.quantity)) {
-			newErrors.quantity = "Quantity must be a number.";
-		}
-
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
 	};
@@ -78,20 +66,22 @@ const AddWarehouse = () => {
 		if (!validateForm()) {
 			return;
 		}
-		const confirmSubmit = window.confirm("Add new item?");
+		const confirmSubmit = window.confirm("Add new warehouse?");
 		if (confirmSubmit) {
 			navigate(`/warehouses`);
 		}
-		formData.quantity = parseInt(formData.quantity);
 		try {
-			await axios.post(`${apiUrl}/warehouses`, formData);
-			setFormData({
-				warehouse_id: "",
-				item_name: "",
-				description: "",
-				category: "",
-				status: "In Stock",
-				quantity: 0
+			await axios.post(`${apiUrl}/warehouses`, formData).then(() => {
+				setFormData({
+					warehouse_name: "",
+					address: "",
+					city: "",
+					country: "",
+					contact_name: "",
+					contact_position: "",
+					contact_phone: "",
+					contact_email: ""
+				});
 			});
 		} catch (e) {
 			console.log("Failed to add warehouse.", e);
@@ -107,7 +97,7 @@ const AddWarehouse = () => {
 
 	useEffect(() => {
 		getWarehouses();
-	}, []);
+	}, [formData]);
 
 	return (
 		<div className="add-warehouse__container">
