@@ -83,6 +83,7 @@ const WarehouseList = () => {
             return (
               <Warehouse
                 key={id}
+                id={id}
                 location={warehouse_name}
                 address={address}
                 city={city}
