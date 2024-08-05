@@ -8,10 +8,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
-// MAP FUNCTION TO BE ADDED //
-
 const WarehouseList = () => {
-	let location = "Washington"; // temporary variable, delete once warehouse.map() is ready
 	const [showModal, setShowModal] = useState(false);
 	const [warehouseIdToDelete, setWarehouseIdToDelete] = useState(null);
 	const { id } = useParams();
@@ -37,7 +34,6 @@ const WarehouseList = () => {
 
 	// function to set the warehouse ID state and trigger model window display
 	const deleteWarehouseBtn = (id) => {
-		id = 5; // temporary variable setting, remove once warehouse.map() exists
 		setWarehouseIdToDelete(id);
 		setShowModal(true);
 	};
@@ -47,7 +43,6 @@ const WarehouseList = () => {
 		if (warehouseIdToDelete !== null) {
 			try {
 				await axios.delete(`${apiUrl}/warehouses/${warehouseIdToDelete}`);
-				console.log("Warehouse deleted"); // temp debug log, delete before submission
 				handleClose();
 			} catch (e) {
 				console.log("Error deleting warehouse:", e);
@@ -88,7 +83,6 @@ const WarehouseList = () => {
 						email={contact_email}
 						name={contact_name}
 						deleteWarehouseBtn={deleteWarehouseBtn}
-						// editWarehouseBtn={} /* temp prop until warehouse.map() exists */
 					/>
 					)
 
