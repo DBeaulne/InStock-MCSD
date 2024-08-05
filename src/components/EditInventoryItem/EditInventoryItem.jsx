@@ -30,7 +30,7 @@ const EditInventoryItem = () => {
   useEffect(() => {
     getCategories();
     getWarehouses();
-    getItemDetails();
+    getItemDetails(id);
   }, [id]);
 
   const getCategories = async () => {
@@ -53,9 +53,9 @@ const EditInventoryItem = () => {
     }
   };
 
-  const getItemDetails = async () => {
+  const getItemDetails = async (videoId) => {
     try {
-      const response = await axios.get(`${apiUrl}/inventory/${id}`);
+      const response = await axios.get(`${apiUrl}/inventory/${videoId}`);
       setFormData(response.data);
     } catch (e) {
       console.log(e);
@@ -146,19 +146,19 @@ const EditInventoryItem = () => {
     });
   };
   return (
-    <div className="add-inventory__container">
-      <div className="add-inventory__top">
+    <div className="edit-inventory__container">
+      <div className="edit-inventory__top">
         <img
-          className="add-inventory__back-icon"
+          className="edit-inventory__back-icon"
           src={ArrowBackIcon}
           alt="Back Icon"
           onClick={() => {
             navigate("/inventory");
           }}
         />
-        <h1 className="add-inventory__heading">Edit Inventory Item</h1>
+        <h1 className="edit-inventory__heading">Edit Inventory Item</h1>
       </div>
-      <div className="add-inventory__bottom">
+      <div className="edit-inventory__bottom">
         <form className="inventory-form">
           <div className="inventory-form__wrapper">
             <div className="inventory-form__top">

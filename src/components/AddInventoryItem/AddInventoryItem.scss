@@ -31,7 +31,12 @@
   }
   &__back-icon {
     height: 1.6rem;
-    cursor: pointer;
+
+    &-container {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 

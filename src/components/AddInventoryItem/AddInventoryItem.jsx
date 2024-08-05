@@ -98,7 +98,7 @@ const AddInventoryItem = () => {
     console.log(formData);
     try {
       const response = await axios.post(`${apiUrl}/inventory`, formData);
-      if (confirmSubmit && response.status == 200) {
+      if (confirmSubmit && response.status === 200) {
         setFormData({
           warehouse_id: "",
           item_name: "",
@@ -130,14 +130,17 @@ const AddInventoryItem = () => {
   return (
     <div className="add-inventory__container">
       <div className="add-inventory__top">
-        <img
-          className="add-inventory__back-icon"
-          src={ArrowBackIcon}
-          alt="Back Icon"
-          onClick={() => {
-            navigate("/inventory");
-          }}
-        />
+        <div className="add-inventory__back-icon-container">
+          <img
+            className="add-inventory__back-icon"
+            src={ArrowBackIcon}
+            alt="Back Icon"
+            onClick={() => {
+              navigate("/inventory");
+            }}
+          />
+        </div>
+
         <h1 className="add-inventory__heading">Add New Inventory Item</h1>
       </div>
       <div className="add-inventory__bottom">
