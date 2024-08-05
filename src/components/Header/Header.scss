@@ -15,8 +15,7 @@ a {
 	color: c.seccolor(is-cloud);
 	width: 10rem;
 	height: 2.25rem;
-
-	h3 {
+	>>>>>>>>>Temporary merge branch 2 h3 {
 		@include mobFont.mob-header-h3;
 
 		@include mQ.tablet {
@@ -52,13 +51,6 @@ a {
 		flex-direction: row;
 		justify-content: space-between;
 		padding: 1.5rem 2rem 1.5rem 2rem;
-	}
-
-	@include mQ.desktop {
-		padding-left: 4rem;
-		padding-right: 4rem;
-		padding-top: padMarg.$deskDEF;
-		padding-bottom: padMarg.$deskDEF;
 	}
 
 	&__logo {
