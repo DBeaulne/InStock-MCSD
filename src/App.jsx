@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import ItemDetailsPage from "./pages/ItemDetailsPage/ItemDetailsPage.js";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
 import "./App.scss";
+import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem.jsx";
 
 export const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
@@ -20,22 +21,32 @@ function App() {
 						path='/warehouses'
 						element={<WarehousesPage />}
 					/>
+
 					<Route
 						path='/'
 						element={<Navigate to='/warehouses' />}
 					/>
+
 					<Route
 						path='/warehouses/:id'
 						element={<WarehouseDetails />}
 					/>
+
 					<Route
 						path='/inventory'
 						element={<InventoryPage />}
 					/>
+
 					<Route
 						path='/inventory/:id'
 						element={<ItemDetailsPage />}
 					/>
+
+					<Route
+						path='/inventory/add'
+						element={<AddInventoryItem />}
+					/>
+
 					<Route
 						path='*'
 						element={<NotFoundPage />}

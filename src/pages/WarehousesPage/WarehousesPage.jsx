@@ -6,7 +6,6 @@ const WarehousesPage = () => {
   return (
     <WarehouseList />
   )
-  
 };
 
 export default WarehousesPage;

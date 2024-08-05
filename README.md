@@ -15,8 +15,6 @@
 
 -   sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
 -   downloaded font family and created folder for fonts to store locally
--   sass partials added( \_colors, \_fontfamily, \_globals, \_mediaQ, \_mobilefont \_tabletdesktopfont, \_paddingandmargins)
--   downloaded font family and created folder for fonts to store locally
 -   updated \_global partial to import \_fontfamily partial for proper font weight
 
 ### Footer
@@ -51,6 +49,25 @@
 -   added h3 tag to link elements
 -   included font-sizing to scss for h3 tags
 
+## feature/delete-warehouse-modal-daniel
+
+-   added react-modal package
+-   created modal component .jsx and .scss files
+-   coded and styled modal component for mobile breakpoint
+-   styled for tablet breakpoint
+-   styled for desktop breakpoint
+-   added functionality to cancel & close modal window
+-   added close icon, added functionality to close modal window
+-   added functionality to delete warehouse
+-   refactored modal component to take in props so that it can be used for the delete inventory ticket
+-   refactored deleteWarehouseBtn logic to map warehouse state so we could use the warehouse_name property in the modal window title and text verbiage
+
+## feature/ delete inventory modal
+
+-   integrated Modal component into InventoryList.jsx
+-   edited delete button onClick property to include callback function instead of prop
+-   tested with temp variables until inventory.map() exists
+
 ## Warehouse details component
 
 -   Added api url to app.jsx
@@ -64,3 +81,12 @@
 ```bash
 REACT_APP_API_BASE_URL=<Insert backend api url here>
 ```
+
+## Add Inventory Item component
+
+-   Changed Search bar component name to Input.
+-   Added more functionality to the the input component
+-   Created a component for Dropdown Menu.
+-   Created a reusable component for inventory form.
+-   Added to the Add Inventory Item component.
+-   Passed an onClick prop to the button component.
