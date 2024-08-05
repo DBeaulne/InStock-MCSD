@@ -7,72 +7,72 @@
 @use "../../styles/partials/tabletdesktopfont";
 
 .site_input {
-  width: 100%;
-  border-radius: 20px;
-  padding: 0.75rem;
-  border: 0.0625rem solid colors.seccolor(is-cloud);
-  background-color: colors.primcolor(is-white);
-  @include mobilefont.mob-par-p2;
-  @include mediaQ.tablet {
-    @include tabletdesktopfont.tab-desk-par-p2;
-  }
-  &::placeholder {
-    color: colors.seccolor(is-slate);
-    @include mobilefont.mob-par-p2;
-    @include mediaQ.tablet {
-      @include tabletdesktopfont.tab-desk-par-p2;
-    }
-  }
-  &--active {
-    border: none;
-    outline: 0.0625rem solid colors.primcolor(is-indigo);
-  }
-  &--error {
-    border: none;
-    outline: 0.0625rem solid colors.suppcolor(is-red);
-  }
-  &--input {
-    height: 2.25rem;
-    max-height: 36px;
-    @include mediaQ.tablet {
-      height: 2.375rem;
-    }
-  }
-  &--txtArea {
-    resize: none;
-    max-height: 122px;
-    height: 8rem;
-  }
-  &--number {
-    max-height: 1122px;
-    height: 2.25rem;
-    @include mediaQ.tablet {
-      height: 2.375rem;
-    }
-    @include mediaQ.desktop {
-      width: 6rem;
-    }
-  }
+	width: 100%;
+	border-radius: 20px;
+	padding: 0.75rem;
+	border: 0.0625rem solid colors.seccolor(is-cloud);
+	background-color: colors.primcolor(is-white);
+	@include mobilefont.mob-par-p2;
+	@include mediaQ.tablet {
+		@include tabletdesktopfont.tab-desk-par-p2;
+	}
+	&::placeholder {
+		color: colors.seccolor(is-slate);
+		@include mobilefont.mob-par-p2;
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-par-p2;
+		}
+	}
+	&--active {
+		border: none;
+		outline: 0.0625rem solid colors.primcolor(is-indigo);
+	}
+	&--error {
+		border: none;
+		outline: 0.0625rem solid colors.suppcolor(is-red);
+	}
+	&--input {
+		height: 2.25rem;
+		max-height: 36px;
+		@include mediaQ.tablet {
+			height: 2.375rem;
+		}
+	}
+	&--txtArea {
+		resize: none;
+		max-height: 122px;
+		height: 8rem;
+	}
+	&--number {
+		max-height: 1122px;
+		height: 2.25rem;
+		@include mediaQ.tablet {
+			height: 2.375rem;
+		}
+		@include mediaQ.desktop {
+			width: 6rem;
+		}
+	}
 }
 
 .warehouses__form-input {
-  appearance: none;
-  background-image: url(../../assets//icons/search-24px.svg);
-  background-position: center right 1rem;
-  background-size: 1rem;
-  background-repeat: no-repeat;
-  padding: 1rem;
-  margin-bottom: paddingandmargins.$mobDEF;
-  @include mediaQ.tablet {
-    width: 100%;
-    max-width: 230px;
-    background-size: 1.75rem;
-  }
-  &:focus {
-    background-image: none;
-  }
+	appearance: none;
+	background-image: url(../../assets//icons/search-24px.svg);
+	background-position: center right 1rem;
+	background-size: 1rem;
+	background-repeat: no-repeat;
+	padding: 1rem;
+	margin-bottom: paddingandmargins.$mobDEF;
+	@include mediaQ.tablet {
+		width: 100%;
+		max-width: 230px;
+		background-size: 1.75rem;
+	}
+	&:focus {
+		background-image: none;
+	}
 }
- 
+
 .inventories__form-input {
-  @extend .warehouses__form-input
+	@extend .warehouses__form-input;
 }

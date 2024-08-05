@@ -119,6 +119,7 @@ const AddInventoryItem = () => {
 			console.log("Failed to add inventory item.", e);
 		}
 	};
+
 	const handleCancel = async () => {
 		const confirmCancel = window.confirm(
 			"Are you sure you want to cancel? Your changes will not be saved."
