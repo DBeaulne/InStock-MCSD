@@ -17,7 +17,7 @@ const InventoryList = () => {
   useEffect(() => {
     const getInventories = async (id) => {
       try {
-        const { data } = await axios.get(`http://localhost:8080/inventory`)
+        const { data } = await axios.get(`${apiUrl}/inventory`)
         setInventory(data)  
     } catch (e) {
         console.log(e);
@@ -26,7 +26,6 @@ const InventoryList = () => {
 
     getInventories();
   }, [id]);
-
 
 	// function to reset showModal state to false to close modal window
 	const handleClose = () => {
