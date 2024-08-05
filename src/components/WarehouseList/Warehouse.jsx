@@ -2,18 +2,20 @@ import "./WarehouseList.scss";
 
 const Warehouse = ({
 	id,
-	name,
-	number,
-	email,
 	location,
 	address,
+	city,
+	country,
+	name,
+	phone,
+	email,
 	sortaddress,
 	sortname,
 	sortinfo,
 	sortwarehouse,
 	chevron,
 	deleteWarehouseBtn,
-	editwarehouse
+	editWarehouseBtn
 }) => {
 	return (
 		<>
@@ -32,7 +34,7 @@ const Warehouse = ({
 								</button>
 							</div>
 							<div className="warehouse__wrapper--button-chevron">
-								<p className="warehouse__text warehouse__text--bold-blue-font">Manhattan</p>
+								<p className="warehouse__text warehouse__text--bold-blue-font">{location}</p>
 								<button
 									onClick={chevron}
 									className="warehouse__button warehouse__button--chevron">
@@ -49,7 +51,7 @@ const Warehouse = ({
 									onClick={sortaddress}
 									className="warehouse__button warehouse__button--sort warehouse__button--tablet"></button>
 							</div>
-							<p className="warehouse__text warehouse__text--address">24 Broadway New York, USA</p>
+							<p className="warehouse__text warehouse__text--address">{`${address}, ${city}, ${country}`}</p>
 						</section>
 					</div>
 					<button
@@ -65,7 +67,7 @@ const Warehouse = ({
 									onClick={sortname}
 									className="warehouse__button warehouse__button--sort warehouse__button--tablet"></button>
 							</div>
-							<p className="warehouse__text">{`Mark Hermosa`}</p>
+							<p className="warehouse__text">{name}</p>
 						</section>
 						<section className="warehouse__section-wrapper warehouse__section-wrapper--info">
 							<div className="warehouse__wrapper--button-sort">
@@ -74,8 +76,8 @@ const Warehouse = ({
 									onClick={sortinfo}
 									className="warehouse__button warehouse__button--sort warehouse__button--tablet"></button>
 							</div>
-							<p className="warehouse__text">{"123123123"}</p>
-							<p className="warehouse__text">{"mark.example@gmail.com"}</p>
+							<p className="warehouse__text">{phone}</p>
+							<p className="warehouse__text">{email}</p>
 						</section>
 						<section className="warehouse__section-wrapper warehouse__section-wrapper--action">
 							<h4 className="warehouse__sub-title">ACTIONS</h4>
@@ -84,13 +86,13 @@ const Warehouse = ({
 									onClick={() => deleteWarehouseBtn(id)}
 									className="warehouse__button warehouse__button--delete warehouse__button--tablet"></button>
 								<button
-									onClick={editwarehouse}
+									onClick={editWarehouseBtn}
 									className="warehouse__button warehouse__button--edit warehouse__button--tablet"></button>
 							</div>
 						</section>
 					</div>
 					<button
-						onClick={editwarehouse}
+						onClick={editWarehouseBtn}
 						className="warehouse__button warehouse__button--edit warehouse__button--mobile"></button>
 				</div>
 			</div>

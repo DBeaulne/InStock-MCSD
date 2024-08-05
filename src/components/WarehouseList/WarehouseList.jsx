@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./WarehouseList.scss";
 import Warehouse from "./Warehouse";
 import SearchBar from "../SearchBar/SearchBar";
@@ -8,13 +8,24 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
-// MAP FUNCTION TO BE ADDED //
-
-const WarehouseList = (warehouse) => {
-	let location = "Washington"; // temporary variable, delete once warehouse.map() is ready
+const WarehouseList = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [warehouseIdToDelete, setWarehouseIdToDelete] = useState(null);
 	const { id } = useParams();
+	const [warehouse, setWarehouse] = useState([])
+
+	useEffect(() => {
+		const getWarehouses = async (id) => {
+		  try {
+			const { data } = await axios.get(`${apiUrl}/warehouses`)
+			setWarehouse(data)  
+		} catch (e) {
+			console.log(e);
+		  }
+		};
+	
+		getWarehouses();
+	  }, [id]);
 
 	// function to reset showModal state to false to close modal window
 	const handleClose = () => {
@@ -23,7 +34,6 @@ const WarehouseList = (warehouse) => {
 
 	// function to set the warehouse ID state and trigger model window display
 	const deleteWarehouseBtn = (id) => {
-		id = 5; // temporary variable setting, remove once warehouse.map() exists
 		setWarehouseIdToDelete(id);
 		setShowModal(true);
 	};
@@ -33,7 +43,6 @@ const WarehouseList = (warehouse) => {
 		if (warehouseIdToDelete !== null) {
 			try {
 				await axios.delete(`${apiUrl}/warehouses/${warehouseIdToDelete}`);
-				console.log("Warehouse deleted"); // temp debug log, delete before submission
 				handleClose();
 			} catch (e) {
 				console.log("Error deleting warehouse:", e);
@@ -58,13 +67,27 @@ const WarehouseList = (warehouse) => {
 					</form>
 				</div>
 				<div className="warehouses__wrapper">
-					{/* {warehouse.map(() => {
+					{warehouse.map((warehouse) => {
+					
+					const { id, warehouse_name, address, city, country, contact_email, contact_name, contact_phone
+					} = warehouse
 
-      })} */}
+					return (
 					<Warehouse
-						location={location} /* temporary location prop */
-						deleteWarehouseBtn={deleteWarehouseBtn} /* temp prop until warehouse.map() exists */
+						key={id}
+						location={warehouse_name}
+						address={address}
+						city={city}
+						country={country}
+						phone={contact_phone}
+						email={contact_email}
+						name={contact_name}
+						deleteWarehouseBtn={deleteWarehouseBtn}
 					/>
+					)
+
+      				})}
+				
 				</div>
 				{showModal && (
 					<Modal
