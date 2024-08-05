@@ -4,7 +4,7 @@ import Inventory from "./Inventory";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import Modal from "../Modal/Modal";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
@@ -13,6 +13,7 @@ const InventoryList = () => {
   const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState(null);
   const [inventory, setInventory] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getInventories = async (id) => {
@@ -64,6 +65,9 @@ const InventoryList = () => {
             <Button
               className={"inventories__form-button"}
               text={"+ Add New Item"}
+              onClick={() => {
+                navigate("/inventory/add");
+              }}
             />
           </form>
         </div>

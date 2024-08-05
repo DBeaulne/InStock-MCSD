@@ -52,7 +52,7 @@ const Input = ({
         onBlur={onBlur}
         required
         value={value}
-        className={`site_input ${classname} ${focus} ${error}`}
+        className={`site_input site_input--input ${classname} ${focus} ${error}`}
         placeholder={placeholder}
         type="text"
         name={name}
