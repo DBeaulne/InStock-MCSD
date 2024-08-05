@@ -1,7 +1,6 @@
 import "./WarehouseList.scss";
 import { useNavigate } from "react-router-dom";
 const Warehouse = ({
-  id,
   warehouseId,
   location,
   address,
@@ -38,7 +37,7 @@ const Warehouse = ({
               </div>
               <div
                 onClick={() => {
-                  navigate(`/warehouses/${id}`);
+                  navigate(`/warehouses/${warehouseId}`);
                 }}
                 className="warehouse__wrapper--button-chevron"
               >

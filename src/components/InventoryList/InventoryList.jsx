@@ -15,6 +15,7 @@ const InventoryList = () => {
   const [inventory, setInventory] = useState([]);
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getInventories();

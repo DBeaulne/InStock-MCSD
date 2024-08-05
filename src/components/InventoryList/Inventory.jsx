@@ -10,7 +10,6 @@ const Inventory = ({
   chevron,
   deleteInventoryItemBtn,
   itemName,
-  id,
   category,
   status,
   warehouse,
@@ -112,7 +111,7 @@ const Inventory = ({
                 ></button>
                 <button
                   onClick={() => {
-                    navigate(`/inventory/${id}/edit`);
+                    navigate(`/inventory/${InventoryId}/edit`);
                   }}
                   className="inventory__button inventory__button--edit inventory__button--tablet"
                 ></button>
@@ -121,7 +120,7 @@ const Inventory = ({
           </div>
           <button
             onClick={() => {
-              navigate(`/inventory/${id}/edit`);
+              navigate(`/inventory/${InventoryId}/edit`);
             }}
             className="inventory__button inventory__button--edit inventory__button--mobile"
           ></button>
