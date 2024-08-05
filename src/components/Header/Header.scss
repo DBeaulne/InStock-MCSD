@@ -15,7 +15,8 @@ a {
 	color: c.seccolor(is-cloud);
 	width: 10rem;
 	height: 2.25rem;
-	>>>>>>>>>Temporary merge branch 2 h3 {
+
+	h3 {
 		@include mobFont.mob-header-h3;
 
 		@include mQ.tablet {
