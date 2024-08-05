@@ -64,6 +64,7 @@
 - added close icon, added functionality to close modal window
 - added functionality to delete warehouse
 - refactored modal component to take in props so that it can be used for the delete inventory ticket
+- refactored deleteWarehouseBtn logic to map warehouse state so we could use the warehouse_name property in the modal window title and text verbiage
 
 ## feature/ delete inventory modal
 
@@ -83,3 +84,7 @@ REACT_APP_API_BASE_URL=<Insert backend api url here>
 - Created a reusable component for inventory form.
 - Added to the Add Inventory Item component.
 - Passed an onClick prop to the button component.
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop

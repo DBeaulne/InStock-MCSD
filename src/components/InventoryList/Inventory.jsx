@@ -1,6 +1,7 @@
 import "./InventoryList.scss";
 import { useNavigate } from "react-router-dom";
 const Inventory = ({
+  InventoryId,
   sortwarehouse,
   sortqty,
   sortstatus,
@@ -8,9 +9,8 @@ const Inventory = ({
   sortitem,
   chevron,
   deleteInventoryItemBtn,
-  id,
-  edititem,
   itemName,
+  id,
   category,
   status,
   warehouse,
@@ -63,7 +63,7 @@ const Inventory = ({
             </section>
           </div>
           <button
-            onClick={() => deleteInventoryItemBtn()}
+            onClick={() => deleteInventoryItemBtn(InventoryId)}
             className="inventory__button inventory__button--delete inventory__button--mobile"
           ></button>
         </div>
@@ -107,7 +107,7 @@ const Inventory = ({
               <h4 className="inventory__sub-title">ACTION</h4>
               <div className="inventory__wrapper--button">
                 <button
-                  onClick={() => deleteInventoryItemBtn()}
+                  onClick={() => deleteInventoryItemBtn(InventoryId)}
                   className="inventory__button inventory__button--delete inventory__button--tablet"
                 ></button>
                 <button
@@ -120,7 +120,9 @@ const Inventory = ({
             </section>
           </div>
           <button
-            onClick={edititem}
+            onClick={() => {
+              navigate(`/inventory/${id}/edit`);
+            }}
             className="inventory__button inventory__button--edit inventory__button--mobile"
           ></button>
         </div>

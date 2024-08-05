@@ -2,6 +2,7 @@ import "./WarehouseList.scss";
 import { useNavigate } from "react-router-dom";
 const Warehouse = ({
   id,
+  warehouseId,
   location,
   address,
   city,
@@ -66,7 +67,7 @@ const Warehouse = ({
             </section>
           </div>
           <button
-            onClick={() => deleteWarehouseBtn(id)}
+            onClick={() => deleteWarehouseBtn(warehouseId)}
             className="warehouse__button warehouse__button--delete warehouse__button--mobile"
           ></button>
         </div>
@@ -97,7 +98,7 @@ const Warehouse = ({
               <h4 className="warehouse__sub-title">ACTIONS</h4>
               <div className="warehouse__wrapper--button">
                 <button
-                  onClick={() => deleteWarehouseBtn(id)}
+                  onClick={() => deleteWarehouseBtn(warehouseId)}
                   className="warehouse__button warehouse__button--delete warehouse__button--tablet"
                 ></button>
                 <button
