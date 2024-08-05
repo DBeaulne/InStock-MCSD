@@ -94,21 +94,21 @@ const AddInventoryItem = () => {
       return;
     }
     const confirmSubmit = window.confirm("Add new item?");
-    if (confirmSubmit) {
-      navigate(`/inventory`);
-    }
     formData.quantity = parseInt(formData.quantity);
     console.log(formData);
     try {
-      await axios.post(`${apiUrl}/inventory`, formData);
-      setFormData({
-        warehouse_id: "",
-        item_name: "",
-        description: "",
-        category: "",
-        status: "In Stock",
-        quantity: 0,
-      });
+      const response = await axios.post(`${apiUrl}/inventory`, formData);
+      if (confirmSubmit && response.status == 200) {
+        setFormData({
+          warehouse_id: "",
+          item_name: "",
+          description: "",
+          category: "",
+          status: "In Stock",
+          quantity: 0,
+        });
+        navigate(`/inventory`);
+      }
     } catch (e) {
       console.log("Failed to add inventory item.", e);
     }

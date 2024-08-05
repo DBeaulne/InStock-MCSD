@@ -89,10 +89,9 @@ const EditInventoryItem = () => {
     if (!validateForm()) {
       return;
     }
-    const confirmSubmit = window.confirm("Add new item?");
-    if (confirmSubmit) {
-      navigate(`/inventory/${id}`);
-    }
+    const confirmSubmit = window.confirm(
+      `Are you sure you want to edit the item - ${formData.item_name}?`
+    );
 
     formData.quantity = parseInt(formData.quantity);
     const updatedInventoryItem = {
@@ -105,7 +104,13 @@ const EditInventoryItem = () => {
     };
     console.log(formData);
     try {
-      await axios.put(`${apiUrl}/inventory/${id}`, updatedInventoryItem);
+      const response = await axios.put(
+        `${apiUrl}/inventory/${id}`,
+        updatedInventoryItem
+      );
+      if (confirmSubmit && response.status === 200) {
+        navigate(`/inventory`);
+      }
     } catch (e) {
       console.log("Failed to update inventory item.", e);
     }
