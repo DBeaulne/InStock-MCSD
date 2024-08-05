@@ -7,56 +7,60 @@
 @use "../../styles/partials/tabletdesktopfont";
 
 .site_input {
-  width: 100%;
-  border-radius: 20px;
-  padding: 0.75rem;
-  border: 0.0625rem solid colors.seccolor(is-cloud);
-  background-color: colors.primcolor(is-white);
-  @include mobilefont.mob-par-p2;
-  @include mediaQ.tablet {
-    @include tabletdesktopfont.tab-desk-par-p2;
-  }
-  &--active {
-    border: none;
-    outline: 0.0625rem solid colors.primcolor(is-indigo);
-  }
-  &--error {
-    border: none;
-    outline: 0.0625rem solid colors.suppcolor(is-red);
-  }
-  &--input {
-    height: 2.25rem;
-    min-width: 240px;
-    max-height: 36px;
-  }
-  &--txtArea {
-    resize: none;
-    max-height: 122px;
-    height: 8rem;
-  }
-  &--number {
-    max-height: 1122px;
-    height: 2.25rem;
-    @include mediaQ.desktop {
-      width: 6rem;
-    }
-  }
+	width: 100%;
+	border-radius: 20px;
+	padding: 0.75rem;
+	border: 0.0625rem solid colors.seccolor(is-cloud);
+	background-color: colors.primcolor(is-white);
+	@include mobilefont.mob-par-p2;
+	@include mediaQ.tablet {
+		@include tabletdesktopfont.tab-desk-par-p2;
+	}
+
+	&--active {
+		border: none;
+		outline: 0.0625rem solid colors.primcolor(is-indigo);
+	}
+	&--error {
+		border: none;
+		outline: 0.0625rem solid colors.suppcolor(is-red);
+	}
+	&--input {
+		height: 2.25rem;
+		min-width: 240px;
+		max-height: 36px;
+		&::placeholder {
+			color: colors.seccolor(is-slate);
+		}
+	}
+	&--txtArea {
+		resize: none;
+		max-height: 122px;
+		height: 8rem;
+	}
+	&--number {
+		max-height: 1122px;
+		height: 2.25rem;
+		@include mediaQ.desktop {
+			width: 6rem;
+		}
+	}
 }
 
 .warehouses__form-input {
-  background-image: url(../../assets//icons/search-24px.svg);
-  background-position: center right 1rem;
-  background-size: 1rem;
-  background-repeat: no-repeat;
-  padding: 1rem;
-  width: 100%;
-  margin-bottom: paddingandmargins.$mobDEF;
+	background-image: url(../../assets//icons/search-24px.svg);
+	background-position: center right 1rem;
+	background-size: 1rem;
+	background-repeat: no-repeat;
+	padding: 1rem;
+	width: 100%;
+	margin-bottom: paddingandmargins.$mobDEF;
 }
 .error {
-  &__txt {
-    color: colors.suppcolor(is-red);
-  }
-  &__placeholder {
-    height: 1.5rem;
-  }
+	&__txt {
+		color: colors.suppcolor(is-red);
+	}
+	&__placeholder {
+		height: 1.5rem;
+	}
 }

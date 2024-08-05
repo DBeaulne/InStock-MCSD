@@ -7,7 +7,6 @@ import Modal from "../Modal/Modal";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
-import AddWarehouse from "../AddWarehouse/AddWarehouse";
 
 const WarehouseList = () => {
 	const [showWarehouseModal, setShowWarehouseModal] = useState(false);
@@ -68,7 +67,7 @@ const WarehouseList = () => {
 							search
 						/>
 						<Link
-							to={AddWarehouse}
+							to={"/warehouses/add"}
 							className="warehouses__btn-wrapper">
 							<Button
 								className={"warehouse__form-button"}
