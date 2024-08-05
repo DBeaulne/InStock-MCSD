@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
+import ItemDetailsPage from "./pages/ItemDetailsPage/ItemDetailsPage.js";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
 import "./App.scss";
 

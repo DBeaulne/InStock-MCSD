@@ -1,12 +1,12 @@
 //Imports
 import axios from "axios";
-import { apiUrl } from "../../App";
+import apiUrl from "../../App";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 //Assets/Styles
 import "./InventoryItemDetails.scss";
 import editIcon from "../../assets/icons/edit-24px.svg";
-import backArrow from "../../assets/images/icons/arrow_back-24px.svg";
+import backArrow from "../../assets/icons/arrow_back-24px.svg";
 //Components
 import Button from "../Button/Button";
 
@@ -19,6 +19,8 @@ export default function InventoryItemDetails() {
 	const [warehouseName, setWarehouseName] = useState();
 	//grab id from URL params:
 	const { id } = useParams();
+
+	console.log(`${apiUrl}/inventory/${id}`);
 
 	//API call for item details:
 	const getItemDetails = async id => {
@@ -47,7 +49,7 @@ export default function InventoryItemDetails() {
 	//trigger trigger call for item details once param is available:
 	useEffect(() => {
 		getItemDetails(id);
-	}, [id]);
+	}, []);
 
 	//trigger call for warehouse name once warehouse ID is available:
 	useEffect(() => {
