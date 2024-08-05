@@ -64,10 +64,10 @@
 - added close icon, added functionality to close modal window
 - added functionality to delete warehouse
 - refactored modal component to take in props so that it can be used for the delete inventory ticket
+- refactored deleteWarehouseBtn logic to map warehouse state so we could use the warehouse_name property in the modal window title and text verbiage
 
 ## feature/ delete inventory modal
 
 - integrated Modal component into InventoryList.jsx
 - edited delete button onClick property to include callback function instead of prop
 - tested with temp variables until inventory.map() exists
-

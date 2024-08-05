@@ -1,6 +1,7 @@
 import "./InventoryList.scss";
 
 const Inventory = ({
+	InventoryId,
 	sortwarehouse,
 	sortqty,
 	sortstatus,
@@ -54,7 +55,7 @@ const Inventory = ({
 						</section>
 					</div>
 					<button
-						onClick={() => deleteInventoryItemBtn()}
+						onClick={() => deleteInventoryItemBtn(InventoryId)}
 						className="inventory__button inventory__button--delete inventory__button--mobile"></button>
 				</div>
 				<div className="inventory__wrapper inventory__wrapper--right">
@@ -66,9 +67,7 @@ const Inventory = ({
 									onClick={sortstatus}
 									className="inventory__button inventory__button--sort inventory__button--tablet"></button>
 							</div>
-							<p className={`inventory__text inventory__text--tag ${availablity}`}>
-								{status}
-							</p>
+							<p className={`inventory__text inventory__text--tag ${availablity}`}>{status}</p>
 						</section>
 						<section className="inventory__section-wrapper inventory__section-wrapper--qty">
 							<div className="inventory__wrapper--button-sort">
@@ -92,7 +91,7 @@ const Inventory = ({
 							<h4 className="inventory__sub-title">ACTION</h4>
 							<div className="inventory__wrapper--button">
 								<button
-									onClick={() => deleteInventoryItemBtn()}
+									onClick={() => deleteInventoryItemBtn(InventoryId)}
 									className="inventory__button inventory__button--delete inventory__button--tablet"></button>
 								<button
 									onClick={edititem}
