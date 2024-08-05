@@ -1,7 +1,13 @@
 import React from "react";
 import "./Button.scss";
 
-const Button = ({ className, type, text, txtClassName, onClick }) => {
+const Button = ({
+  className,
+  type,
+  text,
+  txtClassName = null,
+  onClick = null,
+}) => {
   return (
     <button type={type} className={`btn ${className}`} onClick={onClick}>
       {/* txtClassName is only for the Edit button to hide the text at mobile

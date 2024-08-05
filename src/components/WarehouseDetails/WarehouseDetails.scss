@@ -10,10 +10,10 @@
     margin: paddingandmargins.$mobLR;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     @include mQ.tablet {
-      margin: paddingandmargins.$tabLR;
+      margin: 0rem //paddingandmargins.$tabLR;
     }
     @include mQ.desktop {
-      margin: paddingandmargins.$deskLR;
+      margin: 0rem //paddingandmargins.$deskLR;
     }
   }
   &__top {
@@ -85,9 +85,20 @@
       @include tFont.tab-desk-par-p2;
     }
   }
-  &__bottom {
-    //@include mob-par-p1;
+  &__bottom .inventory h4, .inventory__button--sort { 
+    @include mQ.tablet{ 
+      visibility: hidden;
+      margin-bottom: 0rem;
+    }
   }
+
+  &__bottom .inventory:first-child h4, .inventory:first-child button.inventory__button--sort { 
+    	@include mQ.tablet{ 
+    		visibility: visible;
+    		margin-bottom: 1.5rem;
+    }
+  }
+
   &__line-break {
     display: none;
     @include mQ.tablet {
