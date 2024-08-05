@@ -20,8 +20,7 @@ const WarehouseDetails = () => {
 
   const getWarehouse = async (id) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/warehouses/${id}`);
-      // `${apiUrl}/warehouses/${id}`
+      const { data } = await axios.get(`${apiUrl}/warehouses/${id}`);
       setWarehouseDetails(data);
     } catch (e) {
       console.log(e);
@@ -30,8 +29,7 @@ const WarehouseDetails = () => {
 
   const getWarehouseInventories = async (id) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/warehouses/${id}/inventories`);
-      // `${apiUrl}/warehouses/${id}`
+      const { data } = await axios.get(`${apiUrl}/warehouses/${id}/inventories`);
       console.log(data);
       setWarehouseInventoryList(data);
     } catch (e) {
