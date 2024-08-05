@@ -3,27 +3,35 @@ import "./WarehouseDetails.scss";
 import ArrowBackIcon from "../../assets/icons/arrow_back-24px.svg";
 import Button from "../Button/Button";
 import { useNavigate, useParams } from "react-router-dom";
-import TableHeader from "../TableHeader/TableHeader";
 import axios from "axios";
 import { apiUrl } from "../../App";
+import Inventory from "../InventoryList/Inventory";
 
 const WarehouseDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [warehouseDetails, setWarehouseDetails] = useState([]);
-  const [inventoryList, setInventoryList] = useState([]);
-
-  const tableHeaders = ["Inventory Item", "Category", "Status", "Quantity"];
+  const [warehouseInventoryList, setWarehouseInventoryList] = useState([]);
 
   useEffect(() => {
     getWarehouse(id);
+    getWarehouseInventories(id)
   }, [id]);
 
   const getWarehouse = async (id) => {
     try {
       const { data } = await axios.get(`${apiUrl}/warehouses/${id}`);
-      console.log(data);
       setWarehouseDetails(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getWarehouseInventories = async (id) => {
+    try {
+      const { data } = await axios.get(`${apiUrl}/warehouses/${id}/inventories`);
+      console.log(data);
+      setWarehouseInventoryList(data);
     } catch (e) {
       console.log(e);
     }
@@ -86,14 +94,30 @@ const WarehouseDetails = () => {
           </div>
         </div>
         <div className="warehouse-details__bottom">
-          <TableHeader columns={tableHeaders} />
-          {/* {inventoryList.map((item) => (
-          <inventoryList />
-        ))} */}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil tempore
-          mollitia rem corrupti rerum numquam fugit odio fugiat alias nobis,
-          obcaecati sequi neque, autem doloremque aspernatur similique.
-          Voluptatum, quod blanditiis!
+        {warehouseInventoryList.map((item) => {
+            const { category, id, item_name, quantity, status, warehouse_name } = item;
+
+            const isAvailable = () => {
+              if (quantity === 0 ) {
+                return 'inventory__text--tag-outstock'
+              } else {
+                return 'inventory__text--tag-instock' 
+              }
+            }
+
+            return (
+              <Inventory 
+              key={id}
+              itemName={item_name}
+              availablity={isAvailable()}
+              category={category}
+              quantity={quantity}
+              status={status}
+              warehouse={warehouse_name}
+              // deleteInventoryItemBtn={deleteInventoryItemBtn}
+              />
+            )
+        })} 
         </div>
       </div>
     </section>

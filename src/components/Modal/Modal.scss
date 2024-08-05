@@ -1,0 +1,101 @@
+/* Modal styling */
+@use "../../styles/partials/colors";
+@use "../../styles/partials/globals";
+@use "../../styles/partials/mobilefont";
+@use "../../styles/partials/tabletdesktopfont";
+@use "../../styles/partials/mediaQ";
+@use "../../styles/partials/paddingandmargins";
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal {
+	display: flex;
+	flex-direction: column;
+	max-width: 100vw;
+	height: 100vh;
+	background-color: colors.primcolor(is-white);
+	padding: 1rem;
+
+	@include mediaQ.tablet {
+		margin: 9rem auto;
+		width: 42rem;
+		height: 16.375rem;
+		padding-top: 1rem;
+		padding-left: 3.5rem;
+		padding-right: 2rem;
+		padding-bottom: 2.25rem;
+	}
+
+	&__icon-container {
+		display: flex;
+		width: 100%;
+		justify-content: flex-end;
+	}
+
+	&__icon {
+		width: 1.5rem;
+		height: 1.5rem;
+
+		path {
+			fill: colors.primcolor(is-black);
+		}
+
+		@include mediaQ.tablet {
+			position: relative;
+			left: 1rem;
+		}
+	}
+
+	&__location {
+		@include mobilefont.mob-header-h1;
+		color: colors.primcolor(is-black);
+		padding-bottom: 1rem;
+		padding-top: 1rem;
+
+		@include mediaQ.tablet {
+			padding-top: unset;
+			@include tabletdesktopfont.tab-desk-header-h1;
+		}
+	}
+
+	&__confirm-text {
+		@include mobilefont.mob-par-p1;
+		color: colors.primcolor(is-black);
+
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-par-p1;
+		}
+	}
+
+	&__button-container {
+		margin-top: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		@include mediaQ.tablet {
+			justify-content: flex-end;
+		}
+	}
+
+	&__button {
+		display: flex;
+		width: 10rem;
+		justify-content: center;
+
+		@include mediaQ.tablet {
+			width: 5.5rem;
+		}
+
+		@include mediaQ.desktop {
+			width: 6rem;
+		}
+	}
+}
