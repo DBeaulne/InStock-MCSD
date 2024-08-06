@@ -1,11 +1,14 @@
 @use "./fontfamily" as ff;
 
 * {
-	box-sizing: border-box;
-	text-decoration: none;
-	list-style-type: none;
-	font-family: "titillium", "Times New Roman", Times, Arial;
-	font-weight: ff.weight(regular);
-	padding: 0;
-	margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "titillium", "Times New Roman", Times, Arial;
+  font-weight: ff.weight(regular);
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-height: 100%;
 }
