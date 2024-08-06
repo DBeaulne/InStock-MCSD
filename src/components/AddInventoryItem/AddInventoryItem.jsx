@@ -91,25 +91,25 @@ const AddInventoryItem = () => {
 			return;
 		}
 		const confirmSubmit = window.confirm("Add new item?");
-		if (confirmSubmit) {
-			navigate(`/inventory`);
-		}
 		formData.quantity = parseInt(formData.quantity);
+		console.log(formData);
 		try {
-			await axios.post(`${apiUrl}/inventory`, formData);
-			setFormData({
-				warehouse_id: "",
-				item_name: "",
-				description: "",
-				category: "",
-				status: "In Stock",
-				quantity: 0
-			});
+			const response = await axios.post(`${apiUrl}/inventory`, formData);
+			if (confirmSubmit && response.status === 200) {
+				setFormData({
+					warehouse_id: "",
+					item_name: "",
+					description: "",
+					category: "",
+					status: "In Stock",
+					quantity: 0
+				});
+				navigate(`/inventory`);
+			}
 		} catch (e) {
 			console.log("Failed to add inventory item.", e);
 		}
 	};
-
 	const handleCancel = async () => {
 		const confirmCancel = window.confirm("Are you sure you want to cancel? Your changes will not be saved.");
 		if (confirmCancel) {
@@ -125,14 +125,17 @@ const AddInventoryItem = () => {
 	return (
 		<div className="add-inventory__container">
 			<div className="add-inventory__top">
-				<img
-					className="add-inventory__back-icon"
-					src={ArrowBackIcon}
-					alt="Back Icon"
-					onClick={() => {
-						navigate("/inventory");
-					}}
-				/>
+				<div className="add-inventory__back-icon-container">
+					<img
+						className="add-inventory__back-icon"
+						src={ArrowBackIcon}
+						alt="Back Icon"
+						onClick={() => {
+							navigate("/inventory");
+						}}
+					/>
+				</div>
+
 				<h1 className="add-inventory__heading">Add New Inventory Item</h1>
 			</div>
 			<div className="add-inventory__bottom">
@@ -240,7 +243,9 @@ const AddInventoryItem = () => {
 											className="inventory-form__radio-input"
 										/>
 										<label
-											className="inventory-form__radio-txt"
+											className={`inventory-form__radio-txt ${
+												formData.status === "In Stock" ? "inventory-form__radio-txt--active" : ""
+											}`}
 											htmlFor="in-stock">
 											In stock
 										</label>
@@ -256,7 +261,9 @@ const AddInventoryItem = () => {
 											className="inventory-form__radio-input"
 										/>
 										<label
-											className="inventory-form__radio-txt"
+											className={`inventory-form__radio-txt ${
+												formData.status === "Out of Stock" ? "inventory-form__radio-txt--active" : ""
+											}`}
 											htmlFor="in-stock">
 											Out of Stock
 										</label>
@@ -282,11 +289,11 @@ const AddInventoryItem = () => {
 										Quantity
 									</label>
 									<Input
-										type="number"
+										number
 										classname={errors.quantity ? "site_input--error site_input--number" : "site_input--number"}
 										placeholder="0"
 										name="quantity"
-										min={0}
+										min="0"
 										value={formData.quantity}
 										onChange={handleChange}
 									/>

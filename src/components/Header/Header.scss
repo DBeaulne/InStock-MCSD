@@ -16,6 +16,13 @@
 	h3 {
 		@include mobFont.mob-header-h3;
 
+	h3 {
+		@include mobFont.mob-header-h3;
+
+		@include mQ.tablet {
+			@include tdFont.tab-desk-header-h3;
+		}
+	}
 		@include mQ.tablet {
 			@include tdFont.tab-desk-header-h3;
 		}
@@ -25,7 +32,15 @@
 		color: c.primcolor(is-white);
 		text-decoration: underline;
 	}
+	&:hover {
+		color: c.primcolor(is-white);
+		text-decoration: underline;
+	}
 
+	@include mQ.tablet {
+		width: 6.75rem;
+		height: 2.5rem;
+	}
 	@include mQ.tablet {
 		width: 6.75rem;
 		height: 2.5rem;
@@ -39,22 +54,31 @@
 } */
 
 .header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: padMarg.$mobDEF;
-	background: c.bgcolor(is-graphite);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: padMarg.$mobDEF;
+  background: c.bgcolor(is-graphite);
 
-	@include mQ.tablet {
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 1.5rem 2rem 1.5rem 2rem;
-	}
+  @include mQ.tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 2rem 1.5rem 2rem;
+  }
 
 	&__logo {
 		min-width: 8.125rem;
 	}
+	&__logo {
+		min-width: 8.125rem;
+	}
 
+	&__nav {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		justify-content: space-around;
+		padding-top: padMarg.$mobDEF;
 	&__nav {
 		display: flex;
 		flex-direction: row;

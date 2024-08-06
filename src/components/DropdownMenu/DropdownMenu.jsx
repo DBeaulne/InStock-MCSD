@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./DropdownMenu.scss";
 const DropdownMenu = ({
   options,

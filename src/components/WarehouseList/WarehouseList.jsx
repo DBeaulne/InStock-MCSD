@@ -4,7 +4,7 @@ import Warehouse from "./Warehouse";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useSearchParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
@@ -12,7 +12,37 @@ const WarehouseList = () => {
 	const [showWarehouseModal, setShowWarehouseModal] = useState(false);
 	const [warehouseIdToDelete, setWarehouseIdToDelete] = useState([]);
 	const [warehouse, setWarehouse] = useState([]);
+	const [warehousesData, setWarehousesData] = useState([]);
 	const { id } = useParams();
+
+	const [searchParams, setSearchParams] = useSearchParams();
+	const searchParam = {
+		searchValue: searchParams.get("search") || "",
+		setSearchParams
+	};
+	useEffect(() => {
+		//clear search params if search bar is ''
+		!searchParam.searchValue && setSearchParams();
+		//if all inventory is loaded, filter it to only the items that match the search.
+		// allInventory &&
+		setWarehousesData(
+			warehouse.filter(
+				(w) =>
+					w.city?.toLowerCase().includes(searchParam.searchValue) ||
+					w.address?.toLowerCase().includes(searchParam.searchValue) ||
+					w.warehouse_name?.toLowerCase().includes(searchParam.searchValue) ||
+					w.country?.toLowerCase().includes(searchParam.searchValue) ||
+					w.contact_name?.toLowerCase().includes(searchParam.searchValue) ||
+					w.contact_position?.toLowerCase().includes(searchParam.searchValue) ||
+					w.contact_phone?.toLowerCase().includes(searchParam.searchValue) ||
+					w.contact_email?.toLowerCase().includes(searchParam.searchValue)
+			)
+		);
+	}, [searchParam.searchValue, warehouse, setSearchParams]);
+
+	useEffect(() => {
+		getWarehouses();
+	}, [id]);
 
 	useEffect(() => {
 		getWarehouses();
@@ -55,16 +85,28 @@ const WarehouseList = () => {
 		}
 	}, [warehouseIdToDelete]);
 
+	//handle edit button click:
+	const editWarehouse = async (id) => {
+		//move to edit page for selected warehouse:
+		navigate(`/warehouses/${id}/edit`);
+	};
+
 	return (
 		<>
 			<section className="warehouses">
 				<div className="warehouses__wrapper--form">
 					<h1 className="warehouses__title">Warehouses</h1>
-					<form className="warehouses__form">
+					<div className="warehouses__form">
 						<Input
-							classname={"site_input--input warehouses__form-input"}
+							classname={"warehouses__form-input"}
 							placeholder={"Search..."}
 							search
+							onChange={(e) =>
+								searchParam.setSearchParams({
+									search: e.target.value.toLocaleLowerCase()
+								})
+							}
+							value={searchParam.searchValue}
 						/>
 						<Link
 							to={"/warehouses/add"}
@@ -74,13 +116,12 @@ const WarehouseList = () => {
 								text={"+ Add New Warehouse"}
 							/>
 						</Link>
-					</form>
+					</div>
 				</div>
 				<div className="warehouses__wrapper">
-					{warehouse.map((warehouse) => {
+					{warehousesData.map((warehouse) => {
 						const { id, warehouse_name, address, city, country, contact_email, contact_name, contact_phone } =
 							warehouse;
-
 						return (
 							<Warehouse
 								key={id}
@@ -93,7 +134,9 @@ const WarehouseList = () => {
 								email={contact_email}
 								name={contact_name}
 								deleteWarehouseBtn={deleteWarehouseBtn}
-								// editWarehouseBtn={} /* temp prop until warehouse.map() exists */
+								editWarehouseBtn={() => {
+									editWarehouse(id);
+								}}
 							/>
 						);
 					})}

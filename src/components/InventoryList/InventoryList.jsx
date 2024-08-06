@@ -1,10 +1,10 @@
 import React, { useState, useCallback, useEffect } from "react";
 import "./InventoryList.scss";
 import Inventory from "./Inventory";
-import Input from "../Input/Input";
 import Button from "../Button/Button";
+import Input from "../Input/Input";
 import Modal from "../Modal/Modal";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
@@ -14,11 +14,32 @@ const InventoryList = () => {
 	const [inventoryItemIdToDelete, setInvetoryItemIdToDelete] = useState([]);
 	const [inventory, setInventory] = useState([]);
 
+	const [inventoryData, setInventoryData] = useState([]);
+	const [searchParams, setSearchParams] = useSearchParams();
+
+	const searchParam = {
+		searchValue: searchParams.get("search") || "",
+		setSearchParams
+	};
+
 	const { id } = useParams();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		getInventories();
 	}, [id]);
+
+	useEffect(() => {
+		!searchParam.searchValue && setSearchParams();
+		setInventoryData(
+			inventory.filter(
+				(item) =>
+					item.item_name?.toLowerCase().includes(searchParam.searchValue) ||
+					item.category?.toLowerCase().includes(searchParam.searchValue) ||
+					item.warehouse_name?.toLowerCase().includes(searchParam.searchValue)
+			)
+		);
+	}, [searchParam.searchValue, inventory, setSearchParams]);
 
 	// function to get all the inventory items
 	const getInventories = async (id) => {
@@ -64,21 +85,30 @@ const InventoryList = () => {
 			<section className="inventories">
 				<div className="inventories__wrapper--form">
 					<h1 className="inventories__title">Inventory</h1>
-					<form className="inventories__form">
+					<div className="inventories__form">
 						<Input
 							classname={"inventories__form-input"}
 							placeholder={"Search..."}
 							search
+							onChange={(e) =>
+								searchParam.setSearchParams({
+									search: e.target.value.toLocaleLowerCase()
+								})
+							}
+							value={searchParam.searchValue}
 						/>
 						<Button
 							className={"inventories__form-button"}
 							text={"+ Add New Item"}
+							onClick={() => {
+								navigate("/inventory/add");
+							}}
 						/>
-					</form>
+					</div>
 				</div>
 
 				<div className="inventories__wrapper">
-					{inventory.map((item) => {
+					{inventoryData.map((item) => {
 						const { category, id, item_name, quantity, status, warehouse_name } = item;
 
 						const isAvailable = () => {

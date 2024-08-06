@@ -1,7 +1,7 @@
 import "./Input.scss";
 import { useState } from "react";
 
-const Input = ({ classname, placeholder, name, type, value, txtArea, search, onChange }) => {
+const Input = ({ classname, placeholder, name, type, value, txtArea, search, number, searchParam, onChange }) => {
 	const [focus, setFocus] = useState("");
 	const [error, setError] = useState("");
 
@@ -42,10 +42,25 @@ const Input = ({ classname, placeholder, name, type, value, txtArea, search, onC
 				onBlur={onBlur}
 				required
 				value={value}
+				className={`site_input site_input--input ${classname} ${focus} ${error}`}
+				placeholder={placeholder}
+				type="search"
+				name={name}
+				onChange={onChange}
+			/>
+		);
+	} else if (number) {
+		return (
+			<input
+				onInvalid={onInvalid}
+				onFocus={onFocus}
+				onBlur={onBlur}
+				value={value}
 				className={`site_input ${classname} ${focus} ${error}`}
 				placeholder={placeholder}
-				type="text"
+				type="number"
 				name={name}
+				min="0"
 				onChange={onChange}
 			/>
 		);
