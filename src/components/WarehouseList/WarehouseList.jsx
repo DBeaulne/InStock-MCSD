@@ -4,7 +4,7 @@ import Warehouse from "./Warehouse";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
@@ -12,7 +12,33 @@ const WarehouseList = () => {
   const [showWarehouseModal, setShowWarehouseModal] = useState(false);
   const [warehouseIdToDelete, setWarehouseIdToDelete] = useState([]);
   const [warehouse, setWarehouse] = useState([]);
+  const [warehousesData, setWarehousesData] = useState([]);
   const { id } = useParams();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchParam = {
+    searchValue: searchParams.get("search") || "",
+    setSearchParams,
+  };
+  useEffect(() => {
+    //clear search params if search bar is ''
+    !searchParam.searchValue && setSearchParams();
+    //if all inventory is loaded, filter it to only the items that match the search.
+    // allInventory &&
+    setWarehousesData(
+      warehouse.filter(
+        (w) =>
+          w.city?.toLowerCase().includes(searchParam.searchValue) ||
+          w.address?.toLowerCase().includes(searchParam.searchValue) ||
+          w.warehouse_name?.toLowerCase().includes(searchParam.searchValue) ||
+          w.country?.toLowerCase().includes(searchParam.searchValue) ||
+          w.contact_name?.toLowerCase().includes(searchParam.searchValue) ||
+          w.contact_position?.toLowerCase().includes(searchParam.searchValue) ||
+          w.contact_phone?.toLowerCase().includes(searchParam.searchValue) ||
+          w.contact_email?.toLowerCase().includes(searchParam.searchValue)
+      )
+    );
+  }, [searchParam.searchValue, warehouse, setSearchParams]);
 
   useEffect(() => {
     getWarehouses();
@@ -62,20 +88,26 @@ const WarehouseList = () => {
       <section className="warehouses">
         <div className="warehouses__wrapper--form">
           <h1 className="warehouses__title">Warehouses</h1>
-          <form className="warehouses__form">
+          <div className="warehouses__form">
             <Input
-              classname={"site_input--input warehouses__form-input"}
+              classname={"warehouses__form-input"}
               placeholder={"Search..."}
               search
+              onChange={(e) =>
+                searchParam.setSearchParams({
+                  search: e.target.value.toLocaleLowerCase(),
+                })
+              }
+              value={searchParam.searchValue}
             />
             <Button
               className={"warehouse__form-button"}
               text={"+ Add New Warehouse"}
             />
-          </form>
+          </div>
         </div>
         <div className="warehouses__wrapper">
-          {warehouse.map((warehouse) => {
+          {warehousesData.map((warehouse) => {
             const {
               id,
               warehouse_name,
