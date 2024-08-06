@@ -121,14 +121,14 @@ export default function EditWarehouse() {
 				//revert form data:
 				.then(() => {
 					setValues({
-						warehouse_name: "",
-						address: "",
-						city: "",
-						country: "",
-						contact_name: "",
-						contact_position: "",
-						contact_phone: "",
-						contact_email: "",
+						warehouse_name: { warehouse_name },
+						address: { address },
+						city: { city },
+						country: { country },
+						contact_name: { contact_name },
+						contact_position: { contact_position },
+						contact_phone: { contact_phone },
+						contact_email: { contact_email },
 					});
 				});
 		} catch (error) {
@@ -183,7 +183,7 @@ export default function EditWarehouse() {
 											? "site_input--input site_input--error"
 											: "site_input--input"
 									}
-									placeholder={warehouse_name}
+									placeholder={"Warehouse Name"}
 									name='warehouse_name'
 									value={warehouse_name}
 									onChange={handleInputChange}
