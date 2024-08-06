@@ -103,7 +103,9 @@ const Inventory = ({
               <p className="inventory__text">{warehouse}</p>
             </section>
             <section className="inventory__section-wrapper inventory__section-wrapper--action">
-              <h4 className="inventory__sub-title">ACTION</h4>
+              <div className="inventory__wrapper--button-sort">
+                <h4 className="inventory__sub-title inventory__sub-title--action">ACTION</h4>
+              </div>
               <div className="inventory__wrapper--button">
                 <button
                   onClick={() => deleteInventoryItemBtn(InventoryId)}
