@@ -53,12 +53,35 @@ const AddWarehouse = () => {
 		const newErrors = {};
 
 		Object.keys(formData).forEach((key) => {
-			if (!formData[key] && key !== "quantity") {
+			if (!formData[key]) {
 				newErrors[key] = "This field is required.";
+			}
+			if (formData[key] && key === "contact_email") {
+				const isValidEmail = validateEmail(formData.contact_email);
+				if (!isValidEmail) {
+					newErrors[key] = "Invalid email";
+				}
+			}
+			if (formData[key] && key === "contact_phone") {
+				const isValidPhoneNum = validatePhoneNum(formData.contact_phone);
+				if (!isValidPhoneNum) {
+					newErrors[key] = "Invalid Phone Number";
+				}
 			}
 		});
 		setErrors(newErrors);
 		return Object.keys(newErrors).length === 0;
+	};
+
+	const validateEmail = (email) => {
+		const emailRegex =
+			/^(([^<>(){\}[\]\\+-\_~!#$%^&*?'=.,;:\s@\"]+(\.[^<>(){\}[\]\\!#$%^+&*'?~`=\-_.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,6}))$/;
+		return email.match(emailRegex);
+	};
+
+	const validatePhoneNum = (phoneNum) => {
+		const phoneNumRegex = /^(\+?1\ ?)?\(?[0-9]{3}\)?\-?\ ?[0-9]{3}\-?\ ?[0-9]{4}$/;
+		return phoneNum.match(phoneNumRegex);
 	};
 
 	const handleSubmit = async (e) => {
@@ -322,7 +345,7 @@ const AddWarehouse = () => {
 									name="contact_email"
 									value={formData.contact_email}
 									onChange={handleChange}
-									type="text"
+									type="email"
 								/>
 								{errors.contact_email && (
 									<div className="error">
