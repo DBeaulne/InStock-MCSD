@@ -15,11 +15,11 @@ export default function EditWarehouse() {
 	//enable navigation:
 	const navigate = useNavigate();
 
-  //grab warehouse id:
-  const { id } = useParams();
+	//grab warehouse id:
+	const { id } = useParams();
 
 	//grab data from form and set to state:
-	const [formData, setFormData] = useState({
+	const [values, setValues] = useState({
 		warehouse_name: "",
 		address: "",
 		city: "",
@@ -30,8 +30,17 @@ export default function EditWarehouse() {
 		contact_email: "",
 	});
 
-  //unpack form values:
-  const { warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = formData;
+	//unpack form values:
+	const {
+		warehouse_name,
+		address,
+		city,
+		country,
+		contact_name,
+		contact_position,
+		contact_phone,
+		contact_email,
+	} = values;
 
 	//track any input errors:
 	const [errors, setErrors] = useState({
@@ -61,63 +70,67 @@ export default function EditWarehouse() {
 		});
 	};
 
-  //form submission handler:
-  	const handleSubmit = async event => {
-      //prevent default actions:
-      event.preventDefault();
+	//form submission handler:
+	const handleSubmit = async event => {
+		//prevent default actions:
+		event.preventDefault();
 
-      //check for input values:
-		  const newErrors = {
-			  //'newErrors' is true if value is empty:
-			  warehouse_name: !values.warehouse_name,
-		    address: !values.address,
-		    city: !values.city,
-		    country: !values.country,
-		    contact_name: !values.contact_name,
-		    contact_position: !values.contact_position,
-		    contact_phone: !values.contact_phone,
-		    contact_email: !values.contact_email,
-		  };
+		//check for input values:
+		const newErrors = {
+			//'newErrors' is true if value is empty:
+			warehouse_name: !values.warehouse_name,
+			address: !values.address,
+			city: !values.city,
+			country: !values.country,
+			contact_name: !values.contact_name,
+			contact_position: !values.contact_position,
+			contact_phone: !values.contact_phone,
+			contact_email: !values.contact_email,
+		};
 
-      //log any errors in state:
-		  setErrors(newErrors);
+		//log any errors in state:
+		setErrors(newErrors);
 
-      //if there are no errors, continue:
-      if (!newErrors) {
-        //confirm that the user wants to make the changes:
-        const confirmSubmit = window.confirm("Make these changes to the current warehouse?");
-      }
+		//if there are no errors, continue:
+		if (!newErrors) {
+			//confirm that the user wants to make the changes:
+			const confirmSubmit = window.confirm(
+				"Make these changes to the current warehouse?"
+			);
 
-      //if changes are accepted, navigate back to warehouse list:
-      if (confirmSubmit) {
-        navigate(`/warehouses`);
-      }
-      
-      try {
-        await axios
-          //make changes to database entry:
-          .put(`${apiUrl}/warehouses/${id}`, formData)
-          //revert form data:
-          .then(() => {
-            setFormData({
-              warehouse_name: "",
-              address: "",
-              city: "",
-              country: "",
-              contact_name: "",
-              contact_position: "",
-              contact_phone: "",
-              contact_email: "",
-            });
-          });
+			//if changes are accepted, navigate back to warehouse list:
+			if (confirmSubmit) {
+				navigate(`/warehouses`);
+			}
+		}
 
-      } catch (error) {
-        console.log("Encountered an error while attempting to edit the warehouse:", error.message);
-      }
+		try {
+			await axios
+				//make changes to database entry:
+				.put(`${apiUrl}/warehouses/${id}`, values)
+				//revert form data:
+				.then(() => {
+					setValues({
+						warehouse_name: "",
+						address: "",
+						city: "",
+						country: "",
+						contact_name: "",
+						contact_position: "",
+						contact_phone: "",
+						contact_email: "",
+					});
+				});
+		} catch (error) {
+			console.log(
+				"Encountered an error while attempting to edit the warehouse:",
+				error.message
+			);
+		}
 	};
 
-  //discard-changes handler:
-  const handleDiscardChanges = async () => {
+	//discard-changes handler:
+	const handleDiscardChanges = async () => {
 		const cancelConfirmation = window.confirm(
 			"Discard changes to the current warehouse?"
 		);
@@ -126,5 +139,5 @@ export default function EditWarehouse() {
 		}
 	};
 
-  return ();
+	return <></>;
 }
