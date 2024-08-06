@@ -22,6 +22,7 @@
   }
   &__heading {
     @include mFont.mob-header-h1;
+    font-weight: 600;
     flex: 1;
 
     @include mQ.tablet {
@@ -30,7 +31,12 @@
   }
   &__back-icon {
     height: 1.6rem;
-    cursor: pointer;
+
+    &-container {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
@@ -93,12 +99,12 @@
       color: colors.seccolor(is-slate);
       @include mFont.mob-par-p2;
       font-weight: 600;
+      &--active {
+        color: colors.primcolor(is-black);
+      }
       @include mQ.tablet {
         @include tFont.tab-desk-par-p2;
       }
-    }
-    &-input:checked + &-text {
-      color: colors.primcolor(is-black);
     }
   }
   &__actions {

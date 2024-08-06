@@ -1,6 +1,5 @@
 import "./Input.scss";
 import { useState } from "react";
-import errorIcon from "../../assets/icons/error-24px.svg";
 
 const Input = ({
   classname,
@@ -10,6 +9,7 @@ const Input = ({
   value,
   txtArea,
   search,
+  number,
   onChange,
 }) => {
   const [focus, setFocus] = useState("");
@@ -52,10 +52,25 @@ const Input = ({
         onBlur={onBlur}
         required
         value={value}
-        className={`site_input ${classname} ${focus} ${error}`}
+        className={`site_input site_input--input ${classname} ${focus} ${error}`}
         placeholder={placeholder}
         type="text"
         name={name}
+        onChange={onChange}
+      />
+    );
+  } else if (number) {
+    return (
+      <input
+        onInvalid={onInvalid}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        value={value}
+        className={`site_input ${classname} ${focus} ${error}`}
+        placeholder={placeholder}
+        type="number"
+        name={name}
+        min="0"
         onChange={onChange}
       />
     );

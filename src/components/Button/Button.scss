@@ -4,70 +4,71 @@
 @use "../../styles/partials/tabletdesktopfont" as lgFont;
 
 .btn {
-	border-radius: 20px;
-	height: 2.375rem;
-	width: 100%;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0 1rem;
-	&--prim {
-		background-color: colors.primcolor(is-indigo);
-		color: colors.primcolor(is-white);
-		border: none;
-		&:hover {
-			background-color: colors.bgcolor(is-graphite);
-		}
-	}
-	&--sec {
-		background-color: colors.primcolor(is-white);
-		color: colors.seccolor(is-slate);
-		border: 1px solid colors.seccolor(is-slate);
-		&:hover {
-			color: colors.primcolor(is-indigo);
-			border: 1px solid colors.primcolor(is-indigo);
-		}
-	}
-	&--del {
-		background-color: colors.suppcolor(is-red);
-		border: none;
-		color: colors.primcolor(is-white);
-		&:hover {
-			background-color: colors.bgcolor(is-graphite);
-		}
-	}
-	&--edit {
-		background-image: url("../../assets/icons/edit-24px.svg");
-		background-position: center;
-		border-radius: 50%;
-		width: 2.375rem;
-		background-repeat: no-repeat;
-		background-size: 1.4rem;
-		@include mQ.tablet {
-			background-position: center left 1rem;
-			width: auto;
-			border-radius: 25px;
-		}
-	}
-	&__txt {
-		@include smFont.mob-header-h3;
-		font-weight: 600;
+  border-radius: 20px;
+  height: 2.375rem;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  cursor: pointer;
+  &--prim {
+    background-color: colors.primcolor(is-indigo);
+    color: colors.primcolor(is-white);
+    border: none;
+    &:hover {
+      background-color: colors.bgcolor(is-graphite);
+    }
+  }
+  &--sec {
+    background-color: colors.primcolor(is-white);
+    color: colors.seccolor(is-slate);
+    border: 1px solid colors.seccolor(is-slate);
+    &:hover {
+      color: colors.primcolor(is-indigo);
+      border: 1px solid colors.primcolor(is-indigo);
+    }
+  }
+  &--del {
+    background-color: colors.suppcolor(is-red);
+    border: none;
+    color: colors.primcolor(is-white);
+    &:hover {
+      background-color: colors.bgcolor(is-graphite);
+    }
+  }
+  &--edit {
+    background-image: url("../../assets/icons/edit-24px-white.svg");
+    background-position: center;
+    border-radius: 50%;
+    width: 2.375rem;
+    background-repeat: no-repeat;
+    background-size: 1.4rem;
+    @include mQ.tablet {
+      background-position: center left 1rem;
+      width: auto;
+      border-radius: 25px;
+    }
+  }
+  &__txt {
+    @include smFont.mob-header-h3;
+    font-weight: 600;
 
-		@include mQ.tablet {
-			@include lgFont.tab-desk-header-h3;
-		}
+    @include mQ.tablet {
+      @include lgFont.tab-desk-header-h3;
+    }
 
-		&--edit {
-			display: none;
-			margin-left: 1.5rem;
-			@include mQ.tablet {
-				@include lgFont.tab-desk-header-h3;
-				display: block;
-			}
-		}
-	}
-	@include mQ.tablet {
-		width: auto;
-	}
+    &--edit {
+      display: none;
+      margin-left: 1.5rem;
+      @include mQ.tablet {
+        @include lgFont.tab-desk-header-h3;
+        display: block;
+      }
+    }
+  }
+  @include mQ.tablet {
+    width: auto;
+  }
 }

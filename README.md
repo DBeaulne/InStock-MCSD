@@ -77,10 +77,19 @@
 -   created a componentfor table header
 -   created function to make get request to the api endpoint
 -   displayed warehouse details
+-   added the page header.
+-   added styling to the main site background.
+-   added on click to the warehouse name to link to warehouse details page.
+-   create .env.sample to connect to the backend api.
 
 ```bash
-REACT_APP_API_BASE_URL=<Insert backend api url here>
+REACT_APP_API_BASE_URL=< Insert backend api url here >
 ```
+
+## Setup react router
+
+-   created routing for the app using react router.
+-   created placeholder components.
 
 ## Add Inventory Item component
 
@@ -90,3 +99,8 @@ REACT_APP_API_BASE_URL=<Insert backend api url here>
 -   Created a reusable component for inventory form.
 -   Added to the Add Inventory Item component.
 -   Passed an onClick prop to the button component.
+
+## Edit Inventory component
+
+-   Form is updating the item successfully.
+-   Added onclick to the edit button in the inventory list amd warehouse details inventory list.

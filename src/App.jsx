@@ -8,6 +8,7 @@ import ItemDetailsPage from "./pages/ItemDetailsPage/ItemDetailsPage.js";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
 import "./App.scss";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem.jsx";
+import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem.jsx";
 
 export const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
@@ -45,6 +46,11 @@ function App() {
 					<Route
 						path='/inventory/add'
 						element={<AddInventoryItem />}
+					/>
+
+					<Route
+						path='/inventory/:id/edit'
+						element={<EditInventoryItem />}
 					/>
 
 					<Route
