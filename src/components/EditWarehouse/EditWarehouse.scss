@@ -1,0 +1,148 @@
+//Imports
+@use "../../styles/partials/mediaQ";
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mobilefont";
+@use "../../styles/partials/fontfamily";
+@use "../../styles/partials/tabletdesktopfont";
+
+.edit-warehouse {
+	&__wrapper {
+		background-color: colors.primcolor(is-white);
+		border-radius: 0.25rem;
+		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
+		@include mediaQ.desktop {
+			max-width: 84vw;
+			margin: 0 auto;
+		}
+	}
+
+	&__top-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 2rem 1.5rem 1.5rem;
+		border-bottom: 1px solid colors.seccolor(is-cloud);
+	}
+
+	&__heading {
+		flex: 1;
+		@include mobilefont.mob-header-h1;
+
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-header-h1;
+		}
+	}
+
+	&__back-icon {
+		height: 1.6rem;
+		cursor: pointer;
+	}
+}
+
+.form {
+	@include mediaQ.tablet {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__wrapper {
+		@include mediaQ.tablet {
+			display: flex;
+			flex-direction: row;
+			padding: 1.5rem 0;
+		}
+	}
+
+	&__first-container {
+		padding-bottom: 1.5rem;
+		padding: 1rem 1.5rem;
+		border-bottom: 1px solid colors.seccolor(is-cloud);
+
+		@include mediaQ.tablet {
+			width: 50%;
+			padding: 0 2rem;
+			border-bottom: none;
+			border-right: 1px solid colors.seccolor(is-cloud);
+		}
+	}
+
+	&__heading {
+		margin-bottom: 1.5rem;
+		@include mobilefont.mob-header-h2;
+		font-weight: fontfamily.weight(bold);
+
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-header-h2;
+		}
+	}
+
+	&__group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		margin-bottom: 1rem;
+
+		@include mediaQ.tablet {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	&__label {
+		@include mobilefont.mob-header-h3;
+		font-weight: 600;
+
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-header-h3;
+		}
+	}
+
+	&__second-container {
+		padding: 1rem 1.5rem 0.5rem;
+
+		@include mediaQ.tablet {
+			width: 50%;
+			padding: 0 2rem;
+		}
+	}
+
+	&__button-wrapper {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.625rem;
+		padding: 1rem 1.5rem;
+		background-color: rgba(247, 248, 249, 0.7);
+
+		@include mediaQ.tablet {
+			display: flex;
+			justify-content: flex-end;
+			gap: 1rem;
+			padding-right: 2rem;
+		}
+	}
+
+	&__button {
+		width: 8.75rem;
+
+		@include mediaQ.tablet {
+			width: auto;
+		}
+	}
+}
+
+.error {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+
+	&__icon {
+		width: 1rem;
+	}
+
+	&__text {
+		@include mobilefont.mob-par-p3;
+		color: colors.suppcolor(is-red);
+	}
+}

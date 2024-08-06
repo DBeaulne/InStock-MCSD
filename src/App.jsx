@@ -1,12 +1,16 @@
+//Imports:
+import "./App.scss";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Header from "./components/Header/Header.jsx";
-import Footer from "./components/Footer/Footer.jsx";
+//Pages:
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import ItemDetailsPage from "./pages/ItemDetailsPage/ItemDetailsPage.js";
+//Components:
+import Header from "./components/Header/Header.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
-import "./App.scss";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem.jsx";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem.jsx";
 
@@ -31,6 +35,11 @@ function App() {
 					<Route
 						path='/warehouses/:id'
 						element={<WarehouseDetails />}
+					/>
+
+					<Route
+						path='/warehouses/:id/edit'
+						element={<EditWarehouse />}
 					/>
 
 					<Route
