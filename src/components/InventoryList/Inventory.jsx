@@ -37,8 +37,12 @@ const Inventory = ({
                                 </svg> */}
 								</button>
 							</div>
-							<div className='inventory__wrapper--button-chevron'>
-								<p className='inventory__text inventory__text--bold-blue-font animate'>
+							<div
+								className='inventory__wrapper--button-chevron'
+								onClick={() =>
+									navigate(`/inventory/${InventoryId}`)
+								}>
+								<p className='inventory__text inventory__text--bold-blue-font'>
 									{itemName}
 								</p>
 								<button
