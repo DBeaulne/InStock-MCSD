@@ -16,6 +16,13 @@
   @include mediaQ.tablet {
     @include tabletdesktopfont.tab-desk-par-p2;
   }
+  &::placeholder {
+    color: colors.seccolor(is-slate);
+    @include mobilefont.mob-par-p2;
+    @include mediaQ.tablet {
+      @include tabletdesktopfont.tab-desk-par-p2;
+    }
+  }
   &--active {
     border: none;
     outline: 0.0625rem solid colors.primcolor(is-indigo);
@@ -28,6 +35,9 @@
     height: 2.25rem;
     min-width: 240px;
     max-height: 36px;
+    @include mediaQ.tablet {
+      height: 2.375rem;
+    }
   }
   &--txtArea {
     resize: none;
@@ -37,6 +47,9 @@
   &--number {
     max-height: 1122px;
     height: 2.25rem;
+    @include mediaQ.tablet {
+      height: 2.375rem;
+    }
     @include mediaQ.desktop {
       width: 6rem;
     }
@@ -51,12 +64,4 @@
   padding: 1rem;
   width: 100%;
   margin-bottom: paddingandmargins.$mobDEF;
-}
-.error {
-  &__txt {
-    color: colors.suppcolor(is-red);
-  }
-  &__placeholder {
-    height: 1.5rem;
-  }
 }

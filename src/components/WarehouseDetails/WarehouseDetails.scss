@@ -10,10 +10,10 @@
     margin: paddingandmargins.$mobLR;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     @include mQ.tablet {
-      margin: 0rem //paddingandmargins.$tabLR;
+      margin: 0rem; //paddingandmargins.$tabLR;
     }
     @include mQ.desktop {
-      margin: 0rem //paddingandmargins.$deskLR;
+      margin: 0rem; //paddingandmargins.$deskLR;
     }
   }
   &__top {
@@ -27,6 +27,7 @@
   }
   &__heading {
     @include mFont.mob-header-h1;
+    font-weight: 600;
     flex: 1;
     @include mQ.tablet {
       @include tFont.tab-desk-header-h1;
@@ -85,17 +86,19 @@
       @include tFont.tab-desk-par-p2;
     }
   }
-  &__bottom .inventory h4, .inventory__button--sort { 
-    @include mQ.tablet{ 
+  &__bottom .inventory h4,
+  .inventory__button--sort {
+    @include mQ.tablet {
       visibility: hidden;
       margin-bottom: 0rem;
     }
   }
 
-  &__bottom .inventory:first-child h4, .inventory:first-child button.inventory__button--sort { 
-    	@include mQ.tablet{ 
-    		visibility: visible;
-    		margin-bottom: 1.5rem;
+  &__bottom .inventory:first-child h4,
+  .inventory:first-child button.inventory__button--sort {
+    @include mQ.tablet {
+      visibility: visible;
+      margin-bottom: 1.5rem;
     }
   }
 
