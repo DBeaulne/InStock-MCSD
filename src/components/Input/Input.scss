@@ -55,8 +55,7 @@
   }
 }
 
-.warehouses__form-input,
-.inventories__form-input {
+.warehouses__form-input {
   appearance: none;
   background-image: url(../../assets//icons/search-24px.svg);
   background-position: center right 1rem;
@@ -68,11 +67,12 @@
     width: 100%;
     max-width: 230px;
     background-size: 1.75rem;
-
+  }
   &:focus {
     background-image: none;
+  }
 }
-
+ 
 .inventories__form-input {
   @extend .warehouses__form-input
 }

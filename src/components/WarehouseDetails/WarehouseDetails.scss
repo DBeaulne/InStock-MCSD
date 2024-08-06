@@ -76,6 +76,7 @@
     color: colors.seccolor(is-slate);
     font-weight: 600;
     margin-bottom: 0.25rem;
+  
     @include mQ.tablet {
       @include tFont.tab-desk-header-h3;
     }
@@ -86,6 +87,18 @@
       @include tFont.tab-desk-par-p2;
     }
   }
+
+  &__bottom {
+    &--dpnone {
+      display: none;
+    }
+    &--spacebetween {
+      @include mQ.tablet {
+        justify-content: space-between;
+      }
+    }
+  }
+
   &__bottom .inventory h4,
   .inventory__button--sort {
     @include mQ.tablet {
