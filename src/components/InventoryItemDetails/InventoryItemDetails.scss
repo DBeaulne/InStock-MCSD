@@ -4,22 +4,21 @@
 @use "../../styles/partials/tabletdesktopfont";
 @use "../../styles/partials/paddingandmargins";
 
-.inventory-item-details {
-	&__container {
-		background-color: colors.primcolor(is-white);
-		margin: paddingandmargins.$mobLR;
-		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+.item-details {
+	background-color: colors.primcolor(is-white);
+	border-radius: 0.25rem 0.25rem 0 0;
+	margin: paddingandmargins.$mobLR;
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 
-		@include mediaQ.tablet {
-			margin: paddingandmargins.$tabLR;
-		}
-
-		@include mediaQ.desktop {
-			margin: paddingandmargins.$deskLR;
-		}
+	@include mediaQ.tablet {
+		margin: paddingandmargins.$tabLR;
 	}
 
-	&__top {
+	@include mediaQ.desktop {
+		margin: paddingandmargins.$deskLR;
+	}
+
+	&__title-container {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
