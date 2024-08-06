@@ -13,10 +13,12 @@ const WarehouseDetails = () => {
 	const [warehouseDetails, setWarehouseDetails] = useState([]);
 	const [warehouseInventoryList, setWarehouseInventoryList] = useState([]);
 
+
 	useEffect(() => {
 		getWarehouse(id);
 		getWarehouseInventories(id);
 	}, [id]);
+
 
 	const getWarehouse = async id => {
 		try {

@@ -9,52 +9,42 @@ import axios from "axios";
 import { apiUrl } from "../../App";
 
 const WarehouseList = () => {
-	const [showWarehouseModal, setShowWarehouseModal] = useState(false);
-	const [warehouseIdToDelete, setWarehouseIdToDelete] = useState([]);
-	const [warehouse, setWarehouse] = useState([]);
-	const [warehousesData, setWarehousesData] = useState([]);
-	const { id } = useParams();
-	//enable navigation:
-	const navigate = useNavigate();
 
-	const [searchParams, setSearchParams] = useSearchParams();
-	const searchParam = {
-		searchValue: searchParams.get("search") || "",
-		setSearchParams,
-	};
-	useEffect(() => {
-		//clear search params if search bar is ''
-		!searchParam.searchValue && setSearchParams();
-		//if all inventory is loaded, filter it to only the items that match the search.
-		// allInventory &&
-		setWarehousesData(
-			warehouse.filter(
-				w =>
-					w.city?.toLowerCase().includes(searchParam.searchValue) ||
-					w.address
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.warehouse_name
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.country
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.contact_name
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.contact_position
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.contact_phone
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.contact_email
-						?.toLowerCase()
-						.includes(searchParam.searchValue)
-			)
-		);
-	}, [searchParam.searchValue, warehouse, setSearchParams]);
+  const [showWarehouseModal, setShowWarehouseModal] = useState(false);
+  const [warehouseIdToDelete, setWarehouseIdToDelete] = useState([]);
+  const [warehouse, setWarehouse] = useState([]);
+  const [warehousesData, setWarehousesData] = useState([]);
+  const { id } = useParams();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchParam = {
+    searchValue: searchParams.get("search") || "",
+    setSearchParams,
+  };
+  useEffect(() => {
+    //clear search params if search bar is ''
+    !searchParam.searchValue && setSearchParams();
+    //if all inventory is loaded, filter it to only the items that match the search.
+    // allInventory &&
+    setWarehousesData(
+      warehouse.filter(
+        (w) =>
+          w.city?.toLowerCase().includes(searchParam.searchValue) ||
+          w.address?.toLowerCase().includes(searchParam.searchValue) ||
+          w.warehouse_name?.toLowerCase().includes(searchParam.searchValue) ||
+          w.country?.toLowerCase().includes(searchParam.searchValue) ||
+          w.contact_name?.toLowerCase().includes(searchParam.searchValue) ||
+          w.contact_position?.toLowerCase().includes(searchParam.searchValue) ||
+          w.contact_phone?.toLowerCase().includes(searchParam.searchValue) ||
+          w.contact_email?.toLowerCase().includes(searchParam.searchValue)
+      )
+    );
+  }, [searchParam.searchValue, warehouse, setSearchParams]);
+
+  useEffect(() => {
+    getWarehouses();
+  }, [id]);
+
 
 	useEffect(() => {
 		getWarehouses();
@@ -103,11 +93,7 @@ const WarehouseList = () => {
 
 	//handle edit button click:
 	const editWarehouse = async id => {
-		//
-		//
-		console.log(`Target: ${id}`);
-		//
-		//
+    //move to edit page for selected warehouse:
 		navigate(`/warehouses/${id}/edit`);
 	};
 
