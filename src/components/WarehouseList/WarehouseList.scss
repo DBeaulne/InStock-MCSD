@@ -218,13 +218,15 @@ button.warehouse__form-button {
   &--bold-blue-font {
     color: colors.primcolor(is-indigo);
     font-weight: fontfamily.weight(bold);
+    @include mediaQ.tablet {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   @include mediaQ.tablet {
     @include tabletdesktopfont.tab-desk-header-h3;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
