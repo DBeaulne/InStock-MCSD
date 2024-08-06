@@ -38,7 +38,7 @@ function App() {
 					/>
 
 					<Route
-						path='/warehouses/:id'
+						path='/warehouses/:id/edit'
 						element={<EditWarehouse />}
 					/>
 

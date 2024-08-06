@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 //Assets:
 import errorIcon from "../../assets/icons/error-24px.svg";
-import ArrowBackIcon from "../../assets/icons/arrow_back-24px.svg";
+import backArrow from "../../assets/icons/arrow_back-24px.svg";
 //Components:
 import Input from "../Input/Input";
 import Button from "../Button/Button";
@@ -77,15 +77,15 @@ export default function EditWarehouse() {
 
 		//check for input values:
 		const newErrors = {
-			//'newErrors' is true if value is empty:
-			warehouse_name: !values.warehouse_name,
-			address: !values.address,
-			city: !values.city,
-			country: !values.country,
-			contact_name: !values.contact_name,
-			contact_position: !values.contact_position,
-			contact_phone: !values.contact_phone,
-			contact_email: !values.contact_email,
+			//'newErrors' is true if a value is empty:
+			warehouse_name: !warehouse_name,
+			address: !address,
+			city: !city,
+			country: !country,
+			contact_name: !contact_name,
+			contact_position: !contact_position,
+			contact_phone: !contact_phone,
+			contact_email: !contact_email,
 		};
 
 		//log any errors in state:
@@ -139,5 +139,330 @@ export default function EditWarehouse() {
 		}
 	};
 
-	return <></>;
+	return (
+		<div className='edit-warehouse__wrapper'>
+			<div className='edit-warehouse__top-container'>
+				<img
+					className='edit-warehouse__back-icon'
+					src={backArrow}
+					alt='Back Icon'
+					onClick={() => {
+						navigate("/warehouse");
+					}}
+				/>
+
+				<h1 className='edit-warehouse__heading'>Edit Warehouse</h1>
+			</div>
+
+			<div>
+				<form className='form'>
+					<div className='form__wrapper'>
+						<div className='form__first-container'>
+							<h2 className='form__heading'>Warehouse Details</h2>
+
+							<div className='form__group'>
+								<label
+									className='form__label'
+									htmlFor='warehouse_name'>
+									Warehouse Name
+								</label>
+
+								<Input
+									classname={
+										errors.warehouse_name
+											? "site_input--input site_input--error"
+											: "site_input--input"
+									}
+									placeholder={warehouse_name}
+									name='warehouse_name'
+									value={warehouse_name}
+									onChange={handleInputChange}
+									type='text'
+								/>
+
+								{errors.warehouse_name && (
+									<div className='error'>
+										<img
+											className='error__icon'
+											src={errorIcon}
+											alt='error-icon'
+										/>
+
+										<p className='error__text'>
+											This field is required
+										</p>
+									</div>
+								)}
+							</div>
+
+							<div className='form__group'>
+								<label
+									className='form__label'
+									htmlFor='address'>
+									Street Address
+								</label>
+
+								<Input
+									classname={
+										errors.address
+											? "site_input--input site_input--error"
+											: "site_input--input"
+									}
+									placeholder={"Street Address"}
+									name='address'
+									value={address}
+									onChange={handleInputChange}
+									type='text'
+								/>
+
+								{errors.address && (
+									<div className='error'>
+										<img
+											className='error__icon'
+											src={errorIcon}
+											alt='error-icon'
+										/>
+
+										<p className='error__text'>
+											This field is required
+										</p>
+									</div>
+								)}
+							</div>
+
+							<div className='form__group'>
+								<label
+									className='form__label'
+									htmlFor='city'>
+									City
+								</label>
+
+								<Input
+									classname={
+										errors.city
+											? "site_input--input site_input--error"
+											: "site_input--input"
+									}
+									placeholder={"City"}
+									name='city'
+									value={city}
+									onChange={handleInputChange}
+									type='text'
+								/>
+
+								{errors.city && (
+									<div className='error'>
+										<img
+											className='error__icon'
+											src={errorIcon}
+											alt='error-icon'
+										/>
+
+										<p className='error__text'>
+											This field is required
+										</p>
+									</div>
+								)}
+							</div>
+
+							<div className='form__group'>
+								<label
+									className='form__label'
+									htmlFor='country'>
+									Country
+								</label>
+
+								<Input
+									classname={
+										errors.country
+											? "site_input--input site_input--error"
+											: "site_input--input"
+									}
+									placeholder={"Country"}
+									name='country'
+									value={country}
+									onChange={handleInputChange}
+									type='text'
+								/>
+
+								{errors.country && (
+									<div className='error'>
+										<img
+											className='error__icon'
+											src={errorIcon}
+											alt='error-icon'
+										/>
+
+										<p className='error__text'>
+											This field is required
+										</p>
+									</div>
+								)}
+							</div>
+						</div>
+
+						<div className='form__second-container'>
+							<h2 className='form__heading'>Contact Details</h2>
+
+							<div className='form__group'>
+								<label
+									className='form__label'
+									htmlFor='contact_name'>
+									Contact Name
+								</label>
+
+								<Input
+									classname={
+										errors.contact_name
+											? "site_input--input site_input--error"
+											: "site_input--input"
+									}
+									placeholder={"Contact Name"}
+									name='contact_name'
+									value={contact_name}
+									onChange={handleInputChange}
+									type='text'
+								/>
+
+								{errors.contact_name && (
+									<div className='error'>
+										<img
+											className='error__icon'
+											src={errorIcon}
+											alt='error-icon'
+										/>
+
+										<p className='error__text'>
+											This field is required
+										</p>
+									</div>
+								)}
+							</div>
+
+							<div className='form__group'>
+								<label
+									className='form__label'
+									htmlFor='contact_position'>
+									Position
+								</label>
+
+								<Input
+									classname={
+										errors.contact_position
+											? "site_input--input site_input--error"
+											: "site_input--input"
+									}
+									placeholder={"Position"}
+									name='contact_position'
+									value={contact_position}
+									onChange={handleInputChange}
+									type='text'
+								/>
+
+								{errors.contact_position && (
+									<div className='error'>
+										<img
+											className='error__icon'
+											src={errorIcon}
+											alt='error-icon'
+										/>
+
+										<p className='error__text'>
+											This field is required
+										</p>
+									</div>
+								)}
+							</div>
+
+							<div className='form__group'>
+								<label
+									className='form__label'
+									htmlFor='contact_phone'>
+									Phone Number
+								</label>
+
+								<Input
+									classname={
+										errors.contact_phone
+											? "site_input--input site_input--error"
+											: "site_input--input"
+									}
+									placeholder={"Phone Number"}
+									name='contact_phone'
+									value={contact_phone}
+									onChange={handleInputChange}
+									type='text'
+								/>
+
+								{errors.contact_phone && (
+									<div className='error'>
+										<img
+											className='error__icon'
+											src={errorIcon}
+											alt='error-icon'
+										/>
+
+										<p className='error__text'>
+											This field is required
+										</p>
+									</div>
+								)}
+							</div>
+
+							<div className='form__group'>
+								<label
+									className='form__label'
+									htmlFor='contact_email'>
+									Email
+								</label>
+
+								<Input
+									classname={
+										errors.contact_email
+											? "site_input--input site_input--error"
+											: "site_input--input"
+									}
+									placeholder={"Email"}
+									name='contact_email'
+									value={contact_email}
+									onChange={handleInputChange}
+									type='text'
+								/>
+
+								{errors.contact_email && (
+									<div className='error'>
+										<img
+											className='error__icon'
+											src={errorIcon}
+											alt='error-icon'
+										/>
+
+										<p className='error__text'>
+											This field is required
+										</p>
+									</div>
+								)}
+							</div>
+						</div>
+					</div>
+
+					<div className='form__button-wrapper'>
+						<Button
+							className='btn btn--sec form__button'
+							type='button'
+							text='Cancel'
+							onClick={handleDiscardChanges}
+						/>
+
+						<Button
+							className='btn btn--prim form__button'
+							type='submit'
+							text='Save'
+							onClick={handleSubmit}
+						/>
+					</div>
+				</form>
+			</div>
+		</div>
+	);
 }
