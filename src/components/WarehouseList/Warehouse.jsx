@@ -94,7 +94,9 @@ const Warehouse = ({
               <p className="warehouse__text">{email}</p>
             </section>
             <section className="warehouse__section-wrapper warehouse__section-wrapper--action">
-              <h4 className="warehouse__sub-title">ACTIONS</h4>
+              <div className="warehouse__wrapper--button-sort">
+                <h4 className="warehouse__sub-title warehouse__sub-title--action">ACTIONS</h4>
+              </div>
               <div className="warehouse__wrapper--button">
                 <button
                   onClick={() => deleteWarehouseBtn(warehouseId)}

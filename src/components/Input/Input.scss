@@ -33,7 +33,6 @@
   }
   &--input {
     height: 2.25rem;
-    min-width: 240px;
     max-height: 36px;
     @include mediaQ.tablet {
       height: 2.375rem;
@@ -57,11 +56,23 @@
 }
 
 .warehouses__form-input {
+  appearance: none;
   background-image: url(../../assets//icons/search-24px.svg);
   background-position: center right 1rem;
   background-size: 1rem;
   background-repeat: no-repeat;
   padding: 1rem;
-  width: 100%;
   margin-bottom: paddingandmargins.$mobDEF;
+  @include mediaQ.tablet {
+    width: 100%;
+    max-width: 230px;
+    background-size: 1.75rem;
+  }
+  &:focus {
+    background-image: none;
+  }
+}
+ 
+.inventories__form-input {
+  @extend .warehouses__form-input
 }

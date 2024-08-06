@@ -10,6 +10,7 @@ const Input = ({
   txtArea,
   search,
   number,
+  searchParam,
   onChange,
 }) => {
   const [focus, setFocus] = useState("");
@@ -54,7 +55,7 @@ const Input = ({
         value={value}
         className={`site_input site_input--input ${classname} ${focus} ${error}`}
         placeholder={placeholder}
-        type="text"
+        type="search"
         name={name}
         onChange={onChange}
       />
