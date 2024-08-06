@@ -2,7 +2,7 @@
 import axios from "axios";
 import "./EditWarehouse.scss";
 import { apiUrl } from "../../App";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 //Assets:
 import errorIcon from "../../assets/icons/error-24px.svg";
@@ -18,17 +18,27 @@ export default function EditWarehouse() {
 	//grab warehouse id:
 	const { id } = useParams();
 
-	//grab data from form and set to state:
-	const [values, setValues] = useState({
-		warehouse_name: "",
-		address: "",
-		city: "",
-		country: "",
-		contact_name: "",
-		contact_position: "",
-		contact_phone: "",
-		contact_email: "",
-	});
+	//grab warehouse data:
+	const getCurrentWarehouseData = async id => {
+		try {
+			//get data from server:
+			const { data } = await axios.get(`${apiUrl}/warehouses/${id}`);
+			//set data in state:
+			setValues(data);
+		} catch (error) {
+			console.log(
+				`Encountered and error while fetching warehouse data: ${error.message}`
+			);
+		}
+	};
+
+	//auto-populate form state with current warehouse values:
+	const [values, setValues] = useState({});
+	useEffect(() => {
+		if (id) {
+			getCurrentWarehouseData(id);
+		}
+	}, [id]);
 
 	//unpack form values:
 	const {
