@@ -90,3 +90,4 @@
 - added validation for email and phone number
 - corrected styling for header
 - debugged errant warehouse posting to db after cancel
+- edited emailRegex to allow for top level domains up to 12 characters. ie: .photography
