@@ -56,7 +56,9 @@
   }
 }
 
-.warehouses__form-input {
+.warehouses__form-input,
+.inventories__form-input {
+  appearance: none;
   background-image: url(../../assets//icons/search-24px.svg);
   background-position: center right 1rem;
   background-size: 1rem;
@@ -64,4 +66,7 @@
   padding: 1rem;
   width: 100%;
   margin-bottom: paddingandmargins.$mobDEF;
+  &:focus {
+    background-image: none;
+  }
 }
