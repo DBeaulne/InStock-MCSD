@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./AddWarehouse.scss";
 import ArrowBackIcon from "../../assets/icons/arrow_back-24px.svg";
 import { useNavigate } from "react-router-dom";
@@ -75,12 +75,12 @@ const AddWarehouse = () => {
 
 	const validateEmail = (email) => {
 		const emailRegex =
-			/^(([^<>(){\}[\]\\+-\_~!#$%^&*?'=.,;:\s@\"]+(\.[^<>(){\}[\]\\!#$%^+&*'?~`=\-_.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,6}))$/;
+			/^(([^<>(/){}[\]\\+-_~!#$%^&*?'=.,;:\s@"]+(\.[^<>(/){}[\]\\!#$%^+&*'?~`=\-_.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,6}))$/;
 		return email.match(emailRegex);
 	};
 
 	const validatePhoneNum = (phoneNum) => {
-		const phoneNumRegex = /^(\+?1\ ?)?\(?[0-9]{3}\)?\-?\ ?[0-9]{3}\-?\ ?[0-9]{4}$/;
+		const phoneNumRegex = /^(\+?1 ?)?\(?[0-9]{3}\)?-? ?[0-9]{3}-? ?[0-9]{4}$/;
 		return phoneNum.match(phoneNumRegex);
 	};
 
@@ -90,22 +90,26 @@ const AddWarehouse = () => {
 			return;
 		}
 		const confirmSubmit = window.confirm("Add new warehouse?");
-		if (confirmSubmit) {
-			navigate(`/warehouses`);
+		if (!confirmSubmit) {
+			navigate("/warehouses");
+			return;
 		}
 		try {
-			await axios.post(`${apiUrl}/warehouses`, formData).then(() => {
-				setFormData({
-					warehouse_name: "",
-					address: "",
-					city: "",
-					country: "",
-					contact_name: "",
-					contact_position: "",
-					contact_phone: "",
-					contact_email: ""
-				});
-			});
+			await axios
+				.post(`${apiUrl}/warehouses`, formData)
+				.then(() => {
+					setFormData({
+						warehouse_name: "",
+						address: "",
+						city: "",
+						country: "",
+						contact_name: "",
+						contact_position: "",
+						contact_phone: "",
+						contact_email: ""
+					});
+				})
+				.then(navigate("/warehouses"));
 		} catch (e) {
 			console.log("Failed to add warehouse.", e);
 		}
@@ -120,7 +124,7 @@ const AddWarehouse = () => {
 
 	useEffect(() => {
 		getWarehouses();
-	}, [formData]);
+	}, [warehouses]);
 
 	return (
 		<div className="add-warehouse__container">

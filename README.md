@@ -80,3 +80,13 @@
 - Created a reusable component for inventory form.
 - Added to the Add Inventory Item component.
 - Passed an onClick prop to the button component.
+
+## feature/ Add Warehouse component
+
+- created AddWarehouse component
+- create structure for the component to match the mockup
+- import Input component
+- style component for all break points
+- added validation for email and phone number
+- corrected styling for header
+- debugged errant warehouse posting to db after cancel
