@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import WarehousesPage from "./pages/WarehousesPage/WarehousesPage.jsx";
 import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
+import ItemDetailsPage from "./pages/ItemDetailsPage/ItemDetailsPage.js";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx";
 import "./App.scss";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem.jsx";
@@ -12,24 +13,55 @@ import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem.
 export const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <main className="instock__background">
-        <Routes>
-          <Route path="/warehouses" element={<WarehousesPage />} />
-          <Route path="/" element={<Navigate to="/warehouses" />} />
-          <Route path="/warehouses/:id" element={<WarehouseDetails />} />
-          <Route path="/inventory" element={<InventoryPage />} />
-          <Route path="/inventory/:id" element={<InventoryPage />} />
-          <Route path="/inventory/add" element={<AddInventoryItem />} />
-          <Route path="/inventory/:id/edit" element={<EditInventoryItem />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </main>
-      <Footer />
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Header />
+			<main className='instock__background'>
+				<Routes>
+					<Route
+						path='/warehouses'
+						element={<WarehousesPage />}
+					/>
+
+					<Route
+						path='/'
+						element={<Navigate to='/warehouses' />}
+					/>
+
+					<Route
+						path='/warehouses/:id'
+						element={<WarehouseDetails />}
+					/>
+
+					<Route
+						path='/inventory'
+						element={<InventoryPage />}
+					/>
+
+					<Route
+						path='/inventory/:id'
+						element={<ItemDetailsPage />}
+					/>
+
+					<Route
+						path='/inventory/add'
+						element={<AddInventoryItem />}
+					/>
+
+					<Route
+						path='/inventory/:id/edit'
+						element={<EditInventoryItem />}
+					/>
+
+					<Route
+						path='*'
+						element={<NotFoundPage />}
+					/>
+				</Routes>
+			</main>
+			<Footer />
+		</BrowserRouter>
+	);
 }
 
 export default App;
