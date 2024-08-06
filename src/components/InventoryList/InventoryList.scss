@@ -9,347 +9,351 @@
 //INVENTORIES FORM AND TITLE//
 
 .inventories {
-	@include mediaQ.tablet{ 
-		border-radius: 4px 4px 0px 0px;
-		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);; // NEED TO BE DISCUSSED WITH TEAM // 
-	}
+  @include mediaQ.tablet {
+    border-radius: 4px 4px 0px 0px;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM //
+  }
 }
 
 .inventories__wrapper--form {
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-	justify-content: center;
-	padding: 1.25rem;
-	background-color: colors.primcolor(is-white);
-	border-bottom: 1px solid colors.seccolor(is-cloud);
-	border-radius: 4px 4px 0px 0px;
-	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM // 
-	@include mediaQ.tablet{ 
-		padding: 1.5rem 2rem 2rem 2rem;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		border-bottom: none;
-		box-shadow: none;
-	}
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem;
+  background-color: colors.primcolor(is-white);
+  border-bottom: 1px solid colors.seccolor(is-cloud);
+  border-radius: 4px 4px 0px 0px;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM //
+  @include mediaQ.tablet {
+    padding: 1.5rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: none;
+    box-shadow: none;
+  }
 }
 
 .inventories__title {
-	@include mobilefont.mob-header-h1;
-	font-weight: fontfamily.weight(bold);
-	margin-bottom: paddingandmargins.$mobDEF;
-	@include mediaQ.tablet {
-		width: 40%;
-		@include tabletdesktopfont.tab-desk-header-h1;
-	}
+  @include mobilefont.mob-header-h1;
+  font-weight: fontfamily.weight(bold);
+  margin-bottom: paddingandmargins.$mobDEF;
+  @include mediaQ.tablet {
+    width: 40%;
+    @include tabletdesktopfont.tab-desk-header-h1;
+  }
 }
 
 .inventories__form {
-	@include mediaQ.tablet {
-		display: flex;
-		justify-content: right;
-		width: 60%;
-	}
-	@include mediaQ.desktop {
-		width: 60%;
-	}
+  @include mediaQ.tablet {
+    display: flex;
+    justify-content: right;
+    width: 60%;
+  }
+  @include mediaQ.desktop {
+    width: 60%;
+  }
 }
 
 .inventories__form-button {
-	background-color: colors.primcolor(is-indigo);
-	color: colors.primcolor(is-white);
-	border: none;
-	@include mediaQ.tablet {
-		margin-left: paddingandmargins.$tabDEF;
-		max-width: 230px;
-		width: 100%;
-	}
+  background-color: colors.primcolor(is-indigo);
+  color: colors.primcolor(is-white);
+  border: none;
+  @include mediaQ.tablet {
+    margin-left: paddingandmargins.$tabDEF;
+    max-width: 230px;
+    width: 100%;
+  }
 }
 
 button.inventory__button--sort {
-	@include mediaQ.tablet {
-		display: none;
-	}
+  @include mediaQ.tablet {
+    display: none;
+  }
 }
 
 .inventory:first-child button.inventory__button--sort {
-	@include mediaQ.tablet {
-		display: block;
-		margin-top: 1.4rem;
-		width: 1rem;
-	}
+  @include mediaQ.tablet {
+    display: block;
+    margin-top: 1.4rem;
+    width: 1rem;
+  }
 }
 
 .inventory:first-child h4 {
-	@include mediaQ.tablet {
-		display: block;
-		margin-bottom: 1.5rem;
-		width: fit-content;
-		margin: 0rem;
-	}
+  @include mediaQ.tablet {
+    display: block;
+    margin-bottom: 1.5rem;
+    width: fit-content;
+    margin: 0rem;
+  }
 }
 
 .inventory:first-child .inventory__wrapper--button-sort {
-	@include mediaQ.tablet {
-		background-color: rgba(247, 248, 249, 0.7);
-		width: 100%;
-		display: flex;
-		justify-content: left;
-		padding-left: 2rem;
-	}
+  @include mediaQ.tablet {
+    background-color: rgba(247, 248, 249, 0.7);
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    padding-left: 2rem;
+  }
 }
 
 // INVENTORY //
 
 .inventory {
-	display: flex;
-	justify-content: left;
-	padding: 1.25rem;
-	background-color: colors.primcolor(is-white);
-	border-bottom: 1px solid colors.seccolor(is-cloud);
-	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-	@include mediaQ.tablet{ 
-		padding: 0rem;
-		display: flex;
-		flex-direction: row;
-		justify-content: left;
-		border-bottom: 1px solid colors.seccolor(is-cloud);
-		box-shadow: none;
-		width: 100%;
-	}
+  display: flex;
+  justify-content: left;
+  padding: 1.25rem;
+  background-color: colors.primcolor(is-white);
+  border-bottom: 1px solid colors.seccolor(is-cloud);
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  @include mediaQ.tablet {
+    padding: 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    border-bottom: 1px solid colors.seccolor(is-cloud);
+    box-shadow: none;
+    width: 100%;
+  }
 }
 
 .inventory__wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: left;
-	justify-content: space-between;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  width: 100%;
 
-	@include mediaQ.tablet {
-		width: 100%;
-	}
+  @include mediaQ.tablet {
+    width: 100%;
+  }
 
-	&--inner {
-		@include mediaQ.tablet {
-			display: flex;
-			width: 100%;
-		}
-	}
+  &--inner {
+    @include mediaQ.tablet {
+      display: flex;
+      width: 100%;
+    }
+  }
 
-	&--inner-left {
-		justify-content: left;
-		width: 100%;
-		@include mediaQ.tablet {
-			display: flex;
-			flex: row;
-			width: 100%;
-		}
-	}
+  &--inner-left {
+    justify-content: left;
+    width: 100%;
+    @include mediaQ.tablet {
+      display: flex;
+      flex: row;
+      width: 100%;
+    }
+  }
 
-	&--inner-right {
-		width: 100%;
-		.inventory__section-wrapper:last-child .inventory__wrapper--button-sort{
-			@include mediaQ.tablet{
-				text-align: right;
-				padding-left: 0rem;
-				padding-right: 2rem;
-			}
-		}
-		.inventory__section-wrapper:last-child .inventory__wrapper--button-sort h4{
-			@include mediaQ.tablet{
-				width: 100%;
-				text-align: right;
-			}
-		}
-	}
+  &--inner-right {
+    width: 100%;
+    .inventory__section-wrapper:last-child .inventory__wrapper--button-sort {
+      @include mediaQ.tablet {
+        text-align: right;
+        padding-left: 0rem;
+        padding-right: 2rem;
+      }
+    }
+    .inventory__section-wrapper:last-child .inventory__wrapper--button-sort h4 {
+      @include mediaQ.tablet {
+        width: 100%;
+        text-align: right;
+      }
+    }
+  }
 
-	&--left {
-		@include mediaQ.tablet {
-			width: 40%;
-		}
-	}
+  &--left {
+    @include mediaQ.tablet {
+      width: 40%;
+    }
+  }
 
-	&--right {
-		@include mediaQ.tablet {
-			width: 60%;
-		}
-	}
+  &--right {
+    @include mediaQ.tablet {
+      width: 60%;
+    }
+  }
 }
 
 .inventory__section-wrapper {
-	margin: 1rem 0rem;
-	width: 100%;
-	&--item {
-		@include mediaQ.tablet {
-			width: 55%;
-		}
-	}
+  margin: 1rem 0rem;
+  width: 100%;
+  &--item {
+    @include mediaQ.tablet {
+      width: 55%;
+    }
+  }
 
-	&--category {
-		@include mediaQ.tablet {
-			width: 45%;
-		}
-	}
+  &--category {
+    @include mediaQ.tablet {
+      width: 45%;
+    }
+  }
 
-	&--status {
-		@include mediaQ.tablet {
-			width: 35%;
-		}
-	}
+  &--status {
+    @include mediaQ.tablet {
+      width: 35%;
+    }
+  }
 
-	&--qty {
-		@include mediaQ.tablet {
-			width: 22%;
-		}
-	}
+  &--qty {
+    @include mediaQ.tablet {
+      width: 22%;
+    }
+  }
 
-	&--warehouse {
-		@include mediaQ.tablet {
-			width:36%;
-		}
-	}
+  &--warehouse {
+    @include mediaQ.tablet {
+      width: 36%;
+    }
+  }
 
-	&--action {
-		@include mediaQ.tablet {
-			width: 25%;
-		}
-	}
+  &--action {
+    @include mediaQ.tablet {
+      width: 25%;
+    }
+  }
 }
 
 .inventory__sub-title {
-	@include mobilefont.mob-header-h4;
-	margin: 0rem;
-	width: 100%;
-	text-align: start;
-	color: colors.seccolor(is-slate);
-	@include mediaQ.tablet {
-		@include tabletdesktopfont.tab-desk-header-h4;
-		display: none;
-		width: 100%;
-		padding: 1.5rem 0rem;
-	}
-	&--action {
-		display: none;
-	}
+  @include mobilefont.mob-header-h4;
+  margin: 0rem;
+  width: 100%;
+  text-align: start;
+  color: colors.seccolor(is-slate);
+  @include mediaQ.tablet {
+    @include tabletdesktopfont.tab-desk-header-h4;
+    display: none;
+    width: 100%;
+    padding: 1.5rem 0rem;
+  }
+  &--action {
+    display: none;
+  }
 }
 
 .inventory__text {
-	@include mobilefont.mob-par-p3;
-	margin: 0rem;
-	width: 100%;
-	text-align: start;
-	color: colors.primcolor(is-black);
+  @include mobilefont.mob-par-p3;
+  margin: 0rem;
+  width: 100%;
+  text-align: start;
+  color: colors.primcolor(is-black);
 
-	&--bold-blue-font {
-		color: colors.primcolor(is-indigo);
-		font-weight: fontfamily.weight(bold);
-	}
+  &--bold-blue-font {
+    color: colors.primcolor(is-indigo);
+    font-weight: fontfamily.weight(bold);
+  }
 
-	&--tag {
-		display: flex;
-		align-items: center;
-		width: fit-content;
-		height: 1.5rem;
-		padding: 0rem 0.5rem;
-		text-align: center;
-		border-radius: 20px;
-		font-weight: fontfamily.weight(bold);
+  &--tag {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 1.5rem;
+    padding: 0rem 0.5rem;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: fontfamily.weight(bold);
 
-		&-instock {
-			color: #158643;
-			background-color: hsl(144, 73%, 30%, 7%);
-		}
+    &-instock {
+      color: #158643;
+      background-color: hsl(144, 73%, 30%, 7%);
+    }
 
-		&-outstock {
-		    color: #C94515;
-		    background-color: hsl(16, 81%, 44% , 7%);
-		}
-	}
+    &-outstock {
+      color: #c94515;
+      background-color: hsl(16, 81%, 44%, 7%);
+    }
+  }
 
-	@include mediaQ.tablet {
-		@include tabletdesktopfont.tab-desk-header-h3;
-		margin-left: 2rem;
-	}
+  @include mediaQ.tablet {
+    @include tabletdesktopfont.tab-desk-header-h3;
+    margin-left: 2rem;
+  }
 }
 
 .inventory__wrapper--button-sort {
-	display: flex;
-	width: fit-content;
-	justify-content: right;
-	@include mediaQ.tablet {
-		padding-left: 2rem;
-	  }
+  display: flex;
+  width: fit-content;
+  justify-content: right;
+  @include mediaQ.tablet {
+    padding-left: 2rem;
+  }
 }
 
 .inventory__wrapper--button {
-	@include mediaQ.tablet {
-		display: flex;
-		flex-direction: row;
-		justify-content: right;
-		width: 100%;
-	}
+  @include mediaQ.tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 100%;
+  }
 }
 
 .inventory__button {
-	width: 1.5rem;
-	height: 1.5rem;
-	border: none;
-	background-repeat: no-repeat;
-	background-color: white;
-	&:hover {
-		cursor: pointer;
-	}
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  background-repeat: no-repeat;
+  background-color: white;
+  &:hover {
+    cursor: pointer;
+  }
 
-	&--edit {
-		background-image: url(../../assets/icons/edit-24px.svg);
-		background-position: center;
-		align-self: end;
-		@include mediaQ.tablet {
-			margin-left: .5rem;
-			margin-right: 2rem;
-		}
-	}
+  &--edit {
+    background-image: url(../../assets/icons/edit-24px.svg);
+    background-position: center;
+    align-self: end;
+    @include mediaQ.tablet {
+      margin-left: 0.5rem;
+      margin-right: 2rem;
+    }
+  }
 
-	&--delete {
-		background-image: url(../../assets/icons/delete_outline-24px.svg);
-		background-position: center;
-	}
+  &--delete {
+    background-image: url(../../assets/icons/delete_outline-24px.svg);
+    background-position: center;
+  }
 
-	&--mobile {
-		@include mediaQ.tablet {
-			display: none;
-		}
-	}
+  &--mobile {
+    @include mediaQ.tablet {
+      display: none;
+    }
+  }
 
-	&--sort {
-		background-image: url(../../assets/icons/sort-24px.svg);
-		background-position: center;
-		background-size: 1.15rem;
-		margin: 0rem 0rem 0rem 0.25rem;
-	}
+  &--sort {
+    background-image: url(../../assets/icons/sort-24px.svg);
+    background-position: center;
+    background-size: 1.15rem;
+    margin: 0rem 0rem 0rem 0.25rem;
+  }
 
-	&--chevron {
-		background-image: url(../../assets/icons/chevron_right-24px.svg);
-		background-position: center 20%;
-		background-size: 1rem;
-		margin: 0rem 0rem 0rem 0.25rem;
-		@include mediaQ.tablet {
-			background-position: bottom;
-		}
-	}
+  &--chevron {
+    background-image: url(../../assets/icons/chevron_right-24px.svg);
+    background-position: center 20%;
+    background-size: 1rem;
+    margin: 0rem 0rem 0rem 0.25rem;
+    @include mediaQ.tablet {
+      background-position: bottom;
+    }
+  }
 
-	&--tablet {
-		display: none;
-		@include mediaQ.tablet {
-			display: block;
-		}
-	}
+  &--tablet {
+    display: none;
+    @include mediaQ.tablet {
+      display: block;
+    }
+  }
 }
 
 .inventory__wrapper--button-chevron {
-	display: flex;
-	width: fit-content;
-	justify-content: right;
+  display: flex;
+  width: fit-content;
+  justify-content: right;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

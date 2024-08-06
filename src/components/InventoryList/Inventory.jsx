@@ -16,7 +16,7 @@ const Inventory = ({
   quantity,
   availablity,
   displayNone,
-  spaceBetween
+  spaceBetween,
 }) => {
   const navigate = useNavigate();
   return (
@@ -36,7 +36,10 @@ const Inventory = ({
                                 </svg> */}
                 </button>
               </div>
-              <div className="inventory__wrapper--button-chevron">
+              <div
+                className="inventory__wrapper--button-chevron"
+                onClick={() => navigate(`/inventory/${InventoryId}`)}
+              >
                 <p className="inventory__text inventory__text--bold-blue-font">
                   {itemName}
                 </p>
@@ -69,7 +72,9 @@ const Inventory = ({
           ></button>
         </div>
         <div className="inventory__wrapper inventory__wrapper--right">
-          <div className={`inventory__wrapper--inner inventory__wrapper--inner-right ${spaceBetween}`}>
+          <div
+            className={`inventory__wrapper--inner inventory__wrapper--inner-right ${spaceBetween}`}
+          >
             <section className="inventory__section-wrapper inventory__section-wrapper--status">
               <div className="inventory__wrapper--button-sort">
                 <h4 className="inventory__sub-title">STATUS</h4>
@@ -94,9 +99,11 @@ const Inventory = ({
               </div>
               <p className="inventory__text">{quantity}</p>
             </section>
-            <section className={`inventory__section-wrapper inventory__section-wrapper--warehouse ${displayNone}`}>
+            <section
+              className={`inventory__section-wrapper inventory__section-wrapper--warehouse ${displayNone}`}
+            >
               <div className="inventory__wrapper--button-sort">
-              <h4 className="inventory__sub-title">WAREHOUSE</h4>
+                <h4 className="inventory__sub-title">WAREHOUSE</h4>
                 <button
                   onClick={sortwarehouse}
                   className="inventory__button inventory__button--sort inventory__button--tablet"
@@ -106,7 +113,9 @@ const Inventory = ({
             </section>
             <section className="inventory__section-wrapper inventory__section-wrapper--action">
               <div className="inventory__wrapper--button-sort">
-                <h4 className="inventory__sub-title inventory__sub-title--action">ACTION</h4>
+                <h4 className="inventory__sub-title inventory__sub-title--action">
+                  ACTION
+                </h4>
               </div>
               <div className="inventory__wrapper--button">
                 <button
