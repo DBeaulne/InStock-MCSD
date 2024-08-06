@@ -15,7 +15,7 @@ const WarehouseDetails = () => {
 
   useEffect(() => {
     getWarehouse(id);
-    getWarehouseInventories(id)
+    getWarehouseInventories(id);
   }, [id]);
 
   const getWarehouse = async (id) => {
@@ -29,7 +29,9 @@ const WarehouseDetails = () => {
 
   const getWarehouseInventories = async (id) => {
     try {
-      const { data } = await axios.get(`${apiUrl}/warehouses/${id}/inventories`);
+      const { data } = await axios.get(
+        `${apiUrl}/warehouses/${id}/inventories`
+      );
       console.log(data);
       setWarehouseInventoryList(data);
     } catch (e) {
@@ -94,30 +96,31 @@ const WarehouseDetails = () => {
           </div>
         </div>
         <div className="warehouse-details__bottom">
-        {warehouseInventoryList.map((item) => {
-            const { category, id, item_name, quantity, status, warehouse_name } = item;
+          {warehouseInventoryList.map((item) => {
+            const { category, id, item_name, quantity, status } = item;
 
             const isAvailable = () => {
-              if (quantity === 0 ) {
-                return 'inventory__text--tag-outstock'
+              if (quantity === 0) {
+                return "inventory__text--tag-outstock";
               } else {
-                return 'inventory__text--tag-instock' 
+                return "inventory__text--tag-instock";
               }
-            }
+            };
 
             return (
-              <Inventory 
-              key={id}
-              itemName={item_name}
-              availablity={isAvailable()}
-              category={category}
-              quantity={quantity}
-              status={status}
-              warehouse={warehouse_name}
-              // deleteInventoryItemBtn={deleteInventoryItemBtn}
+              <Inventory
+                key={id}
+                itemName={item_name}
+                availablity={isAvailable()}
+                category={category}
+                quantity={quantity}
+                status={status}
+                displayNone={'warehouse-details__bottom--dpnone'}
+                spaceBetween={'warehouse-details__bottom--spacebetween'}
+                // deleteInventoryItemBtn={deleteInventoryItemBtn}
               />
-            )
-        })} 
+            );
+          })}
         </div>
       </div>
     </section>
