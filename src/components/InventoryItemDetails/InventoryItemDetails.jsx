@@ -84,21 +84,24 @@ export default function InventoryItemDetails() {
 						<h3 className='item-details__subheading'>
 							ITEM DESCRIPTION:
 						</h3>
+
 						<p className='item-details__text'>{description}</p>
 					</div>
 
 					<div className='item-details__info'>
 						<h3 className='item-details__subheading'>CATEGORY:</h3>
+
 						<p className='item-details__text'>{category}</p>
 					</div>
 				</div>
 
 				<div className='item-details__right-bin'>
 					<div className='right-bin__top-container'>
-						<div className='item-details__info'>
+						<div className='item-details__info right-bin__element'>
 							<h3 className='item-details__subheading'>
 								STATUS:
 							</h3>
+
 							<p
 								className={`item-details__text ${
 									status === "In Stock"
@@ -109,10 +112,11 @@ export default function InventoryItemDetails() {
 							</p>
 						</div>
 
-						<div className='item-details__info'>
+						<div className='item-details__info right-bin__element'>
 							<h3 className='item-details__subheading'>
 								QUANTITY:
 							</h3>
+
 							<p className='item-details__text'>{quantity}</p>
 						</div>
 					</div>
@@ -122,6 +126,7 @@ export default function InventoryItemDetails() {
 							<h3 className='item-details__subheading'>
 								WAREHOUSE:
 							</h3>
+
 							<p className='item-details__text'>
 								{warehouseName}
 							</p>

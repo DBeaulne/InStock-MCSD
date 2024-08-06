@@ -8,15 +8,10 @@
 	background-color: colors.primcolor(is-white);
 	border-radius: 0.25rem;
 	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-	margin: paddingandmargins.$mobLR;
 	color: colors.primcolor(is-black);
 
-	@include mediaQ.tablet {
-		margin: paddingandmargins.$tabLR;
-	}
-
 	@include mediaQ.desktop {
-		margin: paddingandmargins.$deskLR;
+		margin: 0 auto;
 	}
 
 	&__title-container {
@@ -68,15 +63,16 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		gap: 1rem;
+		width: 100%;
 		margin-top: 1rem;
 
 		@include mediaQ.tablet {
-			flex-direction: row;
+			width: 50%;
 			margin: 0;
 		}
 
 		@include mediaQ.desktop {
-			gap: 8rem;
+			justify-content: space-between;
 		}
 	}
 
@@ -116,25 +112,42 @@
 	}
 }
 
-.right-bin__top-container {
-	display: flex;
-	justify-content: flex-start;
+.right-bin {
+	&__top-container {
+		display: flex;
+		width: 100%;
+
+		@include mediaQ.tablet {
+			justify-content: space-between;
+		}
+	}
+
+	&__element {
+		width: 50%;
+	}
 }
 
 .in-stock {
+	height: 1.5rem;
 	border-radius: 1.25rem;
 	padding: 0.25rem 0.5rem;
 	@include mobilefont.mob-par-p3;
 	text-transform: uppercase;
 
+	@include mediaQ.tablet {
+		height: 1.625rem;
+	}
+
 	&--true {
 		@extend .in-stock;
+		width: 3.75rem;
 		background-color: rgba(21, 132, 99, 0.07);
 		color: colors.suppcolor(is-green);
 	}
 
 	&--false {
 		@extend .in-stock;
+		width: 5.35rem;
 		background-color: rgba(201, 69, 21, 0.07);
 		color: colors.suppcolor(is-red);
 	}
