@@ -115,6 +115,8 @@ const WarehouseDetails = () => {
                 category={category}
                 quantity={quantity}
                 status={status}
+                displayNone={'warehouse-details__bottom--dpnone'}
+                spaceBetween={'warehouse-details__bottom--spacebetween'}
                 // deleteInventoryItemBtn={deleteInventoryItemBtn}
               />
             );
