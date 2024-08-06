@@ -148,14 +148,16 @@ const EditInventoryItem = () => {
   return (
     <div className="edit-inventory__container">
       <div className="edit-inventory__top">
-        <img
-          className="edit-inventory__back-icon"
-          src={ArrowBackIcon}
-          alt="Back Icon"
-          onClick={() => {
-            navigate("/inventory");
-          }}
-        />
+        <div className="edit-inventory__back-icon-container">
+          <img
+            className="edit-inventory__back-icon"
+            src={ArrowBackIcon}
+            alt="Back Icon"
+            onClick={() => {
+              navigate("/inventory");
+            }}
+          />
+        </div>
         <h1 className="edit-inventory__heading">Edit Inventory Item</h1>
       </div>
       <div className="edit-inventory__bottom">
