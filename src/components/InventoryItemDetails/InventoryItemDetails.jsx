@@ -18,8 +18,9 @@ export default function InventoryItemDetails() {
 	const [warehouseName, setWarehouseName] = useState();
 	//grab id from URL params:
 	const { id } = useParams();
-	//grab ID from the item details:
-	const { warehouse_id } = inventoryItemDetails;
+	//unpack the item details:
+	const { warehouse_id, item_name, description, category, status, quantity } =
+		inventoryItemDetails;
 
 	//API call for item details:
 	const getItemDetails = async id => {
@@ -52,14 +53,14 @@ export default function InventoryItemDetails() {
 
 	//trigger call for warehouse name once warehouse ID is available:
 	useEffect(() => {
-		getWarehouseName(inventoryItemDetails.warehouse_id);
+		getWarehouseName(warehouse_id);
 	}, [setInventoryItemDetails]);
 
 	return (
 		<section className='item-details'>
 			<div className='item-details__title-container'>
 				<img
-					className='item-details__back-icon'
+					className='icon'
 					src={backArrow}
 					alt='Back Icon'
 					onClick={() => {
@@ -67,9 +68,7 @@ export default function InventoryItemDetails() {
 					}}
 				/>
 
-				<h1 className='item-details__heading'>
-					{inventoryItemDetails.item_name}
-				</h1>
+				<h1 className='item-details__item-name'>{item_name}</h1>
 
 				<Button
 					type='button'
@@ -79,42 +78,55 @@ export default function InventoryItemDetails() {
 				/>
 			</div>
 
-			<div className='item-details__mid'>
-				<div className='item-details__mid-container1'>
-					<h3 className='item-details__sub-heading'>
-						ITEM DESCRIPTION:
-					</h3>
-					<p className='item-details__txt'>
-						{inventoryItemDetails.description}
-					</p>
-
-					<div className='item-details__name'>
-						<h3 className='item-details__sub-heading'>CATEGORY:</h3>
-						<p className='item-details__txt'>
-							{inventoryItemDetails.category}
-						</p>
-					</div>
-				</div>
-
-				<div className='item-details__mid-container2'>
+			<div className='item-details__wrapper'>
+				<div className='item-details__left-bin'>
 					<div className='item-details__info'>
-						<h3 className='item-details__sub-heading'>STATUS:</h3>
-						<p className='item-details__txt'>
-							{inventoryItemDetails.status}
-						</p>
+						<h3 className='item-details__subheading'>
+							ITEM DESCRIPTION:
+						</h3>
+						<p className='item-details__text'>{description}</p>
 					</div>
 
 					<div className='item-details__info'>
-						<h3 className='item-details__sub-heading'>QUANTITY:</h3>
-						<p className='item-details__txt'>
-							{inventoryItemDetails.quantity}
-						</p>
+						<h3 className='item-details__subheading'>CATEGORY:</h3>
+						<p className='item-details__text'>{category}</p>
 					</div>
 				</div>
 
-				<div className='item-details__info'>
-					<h3 className='item-details__sub-heading'>WAREHOUSE:</h3>
-					<p className='item-details__txt'>{warehouseName}</p>
+				<div className='item-details__right-bin'>
+					<div className='right-bin__top-container'>
+						<div className='item-details__info'>
+							<h3 className='item-details__subheading'>
+								STATUS:
+							</h3>
+							<p
+								className={`item-details__text ${
+									status === "In Stock"
+										? "in-stock--true"
+										: "in-stock--false"
+								}`}>
+								{status}
+							</p>
+						</div>
+
+						<div className='item-details__info'>
+							<h3 className='item-details__subheading'>
+								QUANTITY:
+							</h3>
+							<p className='item-details__text'>{quantity}</p>
+						</div>
+					</div>
+
+					<div className='right-bin__bottom'>
+						<div className='item-details__info'>
+							<h3 className='item-details__subheading'>
+								WAREHOUSE:
+							</h3>
+							<p className='item-details__text'>
+								{warehouseName}
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
