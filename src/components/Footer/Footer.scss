@@ -7,6 +7,7 @@
 	display: flex;
 	justify-content: center;
 	justify-self: flex-end;
+	background-color: colors.bgcolor(is-grey);
 
 	&__text {
 		@include mobilefont.mob-par-p3;
