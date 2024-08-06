@@ -104,12 +104,14 @@ const EditInventoryItem = () => {
     };
     console.log(formData);
     try {
-      const response = await axios.put(
-        `${apiUrl}/inventory/${id}`,
-        updatedInventoryItem
-      );
-      if (confirmSubmit && response.status === 200) {
-        navigate(`/inventory`);
+      if (confirmSubmit) {
+        const response = await axios.put(
+          `${apiUrl}/inventory/${id}`,
+          updatedInventoryItem
+        );
+        if (response.status === 200) {
+          navigate("/inventory");
+        }
       }
     } catch (e) {
       console.log("Failed to update inventory item.", e);
