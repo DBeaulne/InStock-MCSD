@@ -102,11 +102,13 @@ const WarehouseList = () => {
 	}, [warehouseIdToDelete]);
 
 	//handle edit button click:
-	const editWarehouse = async event => {
-		//get warehouse ID:
-		const id = event.target.warehouseID;
-		//navigate to the edit form:
-		navigate(`/warehouses/:${id}/edit`);
+	const editWarehouse = async id => {
+		//
+		//
+		console.log(`Target: ${id}`);
+		//
+		//
+		navigate(`/warehouses/${id}/edit`);
 	};
 
 	return (
@@ -156,7 +158,9 @@ const WarehouseList = () => {
 								email={contact_email}
 								name={contact_name}
 								deleteWarehouseBtn={deleteWarehouseBtn}
-								editWarehouseBtn={editWarehouse}
+								editWarehouseBtn={() => {
+									editWarehouse(id);
+								}}
 							/>
 						);
 					})}
