@@ -6,10 +6,12 @@
 .footer {
 	display: flex;
 	justify-content: center;
+	justify-self: flex-end;
+	background-color: colors.bgcolor(is-grey);
 
 	&__text {
 		@include mobilefont.mob-par-p3;
-		margin: 4% 0;
+		padding: 4% 0;
 		color: colors.seccolor(is-slate);
 
 		@include mediaQ.tablet {
