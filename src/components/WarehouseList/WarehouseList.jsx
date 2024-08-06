@@ -17,8 +17,9 @@ const WarehouseList = () => {
 	const [warehouse, setWarehouse] = useState([]);
 	const [warehousesData, setWarehousesData] = useState([]);
 	const { id } = useParams();
-
 	const [searchParams, setSearchParams] = useSearchParams();
+	const navigate = useNavigate();
+
 	const searchParam = {
 		searchValue: searchParams.get("search") || "",
 		setSearchParams,
