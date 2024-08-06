@@ -222,6 +222,9 @@ button.warehouse__form-button {
 
   @include mediaQ.tablet {
     @include tabletdesktopfont.tab-desk-header-h3;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
