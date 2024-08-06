@@ -6,7 +6,7 @@
 .footer {
 	display: flex;
 	justify-content: center;
-	align-self: flex-end;
+	justify-self: flex-end;
 
 	&__text {
 		@include mobilefont.mob-par-p3;
