@@ -59,16 +59,18 @@ export default function InventoryItemDetails() {
 	return (
 		<section className='item-details'>
 			<div className='item-details__title-container'>
-				<img
-					className='icon'
-					src={backArrow}
-					alt='Back Icon'
-					onClick={() => {
-						navigate(-1);
-					}}
-				/>
+				<div className='item-details__title-left'>
+					<img
+						className='icon'
+						src={backArrow}
+						alt='Back Icon'
+						onClick={() => {
+							navigate(-1);
+						}}
+					/>
 
-				<h1 className='item-details__item-name'>{item_name}</h1>
+					<h1 className='item-details__item-name'>{item_name}</h1>
+				</div>
 
 				<Button
 					type='button'
