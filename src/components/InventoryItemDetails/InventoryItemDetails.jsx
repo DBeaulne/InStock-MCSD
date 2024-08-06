@@ -32,7 +32,7 @@ export default function InventoryItemDetails() {
 		}
 	};
 
-	//API call to check warehouse ID against list:
+	//API call to check warehouse ID against warehouse list:
 	const getWarehouseName = async warehouse_id => {
 		try {
 			const response = await axios.get(
@@ -48,13 +48,17 @@ export default function InventoryItemDetails() {
 
 	//trigger call for item details once param is available:
 	useEffect(() => {
-		getItemDetails(id);
+		if (id) {
+			getItemDetails(id);
+		}
 	}, [id]);
 
 	//trigger call for warehouse name once warehouse ID is available:
 	useEffect(() => {
-		getWarehouseName(warehouse_id);
-	}, [setInventoryItemDetails]);
+		if (warehouse_id) {
+			getWarehouseName(warehouse_id);
+		}
+	}, [warehouse_id]);
 
 	return (
 		<section className='item-details'>
