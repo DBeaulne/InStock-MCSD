@@ -15,21 +15,17 @@
   padding: padMarg.$mobDEF;
   background: c.bgcolor(is-graphite);
 
-  @include mQ.tablet {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1.5rem 2rem 1.5rem 2rem;
-  }
-  @include mQ.desktop {
-    padding: 1.5rem 2rem 1.5rem 4rem;
-  }
 
-  &__logo {
-    min-width: 8.125rem;
-  }
-  &__logo {
-    min-width: 8.125rem;
-  }
+	@include mQ.tablet {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 1.5rem 0;
+	}
+
+	&__logo {
+		min-width: 8.125rem;
+	}
+
 
   &__nav {
     display: flex;

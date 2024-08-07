@@ -10,6 +10,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 //Components:
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import { compileString } from "sass";
 
 export default function EditWarehouse() {
 	//enable navigation:
@@ -80,6 +81,19 @@ export default function EditWarehouse() {
 		});
 	};
 
+	//function to valdiate email input against a regular expression:
+	const validateEmail = email => {
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(email);
+	};
+
+	//function to validate phone number against a regular expression:
+	const validatePhoneNum = phoneNum => {
+		const phoneRegex =
+			/^(\+?\d{1,3})?[-.\s]?(\(?\d{3}\)?)[-.\s]?(\d{3})[-.\s]?(\d{4})$/;
+		return phoneRegex.test(phoneNum);
+	};
+
 	//form submission handler:
 	const handleSubmit = async event => {
 		//prevent default actions:
@@ -98,44 +112,56 @@ export default function EditWarehouse() {
 			contact_email: !contact_email,
 		};
 
+		//validate phone number and email:
+		const validPhoneNumber = validatePhoneNum(contact_phone);
+		const validEmail = validateEmail(contact_email);
+
+		if (!validPhoneNumber) {
+			newErrors.contact_phone = true;
+		}
+
+		if (!validEmail) {
+			newErrors.contact_email = true;
+		}
+
 		//log any errors in state:
 		setErrors(newErrors);
 
-		//if there are no errors, continue:
-		if (!newErrors) {
-			//confirm that the user wants to make the changes:
+		// If there are no errors, continue:
+		if (Object.values(newErrors).every(error => !error)) {
+			// Confirm that the user wants to make the changes:
 			const confirmSubmit = window.confirm(
 				"Make these changes to the current warehouse?"
 			);
 
-			//if changes are accepted, navigate back to warehouse list:
+			// If changes are accepted, navigate back to warehouse list:
 			if (confirmSubmit) {
-				navigate(`/warehouses`);
-			}
-		}
+				try {
+					await axios
+						// Make changes to database entry:
+						.put(`${apiUrl}/warehouses/${id}`, values)
+						// Revert form data:
+						.then(() => {
+							setValues({
+								warehouse_name: { warehouse_name },
+								address: { address },
+								city: { city },
+								country: { country },
+								contact_name: { contact_name },
+								contact_position: { contact_position },
+								contact_phone: { contact_phone },
+								contact_email: { contact_email },
+							});
+						});
 
-		try {
-			await axios
-				//make changes to database entry:
-				.put(`${apiUrl}/warehouses/${id}`, values)
-				//revert form data:
-				.then(() => {
-					setValues({
-						warehouse_name: { warehouse_name },
-						address: { address },
-						city: { city },
-						country: { country },
-						contact_name: { contact_name },
-						contact_position: { contact_position },
-						contact_phone: { contact_phone },
-						contact_email: { contact_email },
-					});
-				});
-		} catch (error) {
-			console.log(
-				"Encountered an error while attempting to edit the warehouse:",
-				error.message
-			);
+					navigate(`/warehouses`);
+				} catch (error) {
+					console.log(
+						"Encountered an error while attempting to edit the warehouse:",
+						error.message
+					);
+				}
+			}
 		}
 	};
 
@@ -413,7 +439,7 @@ export default function EditWarehouse() {
 										/>
 
 										<p className='error__text'>
-											This field is required
+											Please enter a valid phone number
 										</p>
 									</div>
 								)}
@@ -448,7 +474,7 @@ export default function EditWarehouse() {
 										/>
 
 										<p className='error__text'>
-											This field is required
+											Please enter a valid email address
 										</p>
 									</div>
 								)}
