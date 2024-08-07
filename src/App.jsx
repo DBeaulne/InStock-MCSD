@@ -20,9 +20,9 @@ function App() {
 	return (
 		<BrowserRouter>
 			<body>
-				<Header />
+				<main className='instock'>
+					<Header />
 
-				<main className='instock__background'>
 					<Routes>
 						<Route
 							path='/warehouses'
