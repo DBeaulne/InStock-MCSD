@@ -134,7 +134,7 @@ const AddWarehouse = () => {
 					src={ArrowBackIcon}
 					alt="Back Icon"
 					onClick={() => {
-						navigate("/warehouse");
+						navigate("/warehouses");
 					}}
 				/>
 				<h1 className="add-warehouse__heading">add new warehouse</h1>

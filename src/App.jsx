@@ -20,61 +20,65 @@ export const apiUrl = process.env.REACT_APP_API_BASE_URL;
 function App() {
 	return (
 		<BrowserRouter>
-			<Header />
-			<main className="instock__background">
-				<Routes>
-					<Route
-						path="/warehouses"
-						element={<WarehousesPage />}
-					/>
+			<body>
+				<main className='instock'>
+					<Header />
 
-					<Route
-						path="/"
-						element={<Navigate to="/warehouses" />}
-					/>
+					<Routes>
+						<Route
+							path='/warehouses'
+							element={<WarehousesPage />}
+						/>
 
-					<Route
-						path="/warehouses/:id"
-						element={<WarehouseDetails />}
-					/>
+						<Route
+							path='/'
+							element={<Navigate to='/warehouses' />}
+						/>
 
-					<Route
-						path="/warehouses/:id/edit"
-						element={<EditWarehouse />}
-					/>
+						<Route
+							path='/warehouses/:id'
+							element={<WarehouseDetails />}
+						/>
 
-					<Route
-						path="/warehouses/add"
-						element={<AddWarehouse />}
-					/>
+						<Route
+							path='/warehouses/:id/edit'
+							element={<EditWarehouse />}
+						/>
 
-					<Route
-						path="/inventory"
-						element={<InventoryPage />}
-					/>
+						<Route
+							path='/warehouses/add'
+							element={<AddWarehouse />}
+						/>
 
-					<Route
-						path="/inventory/:id"
-						element={<ItemDetailsPage />}
-					/>
+						<Route
+							path='/inventory'
+							element={<InventoryPage />}
+						/>
 
-					<Route
-						path="/inventory/add"
-						element={<AddInventoryItem />}
-					/>
+						<Route
+							path='/inventory/:id'
+							element={<ItemDetailsPage />}
+						/>
 
-					<Route
-						path="/inventory/:id/edit"
-						element={<EditInventoryItem />}
-					/>
+						<Route
+							path='/inventory/add'
+							element={<AddInventoryItem />}
+						/>
 
-					<Route
-						path="*"
-						element={<NotFoundPage />}
-					/>
-				</Routes>
-			</main>
-			<Footer />
+						<Route
+							path='/inventory/:id/edit'
+							element={<EditInventoryItem />}
+						/>
+
+						<Route
+							path='*'
+							element={<NotFoundPage />}
+						/>
+					</Routes>
+				</main>
+
+				<Footer />
+			</body>
 		</BrowserRouter>
 	);
 }
