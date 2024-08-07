@@ -51,13 +51,22 @@
 	gap: 1rem;
 	@include mediaQ.tablet {
 		display: flex;
-		justify-content: right;
 		flex-direction: row;
+		justify-content: right;
 		width: 60%;
-		gap: 3rem;
 	}
 	@include mediaQ.desktop {
 		width: 60%;
+	}
+	&-input {
+		margin: 0;
+	}
+}
+
+.warehouses__btn-wrapper {
+	@include mediaQ.tablet {
+		max-width: 14.375rem;
+		width: 100%;
 	}
 }
 
@@ -65,10 +74,7 @@ button.warehouse__form-button {
 	background-color: colors.primcolor(is-indigo);
 	color: colors.primcolor(is-white);
 	border: none;
-	width: 100%;
 	@include mediaQ.tablet {
-		margin-left: paddingandmargins.$tabDEF;
-		max-width: 230px;
 		width: 100%;
 	}
 }
@@ -91,17 +97,6 @@ button.warehouse__button--sort {
 		width: 1rem;
 	}
 }
-
-.warehouses__wrapper .warehouse:first-child .warehouse__wrapper--button-sort {
-	@include mediaQ.tablet {
-		background-color: rgba(247, 248, 249, 0.7);
-		width: 100%;
-		display: flex;
-		justify-content: left;
-	}
-}
-
-// INDIVIDUAL WAREHOUSE //
 
 .warehouse {
 	display: flex;
@@ -159,7 +154,7 @@ button.warehouse__button--sort {
 	&--left {
 		@include mediaQ.tablet {
 			justify-content: right;
-			width: 37%;
+			width: 39%;
 		}
 	}
 
@@ -172,6 +167,15 @@ button.warehouse__button--sort {
 
 .warehouse__section-wrapper {
 	width: 100%;
+	margin-bottom: 1rem;
+
+	@include mediaQ.tablet {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-bottom: 0rem;
+		height: 4rem;
+	}
 
 	&--location {
 		@include mediaQ.tablet {
@@ -335,4 +339,22 @@ button.warehouse__button--sort {
 	width: fit-content;
 	justify-content: right;
 	cursor: pointer;
+}
+
+.warehouse--table-header {
+	padding: 0rem;
+	display: none;
+	@include mediaQ.tablet {
+		background-color: rgba(247, 248, 249, 0.7);
+		display: flex;
+		align-self: baseline;
+	}
+
+	button {
+		display: none;
+	}
+
+	p {
+		display: none;
+	}
 }

@@ -8,36 +8,6 @@
 @use "../../styles/partials/mediaQ" as mQ;
 @use "../../styles/partials/paddingandmargins" as padMarg;
 
-/* a {
-	color: c.seccolor(is-cloud);
-
-	height: 2.25rem;
-
-	h3 {
-		@include mobFont.mob-header-h3;
-
-		@include mQ.tablet {
-			@include tdFont.tab-desk-header-h3;
-		}
-	}
-
-	&:hover {
-		color: c.primcolor(is-white);
-		text-decoration: underline;
-	}
-
-	@include mQ.tablet {
-		width: 6.75rem;
-		height: 2.5rem;
-	}
-
-	&.active {
-		color: c.primcolor(is-white);
-		background-color: c.primcolor(is-black);
-		border-radius: 1.25rem;
-	}
-} */
-
 .header {
 	display: flex;
 	flex-direction: column;
@@ -72,7 +42,7 @@
 	&__nav-link {
 		display: flex;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: center;
 		width: 43vw;
 		max-width: 10rem;
 

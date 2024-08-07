@@ -1,5 +1,6 @@
 import "./InventoryList.scss";
 import { useNavigate } from "react-router-dom";
+
 const Inventory = ({
 	InventoryId,
 	sortwarehouse,
@@ -42,7 +43,7 @@ const Inventory = ({
 								onClick={() =>
 									navigate(`/inventory/${InventoryId}`)
 								}>
-								<p className='inventory__text inventory__text--bold-blue-font'>
+								<p className='inventory__text inventory__text--bold-blue-font animate'>
 									{itemName}
 								</p>
 								<button

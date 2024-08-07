@@ -13,6 +13,7 @@ import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem.jsx";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem.jsx";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse.jsx";
 
 export const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
@@ -42,6 +43,11 @@ function App() {
 						<Route
 							path='/warehouses/:id/edit'
 							element={<EditWarehouse />}
+						/>
+
+						<Route
+							path='/warehouses/add'
+							element={<AddWarehouse />}
 						/>
 
 						<Route
