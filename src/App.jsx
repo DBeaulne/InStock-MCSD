@@ -13,6 +13,7 @@ import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails.jsx
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem.jsx";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem.jsx";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse.jsx";
 
 export const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
@@ -20,50 +21,55 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Header />
-			<main className='instock__background'>
+			<main className="instock__background">
 				<Routes>
 					<Route
-						path='/warehouses'
+						path="/warehouses"
 						element={<WarehousesPage />}
 					/>
 
 					<Route
-						path='/'
-						element={<Navigate to='/warehouses' />}
+						path="/"
+						element={<Navigate to="/warehouses" />}
 					/>
 
 					<Route
-						path='/warehouses/:id'
+						path="/warehouses/:id"
 						element={<WarehouseDetails />}
 					/>
 
 					<Route
-						path='/warehouses/:id/edit'
+						path="/warehouses/:id/edit"
 						element={<EditWarehouse />}
 					/>
 
 					<Route
-						path='/inventory'
+						path="/warehouses/add"
+						element={<AddWarehouse />}
+					/>
+
+					<Route
+						path="/inventory"
 						element={<InventoryPage />}
 					/>
 
 					<Route
-						path='/inventory/:id'
+						path="/inventory/:id"
 						element={<ItemDetailsPage />}
 					/>
 
 					<Route
-						path='/inventory/add'
+						path="/inventory/add"
 						element={<AddInventoryItem />}
 					/>
 
 					<Route
-						path='/inventory/:id/edit'
+						path="/inventory/:id/edit"
 						element={<EditInventoryItem />}
 					/>
 
 					<Route
-						path='*'
+						path="*"
 						element={<NotFoundPage />}
 					/>
 				</Routes>

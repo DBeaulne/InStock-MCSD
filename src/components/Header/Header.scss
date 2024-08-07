@@ -8,52 +8,22 @@
 @use "../../styles/partials/mediaQ" as mQ;
 @use "../../styles/partials/paddingandmargins" as padMarg;
 
-a {
+.header {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	color: c.seccolor(is-cloud);
-	width: 10rem;
-	height: 2.25rem;
-
-	h3 {
-		@include mobFont.mob-header-h3;
-
-		@include mQ.tablet {
-			@include tdFont.tab-desk-header-h3;
-		}
-	}
-
-	&:hover {
-		color: c.primcolor(is-white);
-		text-decoration: underline;
-	}
+	padding: padMarg.$mobDEF;
+	background: c.bgcolor(is-graphite);
 
 	@include mQ.tablet {
-		width: 6.75rem;
-		height: 2.5rem;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 1.5rem 2rem 1.5rem 2rem;
 	}
 
-	&.active {
-		color: c.primcolor(is-white);
-		background-color: c.primcolor(is-black);
-		border-radius: 1.25rem;
+	&__logo {
+		min-width: 8.125rem;
 	}
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: padMarg.$mobDEF;
-  background: c.bgcolor(is-graphite);
-
-  @include mQ.tablet {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1.5rem 2rem 1.5rem 2rem;
-  }
-
 	&__logo {
 		min-width: 8.125rem;
 	}
@@ -69,6 +39,49 @@ a {
 			padding-top: unset;
 			width: 30%;
 			justify-content: flex-end;
+		}
+	}
+
+	&__nav-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 43vw;
+		max-width: 10rem;
+
+		a {
+			display: flex;
+			align-content: center;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			color: c.seccolor(is-cloud);
+			height: 2.25rem;
+			width: 100%;
+
+			h3 {
+				@include mobFont.mob-header-h3;
+
+				@include mQ.tablet {
+					@include tdFont.tab-desk-header-h3;
+				}
+			}
+
+			&:hover {
+				color: c.primcolor(is-white);
+				text-decoration: underline;
+			}
+
+			@include mQ.tablet {
+				width: 6.75rem;
+				height: 2.5rem;
+			}
+
+			&.active {
+				color: c.primcolor(is-white);
+				background-color: c.primcolor(is-black);
+				border-radius: 1.25rem;
+			}
 		}
 	}
 }
