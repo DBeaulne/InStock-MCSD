@@ -85,37 +85,41 @@ const AddInventoryItem = () => {
 		return Object.keys(newErrors).length === 0;
 	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		if (!validateForm()) {
-			return;
-		}
-		const confirmSubmit = window.confirm("Add new item?");
-		formData.quantity = parseInt(formData.quantity);
-		console.log(formData);
-		try {
-			const response = await axios.post(`${apiUrl}/inventory`, formData);
-			if (confirmSubmit && response.status === 200) {
-				setFormData({
-					warehouse_id: "",
-					item_name: "",
-					description: "",
-					category: "",
-					status: "In Stock",
-					quantity: 0
-				});
-				navigate(`/inventory`);
-			}
-		} catch (e) {
-			console.log("Failed to add inventory item.", e);
-		}
-	};
-	const handleCancel = async () => {
-		const confirmCancel = window.confirm("Are you sure you want to cancel? Your changes will not be saved.");
-		if (confirmCancel) {
-			navigate(`/inventory`);
-		}
-	};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
+    const confirmSubmit = window.confirm("Add new item?");
+    formData.quantity = parseInt(formData.quantity);
+    console.log(formData);
+    try {
+      if (confirmSubmit) {
+        const response = await axios.post(`${apiUrl}/inventory`, formData);
+        if (response.status === 200) {
+          setFormData({
+            warehouse_id: "",
+            item_name: "",
+            description: "",
+            category: "",
+            status: "In Stock",
+            quantity: 0,
+          });
+        }
+        navigate(`/inventory`);
+      }
+    } catch (e) {
+      console.log("Failed to add inventory item.", e);
+    }
+  };
+  const handleCancel = async () => {
+    const confirmCancel = window.confirm(
+      "Are you sure you want to cancel? Your changes will not be saved."
+    );
+    if (confirmCancel) {
+      navigate(`/inventory`);
+    }
+  };
 
 	useEffect(() => {
 		getWarehouses();

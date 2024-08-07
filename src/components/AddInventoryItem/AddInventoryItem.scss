@@ -197,6 +197,16 @@
 	}
 }
 .error {
-	display: flex;
-	gap: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
+  &__icon {
+    height: 1rem;
+  }
+  &__txt {
+    @include mFont.mob-par-p3;
+    @include mQ.tablet {
+      @include tFont.tab-desk-par-p3;
+    }
+  }
+
 }
