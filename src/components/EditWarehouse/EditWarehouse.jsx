@@ -80,6 +80,20 @@ export default function EditWarehouse() {
 		});
 	};
 
+	//function to valdiate email input against a regular expression:
+	const validateEmail = email => {
+		const emailRegex =
+			/^(([^<>(/){}[\]\\+-_~!#$%^&*?'=.,;:\s@"]+(\.[^<>(/){}[\]\\!#$%^+&*'?~`=\-_.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,12}))$/;
+		return email.match(emailRegex);
+	};
+
+	//function to validate phone number against a regular expression:
+	const validatePhoneNum = phoneNum => {
+		const phoneNumRegex =
+			/^(\+?1 ?)?\(?[0-9]{3}\)?-? ?[0-9]{3}-? ?[0-9]{4}$/;
+		return phoneNum.match(phoneNumRegex);
+	};
+
 	//form submission handler:
 	const handleSubmit = async event => {
 		//prevent default actions:
@@ -413,7 +427,7 @@ export default function EditWarehouse() {
 										/>
 
 										<p className='error__text'>
-											This field is required
+											Please enter a valid phone number
 										</p>
 									</div>
 								)}
@@ -448,7 +462,7 @@ export default function EditWarehouse() {
 										/>
 
 										<p className='error__text'>
-											This field is required
+											Please enter a valid email address
 										</p>
 									</div>
 								)}
