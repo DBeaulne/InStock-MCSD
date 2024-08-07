@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid colors.seccolor(is-cloud);
-    padding: 1.5rem 2rem 1rem;
+    padding: 2rem 1.5rem 1.5rem;
     gap: 0.5rem;
   }
   &__heading {
@@ -76,7 +76,7 @@
     color: colors.seccolor(is-slate);
     font-weight: 600;
     margin-bottom: 0.25rem;
-  
+
     @include mQ.tablet {
       @include tFont.tab-desk-header-h3;
     }
@@ -111,7 +111,6 @@
   .inventory:first-child button.inventory__button--sort {
     @include mQ.tablet {
       visibility: visible;
-      margin-bottom: 1.5rem;
     }
   }
 

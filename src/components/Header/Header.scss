@@ -9,11 +9,12 @@
 @use "../../styles/partials/paddingandmargins" as padMarg;
 
 .header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: padMarg.$mobDEF;
-	background: c.bgcolor(is-graphite);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: padMarg.$mobDEF;
+  background: c.bgcolor(is-graphite);
+
 
 	@include mQ.tablet {
 		flex-direction: row;
@@ -25,60 +26,61 @@
 		min-width: 8.125rem;
 	}
 
-	&__nav {
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		justify-content: space-around;
-		padding-top: padMarg.$mobDEF;
 
-		@include mQ.tablet {
-			padding-top: unset;
-			width: 30%;
-			justify-content: flex-end;
-		}
-	}
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: padMarg.$mobDEF;
 
-	&__nav-link {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 43vw;
-		max-width: 10rem;
+    @include mQ.tablet {
+      padding-top: unset;
+      width: 30%;
+      justify-content: flex-end;
+    }
+  }
 
-		a {
-			display: flex;
-			align-content: center;
-			align-items: center;
-			justify-content: center;
-			flex-wrap: wrap;
-			color: c.seccolor(is-cloud);
-			height: 2.25rem;
-			width: 100%;
+  &__nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43vw;
+    max-width: 10rem;
 
-			h3 {
-				@include mobFont.mob-header-h3;
+    a {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      color: c.seccolor(is-cloud);
+      height: 2.25rem;
+      width: 100%;
 
-				@include mQ.tablet {
-					@include tdFont.tab-desk-header-h3;
-				}
-			}
+      h3 {
+        @include mobFont.mob-header-h3;
 
-			&:hover {
-				color: c.primcolor(is-white);
-				text-decoration: underline;
-			}
+        @include mQ.tablet {
+          @include tdFont.tab-desk-header-h3;
+        }
+      }
 
-			@include mQ.tablet {
-				width: 6.75rem;
-				height: 2.5rem;
-			}
+      &:hover {
+        color: c.primcolor(is-white);
+        text-decoration: underline;
+      }
 
-			&.active {
-				color: c.primcolor(is-white);
-				background-color: c.primcolor(is-black);
-				border-radius: 1.25rem;
-			}
-		}
-	}
+      @include mQ.tablet {
+        width: 6.75rem;
+        height: 2.5rem;
+      }
+
+      &.active {
+        color: c.primcolor(is-white);
+        background-color: c.primcolor(is-black);
+        border-radius: 1.25rem;
+      }
+    }
+  }
 }

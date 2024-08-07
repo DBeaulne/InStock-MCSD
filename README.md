@@ -115,3 +115,7 @@ REACT_APP_API_BASE_URL=< Insert backend api url here >
 - corrected styling for header
 - debugged errant warehouse posting to db after cancel
 - edited emailRegex to allow for top level domains up to 12 characters. ie: .photography
+
+## Search Functionality
+
+- Search functionality implemented using useSearchParams for Warehouse list and Inventory List

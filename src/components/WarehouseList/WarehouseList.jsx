@@ -120,6 +120,9 @@ const WarehouseList = () => {
 					</div>
 				</div>
 				<div className="warehouses__wrapper">
+					<Warehouse 
+					tableHeader={"warehouse--table-header"}
+					/>
 					{warehousesData.map((warehouse) => {
 						const { id, warehouse_name, address, city, country, contact_email, contact_name, contact_phone } =
 							warehouse;
