@@ -83,16 +83,15 @@ export default function EditWarehouse() {
 
 	//function to valdiate email input against a regular expression:
 	const validateEmail = email => {
-		const emailRegex =
-			/^(([^<>(/){}[\]\\+-_~!#$%^&*?'=.,;:\s@"]+(\.[^<>(/){}[\]\\!#$%^+&*'?~`=\-_.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,12}))$/;
-		return email.match(emailRegex);
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(email);
 	};
 
 	//function to validate phone number against a regular expression:
 	const validatePhoneNum = phoneNum => {
-		const phoneNumRegex =
-			/^(\+?1 ?)?\(?[0-9]{3}\)?-? ?[0-9]{3}-? ?[0-9]{4}$/;
-		return phoneNum.match(phoneNumRegex);
+		const phoneRegex =
+			/^(\+?\d{1,3})?[-.\s]?(\(?\d{3}\)?)[-.\s]?(\d{3})[-.\s]?(\d{4})$/;
+		return phoneRegex.test(phoneNum);
 	};
 
 	//form submission handler:
@@ -115,63 +114,54 @@ export default function EditWarehouse() {
 
 		//validate phone number and email:
 		const validPhoneNumber = validatePhoneNum(contact_phone);
-		//
-		//
-		console.log(`validPhoneNumber`);
-		//
-		//
 		const validEmail = validateEmail(contact_email);
+
 		if (!validPhoneNumber) {
-			setErrors({
-				...errors,
-				[contact_phone]: true,
-			});
+			newErrors.contact_phone = true;
 		}
+
 		if (!validEmail) {
-			setErrors({
-				...errors,
-				[contact_email]: true,
-			});
+			newErrors.contact_email = true;
 		}
 
 		//log any errors in state:
 		setErrors(newErrors);
 
-		//if there are no errors, continue:
-		if (!newErrors) {
-			//confirm that the user wants to make the changes:
+		// If there are no errors, continue:
+		if (Object.values(newErrors).every(error => !error)) {
+			// Confirm that the user wants to make the changes:
 			const confirmSubmit = window.confirm(
 				"Make these changes to the current warehouse?"
 			);
 
-			//if changes are accepted, navigate back to warehouse list:
+			// If changes are accepted, navigate back to warehouse list:
 			if (confirmSubmit) {
-				navigate(`/warehouses`);
-			}
-		}
+				try {
+					await axios
+						// Make changes to database entry:
+						.put(`${apiUrl}/warehouses/${id}`, values)
+						// Revert form data:
+						.then(() => {
+							setValues({
+								warehouse_name: { warehouse_name },
+								address: { address },
+								city: { city },
+								country: { country },
+								contact_name: { contact_name },
+								contact_position: { contact_position },
+								contact_phone: { contact_phone },
+								contact_email: { contact_email },
+							});
+						});
 
-		try {
-			await axios
-				//make changes to database entry:
-				.put(`${apiUrl}/warehouses/${id}`, values)
-				//revert form data:
-				.then(() => {
-					setValues({
-						warehouse_name: { warehouse_name },
-						address: { address },
-						city: { city },
-						country: { country },
-						contact_name: { contact_name },
-						contact_position: { contact_position },
-						contact_phone: { contact_phone },
-						contact_email: { contact_email },
-					});
-				});
-		} catch (error) {
-			console.log(
-				"Encountered an error while attempting to edit the warehouse:",
-				error.message
-			);
+					navigate(`/warehouses`);
+				} catch (error) {
+					console.log(
+						"Encountered an error while attempting to edit the warehouse:",
+						error.message
+					);
+				}
+			}
 		}
 	};
 
