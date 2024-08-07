@@ -3,22 +3,29 @@
 @use "./styles/partials/mediaQ" as mQ;
 
 body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	min-height: 100vh;
+	background-color: colors.bgcolor(is-grey);
 }
 
 .instock {
-	&__background {
+	background: linear-gradient(
+		180deg,
+		colors.bgcolor(is-graphite) 10.75rem,
+		colors.bgcolor(is-grey) 0%
+	);
+
+	@include mQ.tablet {
 		background: linear-gradient(
 			180deg,
-			colors.bgcolor(is-graphite) 3.25rem,
+			colors.bgcolor(is-graphite) 10.55rem,
 			colors.bgcolor(is-grey) 0%
 		);
-		@include mQ.tablet {
-			background: linear-gradient(
-				180deg,
-				colors.bgcolor(is-graphite) 6rem,
-				colors.bgcolor(is-grey) 0%
-			);
-		}
+	}
+
+	@include mQ.desktop {
+		padding: 0 3vw;
 	}
 }
