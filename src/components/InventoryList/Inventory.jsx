@@ -1,6 +1,8 @@
 import "./InventoryList.scss";
 import { useNavigate } from "react-router-dom";
+
 const Inventory = ({
+  
   InventoryId,
   sortwarehouse,
   sortqty,
@@ -18,20 +20,21 @@ const Inventory = ({
   displayNone,
   spaceBetween,
 }) => {
-  const navigate = useNavigate();
-  return (
-    <>
-      <div className="inventory">
-        <div className="inventory__wrapper inventory__wrapper--left">
-          <div className="inventory__inventory--inner inventory__wrapper--inner-left">
-            <section className="inventory__section-wrapper inventory__section-wrapper--item">
-              <div className="inventory__wrapper--button-sort">
-                <h4 className="inventory__sub-title">INVENTORY ITEM</h4>
-                <button
-                  onClick={sortitem}
-                  className="inventory__button inventory__button--sort inventory__button--tablet"
-                >
-                  {/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+	const navigate = useNavigate();
+	return (
+		<>
+			<div className='inventory'>
+				<div className='inventory__wrapper inventory__wrapper--left'>
+					<div className='inventory__inventory--inner inventory__wrapper--inner-left'>
+						<section className='inventory__section-wrapper inventory__section-wrapper--item'>
+							<div className='inventory__wrapper--button-sort'>
+								<h4 className='inventory__sub-title'>
+									INVENTORY ITEM
+								</h4>
+								<button
+									onClick={sortitem}
+									className='inventory__button inventory__button--sort inventory__button--tablet'>
+									{/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path className='svg' d="M12 5.83L15.17 9L16.58 7.59L12 3L7.41003 7.59L8.83003 9L12 5.83ZM12 18.17L8.83003 15L7.42003 16.41L12 21L16.59 16.41L15.17 15L12 18.17Z" fill="#5C667E"/>
                                 </svg> */}
                 </button>

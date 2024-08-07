@@ -12,3 +12,11 @@
 body {
   min-height: 100%;
 }
+
+.animate {
+	transition: 0.25s ease-in-out;
+
+	&:hover {
+		padding-right: 0.25rem;
+	}
+}
