@@ -69,8 +69,7 @@
   color: colors.primcolor(is-white);
   border: none;
   @include mediaQ.tablet {
-    margin-left: paddingandmargins.$tabDEF;
-    max-width: 230px;
+    max-width: 14.375rem;
     width: 100%;
   }
 }
