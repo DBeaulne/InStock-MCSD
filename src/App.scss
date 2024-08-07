@@ -2,19 +2,23 @@
 @use "./styles/partials/colors";
 @use "./styles/partials/mediaQ" as mQ;
 
+body {
+	min-height: 100vh;
+}
+
 .instock {
-  &__background {
-    background: linear-gradient(
-      180deg,
-      colors.bgcolor(is-graphite) 3.25rem,
-      colors.bgcolor(is-grey) 0%
-    );
-    @include mQ.tablet {
-      background: linear-gradient(
-        180deg,
-        colors.bgcolor(is-graphite) 6rem,
-        colors.bgcolor(is-grey) 0%
-      );
-    }
-  }
+	&__background {
+		background: linear-gradient(
+			180deg,
+			colors.bgcolor(is-graphite) 3.25rem,
+			colors.bgcolor(is-grey) 0%
+		);
+		@include mQ.tablet {
+			background: linear-gradient(
+				180deg,
+				colors.bgcolor(is-graphite) 6rem,
+				colors.bgcolor(is-grey) 0%
+			);
+		}
+	}
 }
