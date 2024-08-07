@@ -68,7 +68,7 @@ const WarehouseList = () => {
 	// function to get all the warehouses in the company
 	const getWarehouses = async id => {
 		try {
-			const { data } = await axios.get(`http://localhost:8080/warehouses`);
+			const { data } = await axios.get(`${apiUrl}/warehouses`);
 			setWarehouse(data);
 		} catch (e) {
 			console.log(e);
