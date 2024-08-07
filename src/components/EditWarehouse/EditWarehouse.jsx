@@ -10,6 +10,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 //Components:
 import Input from "../Input/Input";
 import Button from "../Button/Button";
+import { compileString } from "sass";
 
 export default function EditWarehouse() {
 	//enable navigation:
@@ -111,6 +112,27 @@ export default function EditWarehouse() {
 			contact_phone: !contact_phone,
 			contact_email: !contact_email,
 		};
+
+		//validate phone number and email:
+		const validPhoneNumber = validatePhoneNum(contact_phone);
+		//
+		//
+		console.log(`validPhoneNumber`);
+		//
+		//
+		const validEmail = validateEmail(contact_email);
+		if (!validPhoneNumber) {
+			setErrors({
+				...errors,
+				[contact_phone]: true,
+			});
+		}
+		if (!validEmail) {
+			setErrors({
+				...errors,
+				[contact_email]: true,
+			});
+		}
 
 		//log any errors in state:
 		setErrors(newErrors);
