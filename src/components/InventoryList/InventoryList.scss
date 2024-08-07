@@ -1,6 +1,5 @@
 @use "../../styles/partials/colors";
 @use "../../styles/partials/fontfamily";
-@use "../../styles/partials/globals";
 @use "../../styles/partials/mediaQ";
 @use "../../styles/partials/paddingandmargins";
 @use "../../styles/partials/mobilefont";
@@ -11,7 +10,7 @@
 .inventories {
 	@include mediaQ.tablet {
 		border-radius: 4px 4px 0px 0px;
-		box-shadow: 0px 1px 4px 0 colors.seccolor(is-slate); // NEED TO BE DISCUSSED WITH TEAM //
+		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM //
 	}
 }
 
@@ -22,9 +21,9 @@
 	justify-content: center;
 	padding: 1.25rem;
 	background-color: colors.primcolor(is-white);
-	border-bottom: 1px solid colors.seccolor(is-slate);
+	border-bottom: 1px solid colors.seccolor(is-cloud);
 	border-radius: 4px 4px 0px 0px;
-	box-shadow: 0px 1px 4px 0 colors.seccolor(is-slate); // NEED TO BE DISCUSSED WITH TEAM //
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM //
 	@include mediaQ.tablet {
 		padding: 1.5rem 2rem 2rem 2rem;
 		display: flex;
@@ -40,6 +39,7 @@
 	font-weight: fontfamily.weight(bold);
 	margin-bottom: paddingandmargins.$mobDEF;
 	@include mediaQ.tablet {
+		width: 40%;
 		@include tabletdesktopfont.tab-desk-header-h1;
 	}
 }
@@ -48,10 +48,10 @@
 	@include mediaQ.tablet {
 		display: flex;
 		justify-content: right;
-		width: 100%;
+		width: 60%;
 	}
 	@include mediaQ.desktop {
-		width: 100%;
+		width: 60%;
 	}
 }
 
@@ -61,26 +61,41 @@
 	border: none;
 	@include mediaQ.tablet {
 		margin-left: paddingandmargins.$tabDEF;
-		width: 10rem;
-	}
-	@include mediaQ.desktop {
-		width: 11.5rem;
+		max-width: 230px;
+		width: 100%;
 	}
 }
 
-.inventories__wrapper .inventory h4,
-.inventory__button--sort {
+button.inventory__button--sort {
 	@include mediaQ.tablet {
-		visibility: hidden;
-		margin-bottom: 0rem;
+		display: none;
 	}
 }
 
-.inventories__wrapper .inventory:first-child h4,
 .inventory:first-child button.inventory__button--sort {
 	@include mediaQ.tablet {
-		visibility: visible;
+		display: block;
+		margin-top: 1.4rem;
+		width: 1rem;
+	}
+}
+
+.inventory:first-child h4 {
+	@include mediaQ.tablet {
+		display: block;
 		margin-bottom: 1.5rem;
+		width: fit-content;
+		margin: 0rem;
+	}
+}
+
+.inventory:first-child .inventory__wrapper--button-sort {
+	@include mediaQ.tablet {
+		background-color: rgba(247, 248, 249, 0.7);
+		width: 100%;
+		display: flex;
+		justify-content: left;
+		padding-left: 2rem;
 	}
 }
 
@@ -91,19 +106,16 @@
 	justify-content: left;
 	padding: 1.25rem;
 	background-color: colors.primcolor(is-white);
-	border-bottom: 1px solid colors.seccolor(is-slate);
-	box-shadow: 0px 1px 4px 0 colors.seccolor(is-slate); // NEED TO BE DISCUSSED WITH TEAM //
+	border-bottom: 1px solid colors.seccolor(is-cloud);
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
 	@include mediaQ.tablet {
-		padding: paddingandmargins.$tabLR;
+		padding: 0rem;
 		display: flex;
 		flex-direction: row;
 		justify-content: left;
-		border-bottom: 1px solid colors.seccolor(is-slate);
+		border-bottom: 1px solid colors.seccolor(is-cloud);
 		box-shadow: none;
 		width: 100%;
-	}
-	&:hover {
-		// background-color: lightblue;
 	}
 }
 
@@ -127,6 +139,7 @@
 
 	&--inner-left {
 		justify-content: left;
+		width: 100%;
 		@include mediaQ.tablet {
 			display: flex;
 			flex: row;
@@ -135,74 +148,71 @@
 	}
 
 	&--inner-right {
-		& .inventory__section-wrapper {
-			&:last-child h4 {
-				display: none;
-				text-align: right;
-			}
-
+		width: 100%;
+		.inventory__section-wrapper:last-child .inventory__wrapper--button-sort {
 			@include mediaQ.tablet {
-				&:last-child h4 {
-					display: block;
-				}
+				text-align: right;
+				padding-left: 0rem;
+				padding-right: 2rem;
+			}
+		}
+		.inventory__section-wrapper:last-child .inventory__wrapper--button-sort h4 {
+			@include mediaQ.tablet {
+				width: 100%;
+				text-align: right;
 			}
 		}
 	}
 
 	&--left {
 		@include mediaQ.tablet {
-			width: 38%;
+			width: 40%;
 		}
 	}
 
 	&--right {
 		@include mediaQ.tablet {
-			width: 65%;
+			width: 60%;
 		}
 	}
 }
 
 .inventory__section-wrapper {
-	margin-bottom: 1rem;
+	margin: 1rem 0rem;
 	width: 100%;
-	@include mediaQ.tablet {
-		width: 100%;
-	}
-
 	&--item {
 		@include mediaQ.tablet {
-			width: 100%;
+			width: 55%;
 		}
 	}
 
 	&--category {
 		@include mediaQ.tablet {
-			width: 100%;
-			padding: 0rem 1rem;
+			width: 45%;
 		}
 	}
 
 	&--status {
 		@include mediaQ.tablet {
-			width: 40%;
+			width: 35%;
 		}
 	}
 
 	&--qty {
 		@include mediaQ.tablet {
-			width: 30%;
+			width: 22%;
 		}
 	}
 
 	&--warehouse {
 		@include mediaQ.tablet {
-			width: 40%;
+			width: 36%;
 		}
 	}
 
 	&--action {
 		@include mediaQ.tablet {
-			width: 12%;
+			width: 25%;
 		}
 	}
 }
@@ -215,6 +225,12 @@
 	color: colors.seccolor(is-slate);
 	@include mediaQ.tablet {
 		@include tabletdesktopfont.tab-desk-header-h4;
+		display: none;
+		width: 100%;
+		padding: 1.5rem 0rem;
+	}
+	&--action {
+		display: none;
 	}
 }
 
@@ -245,14 +261,24 @@
 			background-color: hsl(144, 73%, 30%, 7%);
 		}
 
-		// &-outstock {
-		//     color: #C94515;
-		//     background-color: hsl(16, 81%, 44% , 7%);
-		// }
+		&-outstock {
+			color: #c94515;
+			background-color: hsl(16, 81%, 44%, 7%);
+		}
 	}
 
 	@include mediaQ.tablet {
 		@include tabletdesktopfont.tab-desk-header-h3;
+		margin-left: 2rem;
+	}
+}
+
+.inventory__wrapper--button-sort {
+	display: flex;
+	width: fit-content;
+	justify-content: right;
+	@include mediaQ.tablet {
+		padding-left: 2rem;
 	}
 }
 
@@ -261,13 +287,16 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: right;
+		width: 100%;
 	}
 }
 
 .inventory__button {
-	width: 1rem;
-	height: 1.25rem;
+	width: 1.5rem;
+	height: 1.5rem;
 	border: none;
+	background-repeat: no-repeat;
+	background-color: white;
 	&:hover {
 		cursor: pointer;
 	}
@@ -277,7 +306,8 @@
 		background-position: center;
 		align-self: end;
 		@include mediaQ.tablet {
-			margin-left: 1.25rem;
+			margin-left: 0.5rem;
+			margin-right: 2rem;
 		}
 	}
 
@@ -293,19 +323,15 @@
 	}
 
 	&--sort {
-		background-color: white;
 		background-image: url(../../assets/icons/sort-24px.svg);
 		background-position: center;
-		background-repeat: no-repeat;
 		background-size: 1.15rem;
 		margin: 0rem 0rem 0rem 0.25rem;
 	}
 
 	&--chevron {
-		background-color: white;
 		background-image: url(../../assets/icons/chevron_right-24px.svg);
 		background-position: center 20%;
-		background-repeat: no-repeat;
 		background-size: 1rem;
 		margin: 0rem 0rem 0rem 0.25rem;
 		@include mediaQ.tablet {
@@ -319,12 +345,6 @@
 			display: block;
 		}
 	}
-}
-
-.inventory__wrapper--button-sort {
-	display: flex;
-	width: fit-content;
-	justify-content: right;
 }
 
 .inventory__wrapper--button-chevron {

@@ -12,6 +12,7 @@
 	justify-content: center;
 	align-items: center;
 	padding: 0 1rem;
+	cursor: pointer;
 	&--prim {
 		background-color: colors.primcolor(is-indigo);
 		color: colors.primcolor(is-white);
@@ -23,7 +24,7 @@
 	&--sec {
 		background-color: colors.primcolor(is-white);
 		color: colors.seccolor(is-slate);
-		border: 1px solid colors.seccolor(is-slate);
+		border: 1px solid rgba(189, 197, 213, 1);
 		&:hover {
 			color: colors.primcolor(is-indigo);
 			border: 1px solid colors.primcolor(is-indigo);
@@ -38,7 +39,7 @@
 		}
 	}
 	&--edit {
-		background-image: url("../../assets/icons/edit-24px.svg");
+		background-image: url("../../assets/icons/edit-24px-white.svg");
 		background-position: center;
 		border-radius: 50%;
 		width: 2.375rem;

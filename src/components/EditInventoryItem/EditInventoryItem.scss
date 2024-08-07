@@ -1,0 +1,139 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/fontfamily";
+@use "../../styles/partials/mediaQ" as mQ;
+@use "../../styles/partials/paddingandmargins";
+@use "../../styles/partials/mobilefont" as mFont;
+@use "../../styles/partials/tabletdesktopfont" as tFont;
+
+.edit-inventory {
+	&__container {
+		background-color: colors.primcolor(is-white);
+		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+	}
+	&__top {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		border-bottom: 1px solid colors.seccolor(is-cloud);
+		padding: 2rem 1.5rem 1.5rem;
+		gap: 0.5rem;
+	}
+	&__heading {
+		@include mFont.mob-header-h1;
+		font-weight: 600;
+		flex: 1;
+
+		@include mQ.tablet {
+			@include tFont.tab-desk-header-h1;
+		}
+	}
+	&__back-icon {
+		height: 1.6rem;
+
+		&-container {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+		}
+	}
+}
+
+.inventory-form {
+	@include mQ.tablet {
+		display: flex;
+		flex-direction: column;
+	}
+	&__wrapper {
+		@include mQ.tablet {
+			display: flex;
+			flex-direction: row;
+			padding: 1.5rem 0;
+		}
+	}
+	&__label {
+		@include mFont.mob-header-h3;
+		font-weight: 600;
+		@include mQ.tablet {
+			@include tFont.tab-desk-header-h3;
+		}
+	}
+	&__top {
+		border-bottom: 1px solid colors.seccolor(is-cloud);
+		padding-bottom: 1.5rem;
+		padding: 1rem 1.5rem;
+		@include mQ.tablet {
+			width: 49%;
+			border-bottom: none;
+			border-right: 1px solid colors.seccolor(is-cloud);
+			padding: 0 1.5rem;
+		}
+	}
+	&__bottom {
+		padding: 1rem 1.5rem 0.5rem;
+		@include mQ.tablet {
+			width: 49%;
+			padding: 0 1.5rem;
+		}
+	}
+	&__heading {
+		margin-bottom: 1.25rem;
+		@include mFont.mob-header-h2;
+		@include mQ.tablet {
+			@include tFont.tab-desk-header-h2;
+		}
+	}
+	&__radio-group {
+		display: flex;
+		justify-content: flex-start;
+		gap: 3rem;
+		width: 80%;
+		margin-bottom: 1rem;
+	}
+	&__radio {
+		display: flex;
+		gap: 0.5rem;
+
+		&-txt {
+			color: colors.seccolor(is-slate);
+			@include mFont.mob-par-p2;
+			font-weight: 600;
+			&--active {
+				color: colors.primcolor(is-black);
+			}
+			@include mQ.tablet {
+				@include tFont.tab-desk-par-p2;
+			}
+		}
+	}
+	&__actions {
+		padding: 1rem 1.5rem;
+		display: flex;
+		justify-content: space-evenly;
+		background-color: rgba(247, 248, 249, 0.7);
+		@include mQ.tablet {
+			display: flex;
+			justify-content: flex-end;
+			gap: 1rem;
+		}
+	}
+	&__button {
+		width: 45%;
+		@include mQ.tablet {
+			width: auto;
+		}
+	}
+	&__group {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1rem;
+		gap: 0.25rem;
+		@include mQ.tablet {
+			margin-bottom: 1.5rem;
+		}
+	}
+}
+.error {
+	display: flex;
+	gap: 0.25rem;
+}

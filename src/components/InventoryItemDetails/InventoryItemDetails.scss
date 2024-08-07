@@ -1,0 +1,166 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/mediaQ";
+@use "../../styles/partials/mobilefont";
+@use "../../styles/partials/tabletdesktopfont";
+@use "../../styles/partials/paddingandmargins";
+
+.item-details {
+	background-color: colors.primcolor(is-white);
+	border-radius: 0.25rem;
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+	color: colors.primcolor(is-black);
+
+	@include mediaQ.desktop {
+		margin: 0 auto;
+	}
+
+	&__title-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.5rem;
+		width: 100%;
+		padding: 1.5rem 1.5rem 1rem;
+		border-bottom: 1px solid colors.seccolor(is-cloud);
+	}
+
+	&__title-left {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	&__item-name {
+		@include mobilefont.mob-header-h1;
+		font-weight: 600;
+
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-header-h1;
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		padding: 1rem 1.5rem 1.5rem;
+		border-bottom: 1px solid colors.seccolor(is-cloud);
+
+		@include mediaQ.tablet {
+			flex-direction: row;
+			gap: 2rem;
+			padding: 1.5rem 2rem;
+			border-bottom: none;
+		}
+	}
+
+	&__left-bin {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		@include mediaQ.tablet {
+			width: 50%;
+			border-right: 1px solid colors.seccolor(is-cloud);
+		}
+	}
+
+	&__right-bin {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		gap: 1rem;
+		width: 100%;
+		margin-top: 1rem;
+
+		@include mediaQ.tablet {
+			width: 50%;
+			margin: 0;
+		}
+
+		@include mediaQ.desktop {
+			justify-content: space-between;
+		}
+	}
+
+	&__info {
+		padding: 0 1rem 0 0;
+
+		@include mediaQ.tablet {
+			padding: 0 1rem 1rem 0;
+		}
+	}
+
+	&__subheading {
+		@include mobilefont.mob-header-h4;
+		color: colors.seccolor(is-slate);
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-header-h3;
+		}
+	}
+
+	&__text {
+		@include mobilefont.mob-par-p2;
+
+		@include mediaQ.tablet {
+			@include tabletdesktopfont.tab-desk-par-p2;
+		}
+	}
+
+	&__line-break {
+		display: none;
+
+		@include mediaQ.tablet {
+			display: block;
+		}
+	}
+}
+
+.right-bin {
+	&__top-container {
+		display: flex;
+		width: 100%;
+
+		@include mediaQ.tablet {
+			justify-content: space-between;
+		}
+	}
+
+	&__element {
+		width: 50%;
+	}
+}
+
+.in-stock {
+	height: 1.5rem;
+	border-radius: 1.25rem;
+	padding: 0.25rem 0.5rem;
+	@include mobilefont.mob-par-p3;
+	text-transform: uppercase;
+
+	@include mediaQ.tablet {
+		height: 1.625rem;
+	}
+
+	&--true {
+		@extend .in-stock;
+		width: 3.75rem;
+		background-color: rgba(21, 132, 99, 0.07);
+		color: colors.suppcolor(is-green);
+	}
+
+	&--false {
+		@extend .in-stock;
+		width: 5.35rem;
+		background-color: rgba(201, 69, 21, 0.07);
+		color: colors.suppcolor(is-red);
+	}
+}
+
+.icon {
+	height: 1.6rem;
+	cursor: pointer;
+}
