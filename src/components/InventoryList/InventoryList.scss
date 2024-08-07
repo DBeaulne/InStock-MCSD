@@ -1,6 +1,5 @@
 @use "../../styles/partials/colors";
 @use "../../styles/partials/fontfamily";
-@use "../../styles/partials/globals";
 @use "../../styles/partials/mediaQ";
 @use "../../styles/partials/paddingandmargins";
 @use "../../styles/partials/mobilefont";
@@ -9,6 +8,7 @@
 //INVENTORIES FORM AND TITLE//
 
 .inventories {
+	@include mediaQ.tablet {
 	@include mediaQ.tablet {
 		border-radius: 4px 4px 0px 0px;
 		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM //
