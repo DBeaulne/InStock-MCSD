@@ -1,6 +1,5 @@
 @use "../../styles/partials/colors";
 @use "../../styles/partials/fontfamily";
-@use "../../styles/partials/globals";
 @use "../../styles/partials/mediaQ";
 @use "../../styles/partials/paddingandmargins";
 @use "../../styles/partials/mobilefont";
@@ -9,9 +8,9 @@
 //INVENTORIES FORM AND TITLE//
 
 .inventories {
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		border-radius: 4px 4px 0px 0px;
-		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);; // NEED TO BE DISCUSSED WITH TEAM // 
+		box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM //
 	}
 }
 
@@ -24,8 +23,8 @@
 	background-color: colors.primcolor(is-white);
 	border-bottom: 1px solid colors.seccolor(is-cloud);
 	border-radius: 4px 4px 0px 0px;
-	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM // 
-	@include mediaQ.tablet{ 
+	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1); // NEED TO BE DISCUSSED WITH TEAM //
+	@include mediaQ.tablet {
 		padding: 1.5rem 2rem 2rem 2rem;
 		display: flex;
 		flex-direction: row;
@@ -109,7 +108,7 @@ button.inventory__button--sort {
 	background-color: colors.primcolor(is-white);
 	border-bottom: 1px solid colors.seccolor(is-cloud);
 	box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-	@include mediaQ.tablet{ 
+	@include mediaQ.tablet {
 		padding: 0rem;
 		display: flex;
 		flex-direction: row;
@@ -150,15 +149,15 @@ button.inventory__button--sort {
 
 	&--inner-right {
 		width: 100%;
-		.inventory__section-wrapper:last-child .inventory__wrapper--button-sort{
-			@include mediaQ.tablet{
+		.inventory__section-wrapper:last-child .inventory__wrapper--button-sort {
+			@include mediaQ.tablet {
 				text-align: right;
 				padding-left: 0rem;
 				padding-right: 2rem;
 			}
 		}
-		.inventory__section-wrapper:last-child .inventory__wrapper--button-sort h4{
-			@include mediaQ.tablet{
+		.inventory__section-wrapper:last-child .inventory__wrapper--button-sort h4 {
+			@include mediaQ.tablet {
 				width: 100%;
 				text-align: right;
 			}
@@ -207,7 +206,7 @@ button.inventory__button--sort {
 
 	&--warehouse {
 		@include mediaQ.tablet {
-			width:36%;
+			width: 36%;
 		}
 	}
 
@@ -263,8 +262,8 @@ button.inventory__button--sort {
 		}
 
 		&-outstock {
-		    color: #C94515;
-		    background-color: hsl(16, 81%, 44% , 7%);
+			color: #c94515;
+			background-color: hsl(16, 81%, 44%, 7%);
 		}
 	}
 
@@ -280,7 +279,7 @@ button.inventory__button--sort {
 	justify-content: right;
 	@include mediaQ.tablet {
 		padding-left: 2rem;
-	  }
+	}
 }
 
 .inventory__wrapper--button {
@@ -307,7 +306,7 @@ button.inventory__button--sort {
 		background-position: center;
 		align-self: end;
 		@include mediaQ.tablet {
-			margin-left: .5rem;
+			margin-left: 0.5rem;
 			margin-right: 2rem;
 		}
 	}
