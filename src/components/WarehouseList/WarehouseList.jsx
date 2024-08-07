@@ -4,24 +4,22 @@ import Warehouse from "./Warehouse";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
-import { useParams, useSearchParams, useNavigate } from "react-router-dom";
+import { useParams, useSearchParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { apiUrl } from "../../App";
 
 const WarehouseList = () => {
-	//enable navigation:
-	const navigate = useNavigate();
-
 	const [showWarehouseModal, setShowWarehouseModal] = useState(false);
 	const [warehouseIdToDelete, setWarehouseIdToDelete] = useState([]);
 	const [warehouse, setWarehouse] = useState([]);
 	const [warehousesData, setWarehousesData] = useState([]);
 	const { id } = useParams();
-
 	const [searchParams, setSearchParams] = useSearchParams();
+	const navigate = useNavigate();
+
 	const searchParam = {
 		searchValue: searchParams.get("search") || "",
-		setSearchParams,
+		setSearchParams
 	};
 	useEffect(() => {
 		//clear search params if search bar is ''
@@ -30,29 +28,15 @@ const WarehouseList = () => {
 		// allInventory &&
 		setWarehousesData(
 			warehouse.filter(
-				w =>
+				(w) =>
 					w.city?.toLowerCase().includes(searchParam.searchValue) ||
-					w.address
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.warehouse_name
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.country
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.contact_name
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.contact_position
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.contact_phone
-						?.toLowerCase()
-						.includes(searchParam.searchValue) ||
-					w.contact_email
-						?.toLowerCase()
-						.includes(searchParam.searchValue)
+					w.address?.toLowerCase().includes(searchParam.searchValue) ||
+					w.warehouse_name?.toLowerCase().includes(searchParam.searchValue) ||
+					w.country?.toLowerCase().includes(searchParam.searchValue) ||
+					w.contact_name?.toLowerCase().includes(searchParam.searchValue) ||
+					w.contact_position?.toLowerCase().includes(searchParam.searchValue) ||
+					w.contact_phone?.toLowerCase().includes(searchParam.searchValue) ||
+					w.contact_email?.toLowerCase().includes(searchParam.searchValue)
 			)
 		);
 	}, [searchParam.searchValue, warehouse, setSearchParams]);
@@ -66,7 +50,7 @@ const WarehouseList = () => {
 	}, [id]);
 
 	// function to get all the warehouses in the company
-	const getWarehouses = async id => {
+	const getWarehouses = async (id) => {
 		try {
 			const { data } = await axios.get(`${apiUrl}/warehouses`);
 			setWarehouse(data);
@@ -84,10 +68,8 @@ const WarehouseList = () => {
 	// filter the list of warehouses to isolate the warehouse based on the id passed in
 	// then set the state "setWarehouseIdToDelete" with the resultant array
 	// then show the modal component
-	const deleteWarehouseBtn = warehouseId => {
-		const deleteWarehouse = warehouse.filter(
-			deleteWarehouse => deleteWarehouse.id === warehouseId
-		);
+	const deleteWarehouseBtn = (warehouseId) => {
+		const deleteWarehouse = warehouse.filter((deleteWarehouse) => deleteWarehouse.id === warehouseId);
 		setWarehouseIdToDelete(deleteWarehouse);
 		setShowWarehouseModal(true);
 	};
@@ -96,9 +78,7 @@ const WarehouseList = () => {
 	const handleDelete = useCallback(async () => {
 		if (warehouseIdToDelete !== null) {
 			try {
-				await axios.delete(
-					`${apiUrl}/warehouses/${warehouseIdToDelete[0].id}`
-				);
+				await axios.delete(`${apiUrl}/warehouses/${warehouseIdToDelete[0].id}`);
 				getWarehouses().then(() => handleClose());
 			} catch (e) {
 				console.log("Error deleting warehouse:", e);
@@ -107,46 +87,42 @@ const WarehouseList = () => {
 	}, [warehouseIdToDelete]);
 
 	//handle edit button click:
-	const editWarehouse = async id => {
+	const editWarehouse = async (id) => {
 		//move to edit page for selected warehouse:
 		navigate(`/warehouses/${id}/edit`);
 	};
 
 	return (
 		<>
-			<section className='warehouses'>
-				<div className='warehouses__wrapper--form'>
-					<h1 className='warehouses__title'>Warehouses</h1>
-					<div className='warehouses__form'>
+			<section className="warehouses">
+				<div className="warehouses__wrapper--form">
+					<h1 className="warehouses__title">Warehouses</h1>
+					<div className="warehouses__form">
 						<Input
 							classname={"warehouses__form-input"}
 							placeholder={"Search..."}
 							search
-							onChange={e =>
+							onChange={(e) =>
 								searchParam.setSearchParams({
-									search: e.target.value.toLocaleLowerCase(),
+									search: e.target.value.toLocaleLowerCase()
 								})
 							}
 							value={searchParam.searchValue}
 						/>
-						<Button
-							className={"warehouse__form-button"}
-							text={"+ Add New Warehouse"}
-						/>
+						<Link
+							to={"/warehouses/add"}
+							className="warehouses__btn-wrapper">
+							<Button
+								className={"warehouse__form-button"}
+								text={"+ Add New Warehouse"}
+							/>
+						</Link>
 					</div>
 				</div>
-				<div className='warehouses__wrapper'>
-					{warehousesData.map(warehouse => {
-						const {
-							id,
-							warehouse_name,
-							address,
-							city,
-							country,
-							contact_email,
-							contact_name,
-							contact_phone,
-						} = warehouse;
+				<div className="warehouses__wrapper">
+					{warehousesData.map((warehouse) => {
+						const { id, warehouse_name, address, city, country, contact_email, contact_name, contact_phone } =
+							warehouse;
 						return (
 							<Warehouse
 								key={id}
