@@ -6,8 +6,6 @@
 @use "../../styles/partials/mobilefont";
 @use "../../styles/partials/tabletdesktopfont";
 
-//WAREHOUSES SECTION//
-
 .warehouses {
   @include mediaQ.tablet {
     border-radius: 4px 4px 0px 0px;
@@ -77,14 +75,23 @@ button.warehouse__button--sort {
   @include mediaQ.tablet {
     display: block;
     width: fit-content;
+    padding: 0rem;
+    margin: 1.5rem 0rem;
   }
 }
+
+.warehouse:first-child .warehouse__section-wrapper {
+  @include mediaQ.tablet {
+    margin: 0rem;
+  }
+}
+
 
 .warehouses__wrapper .warehouse:first-child button.warehouse__button--sort {
   @include mediaQ.tablet {  
     display: block;
-    margin-top: 1.4rem;
-    width: 1rem
+    width: 1rem;
+    margin-top: 1.35rem
   }
 }
 
@@ -97,8 +104,6 @@ button.warehouse__button--sort {
     justify-content: left;
   }
 }
-
-// INDIVIDUAL WAREHOUSE //
 
 .warehouse {
   display: flex;
@@ -132,6 +137,13 @@ button.warehouse__button--sort {
     @include mediaQ.tablet {
       display: flex;
       width: 100%;
+      align-items: center;
+    }
+
+    @include mediaQ.desktop {
+      display: flex;
+      width: 100%;
+      align-items: start;
     }
   }
 
@@ -163,11 +175,11 @@ button.warehouse__button--sort {
 }
 
 .warehouse__section-wrapper {
-  margin: 1rem 0rem;
   width: 100%;
+  margin-bottom: 1rem;
   &--location {
     @include mediaQ.tablet {
-      width: 50%;
+      width: 51%;
     }
   }
 
@@ -193,6 +205,10 @@ button.warehouse__button--sort {
     @include mediaQ.tablet {
       width: 40%;
     }
+  }
+
+  @include mediaQ.tablet {
+    margin: 1.5rem 0rem;
   }
 }
 
@@ -229,7 +245,6 @@ button.warehouse__button--sort {
   @include mediaQ.tablet {
     @include tabletdesktopfont.tab-desk-header-h3;
     padding-left: 2rem;
-
   }
 
   &--address {
@@ -319,4 +334,20 @@ button.warehouse__button--sort {
   width: fit-content;
   justify-content: right;
   cursor: pointer;
+}
+
+.warehouse--table-header {
+  display: none;
+  @include mediaQ.tablet {
+    display: flex;
+    align-self: baseline;
+  }
+  
+  button {
+    display: none;
+  }
+
+  p {
+    display: none;
+  }
 }

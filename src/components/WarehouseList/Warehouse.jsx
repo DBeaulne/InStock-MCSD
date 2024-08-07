@@ -16,11 +16,12 @@ const Warehouse = ({
   chevron,
   deleteWarehouseBtn,
   editWarehouseBtn,
+  tableHeader,
 }) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="warehouse">
+      <div className={`warehouse ${tableHeader}`}>
         <div className="warehouse__wrapper warehouse__wrapper--left">
           <div className="warehouse__wrapper--inner warehouse__wrapper--inner-left">
             <section className="warehouse__section-wrapper warehouse__section-wrapper--location">
