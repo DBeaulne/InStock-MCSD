@@ -10,7 +10,6 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 //Components:
 import Input from "../Input/Input";
 import Button from "../Button/Button";
-import { compileString } from "sass";
 
 export default function EditWarehouse() {
 	//enable navigation:
@@ -176,30 +175,30 @@ export default function EditWarehouse() {
 	};
 
 	return (
-		<div className='edit-warehouse__wrapper'>
-			<div className='edit-warehouse__top-container'>
+		<div className="edit-warehouse__wrapper">
+			<div className="edit-warehouse__top-container">
 				<img
-					className='edit-warehouse__back-icon'
+					className="edit-warehouse__back-icon"
 					src={backArrow}
-					alt='Back Icon'
+					alt="Back Icon"
 					onClick={() => {
-						navigate("/warehouse");
+						navigate("/warehouses");
 					}}
 				/>
 
-				<h1 className='edit-warehouse__heading'>Edit Warehouse</h1>
+				<h1 className="edit-warehouse__heading">Edit Warehouse</h1>
 			</div>
 
 			<div>
-				<form className='form'>
-					<div className='form__wrapper'>
-						<div className='form__first-container'>
-							<h2 className='form__heading'>Warehouse Details</h2>
+				<form className="form">
+					<div className="form__wrapper">
+						<div className="form__first-container">
+							<h2 className="form__heading">Warehouse Details</h2>
 
-							<div className='form__group'>
+							<div className="form__group">
 								<label
-									className='form__label'
-									htmlFor='warehouse_name'>
+									className="form__label"
+									htmlFor="warehouse_name">
 									Warehouse Name
 								</label>
 
@@ -210,31 +209,31 @@ export default function EditWarehouse() {
 											: "site_input--input"
 									}
 									placeholder={"Warehouse Name"}
-									name='warehouse_name'
+									name="warehouse_name"
 									value={warehouse_name}
 									onChange={handleInputChange}
-									type='text'
+									type="text"
 								/>
 
 								{errors.warehouse_name && (
-									<div className='error'>
+									<div className="error">
 										<img
-											className='error__icon'
+											className="error__icon"
 											src={errorIcon}
-											alt='error-icon'
+											alt="error-icon"
 										/>
 
-										<p className='error__text'>
+										<p className="error__text">
 											This field is required
 										</p>
 									</div>
 								)}
 							</div>
 
-							<div className='form__group'>
+							<div className="form__group">
 								<label
-									className='form__label'
-									htmlFor='address'>
+									className="form__label"
+									htmlFor="address">
 									Street Address
 								</label>
 
@@ -245,31 +244,31 @@ export default function EditWarehouse() {
 											: "site_input--input"
 									}
 									placeholder={"Street Address"}
-									name='address'
+									name="address"
 									value={address}
 									onChange={handleInputChange}
-									type='text'
+									type="text"
 								/>
 
 								{errors.address && (
-									<div className='error'>
+									<div className="error">
 										<img
-											className='error__icon'
+											className="error__icon"
 											src={errorIcon}
-											alt='error-icon'
+											alt="error-icon"
 										/>
 
-										<p className='error__text'>
+										<p className="error__text">
 											This field is required
 										</p>
 									</div>
 								)}
 							</div>
 
-							<div className='form__group'>
+							<div className="form__group">
 								<label
-									className='form__label'
-									htmlFor='city'>
+									className="form__label"
+									htmlFor="city">
 									City
 								</label>
 
@@ -280,31 +279,31 @@ export default function EditWarehouse() {
 											: "site_input--input"
 									}
 									placeholder={"City"}
-									name='city'
+									name="city"
 									value={city}
 									onChange={handleInputChange}
-									type='text'
+									type="text"
 								/>
 
 								{errors.city && (
-									<div className='error'>
+									<div className="error">
 										<img
-											className='error__icon'
+											className="error__icon"
 											src={errorIcon}
-											alt='error-icon'
+											alt="error-icon"
 										/>
 
-										<p className='error__text'>
+										<p className="error__text">
 											This field is required
 										</p>
 									</div>
 								)}
 							</div>
 
-							<div className='form__group'>
+							<div className="form__group">
 								<label
-									className='form__label'
-									htmlFor='country'>
+									className="form__label"
+									htmlFor="country">
 									Country
 								</label>
 
@@ -315,21 +314,21 @@ export default function EditWarehouse() {
 											: "site_input--input"
 									}
 									placeholder={"Country"}
-									name='country'
+									name="country"
 									value={country}
 									onChange={handleInputChange}
-									type='text'
+									type="text"
 								/>
 
 								{errors.country && (
-									<div className='error'>
+									<div className="error">
 										<img
-											className='error__icon'
+											className="error__icon"
 											src={errorIcon}
-											alt='error-icon'
+											alt="error-icon"
 										/>
 
-										<p className='error__text'>
+										<p className="error__text">
 											This field is required
 										</p>
 									</div>
@@ -337,13 +336,13 @@ export default function EditWarehouse() {
 							</div>
 						</div>
 
-						<div className='form__second-container'>
-							<h2 className='form__heading'>Contact Details</h2>
+						<div className="form__second-container">
+							<h2 className="form__heading">Contact Details</h2>
 
-							<div className='form__group'>
+							<div className="form__group">
 								<label
-									className='form__label'
-									htmlFor='contact_name'>
+									className="form__label"
+									htmlFor="contact_name">
 									Contact Name
 								</label>
 
@@ -354,31 +353,31 @@ export default function EditWarehouse() {
 											: "site_input--input"
 									}
 									placeholder={"Contact Name"}
-									name='contact_name'
+									name="contact_name"
 									value={contact_name}
 									onChange={handleInputChange}
-									type='text'
+									type="text"
 								/>
 
 								{errors.contact_name && (
-									<div className='error'>
+									<div className="error">
 										<img
-											className='error__icon'
+											className="error__icon"
 											src={errorIcon}
-											alt='error-icon'
+											alt="error-icon"
 										/>
 
-										<p className='error__text'>
+										<p className="error__text">
 											This field is required
 										</p>
 									</div>
 								)}
 							</div>
 
-							<div className='form__group'>
+							<div className="form__group">
 								<label
-									className='form__label'
-									htmlFor='contact_position'>
+									className="form__label"
+									htmlFor="contact_position">
 									Position
 								</label>
 
@@ -389,31 +388,31 @@ export default function EditWarehouse() {
 											: "site_input--input"
 									}
 									placeholder={"Position"}
-									name='contact_position'
+									name="contact_position"
 									value={contact_position}
 									onChange={handleInputChange}
-									type='text'
+									type="text"
 								/>
 
 								{errors.contact_position && (
-									<div className='error'>
+									<div className="error">
 										<img
-											className='error__icon'
+											className="error__icon"
 											src={errorIcon}
-											alt='error-icon'
+											alt="error-icon"
 										/>
 
-										<p className='error__text'>
+										<p className="error__text">
 											This field is required
 										</p>
 									</div>
 								)}
 							</div>
 
-							<div className='form__group'>
+							<div className="form__group">
 								<label
-									className='form__label'
-									htmlFor='contact_phone'>
+									className="form__label"
+									htmlFor="contact_phone">
 									Phone Number
 								</label>
 
@@ -424,31 +423,31 @@ export default function EditWarehouse() {
 											: "site_input--input"
 									}
 									placeholder={"Phone Number"}
-									name='contact_phone'
+									name="contact_phone"
 									value={contact_phone}
 									onChange={handleInputChange}
-									type='text'
+									type="text"
 								/>
 
 								{errors.contact_phone && (
-									<div className='error'>
+									<div className="error">
 										<img
-											className='error__icon'
+											className="error__icon"
 											src={errorIcon}
-											alt='error-icon'
+											alt="error-icon"
 										/>
 
-										<p className='error__text'>
+										<p className="error__text">
 											Please enter a valid phone number
 										</p>
 									</div>
 								)}
 							</div>
 
-							<div className='form__group'>
+							<div className="form__group">
 								<label
-									className='form__label'
-									htmlFor='contact_email'>
+									className="form__label"
+									htmlFor="contact_email">
 									Email
 								</label>
 
@@ -459,21 +458,21 @@ export default function EditWarehouse() {
 											: "site_input--input"
 									}
 									placeholder={"Email"}
-									name='contact_email'
+									name="contact_email"
 									value={contact_email}
 									onChange={handleInputChange}
-									type='text'
+									type="text"
 								/>
 
 								{errors.contact_email && (
-									<div className='error'>
+									<div className="error">
 										<img
-											className='error__icon'
+											className="error__icon"
 											src={errorIcon}
-											alt='error-icon'
+											alt="error-icon"
 										/>
 
-										<p className='error__text'>
+										<p className="error__text">
 											Please enter a valid email address
 										</p>
 									</div>
@@ -482,18 +481,18 @@ export default function EditWarehouse() {
 						</div>
 					</div>
 
-					<div className='form__button-wrapper'>
+					<div className="form__button-wrapper">
 						<Button
-							className='btn btn--sec form__button'
-							type='button'
-							text='Cancel'
+							className="btn btn--sec form__button"
+							type="button"
+							text="Cancel"
 							onClick={handleDiscardChanges}
 						/>
 
 						<Button
-							className='btn btn--prim form__button'
-							type='submit'
-							text='Save'
+							className="btn btn--prim form__button"
+							type="submit"
+							text="Save"
 							onClick={handleSubmit}
 						/>
 					</div>
